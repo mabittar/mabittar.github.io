@@ -13,3 +13,5 @@ Minha paixão por tecnologia e habilidades me levaram a começar uma nova área 
 
 Minha formação incial é em engenharia civil. Desde 2007 trabalho em grandes projetos urbanos de infraentrutura como Metrô São Paulo (linhas 2 e 5), Metrô Salvador, Aerporto de Guarulhos, em prédios comerciais com certificação LEED Platinum e uma base de lançamento de foguetes.
 Atuei em diversas etapas diferentes, desde a fase de mobilização dos projetos até a entrega. Atuei também preparando propostas técnicas / comerciais e também contratando esses tipos de projetos.
+
+![](https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png)

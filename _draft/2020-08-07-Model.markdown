@@ -1,0 +1,13 @@
+---
+layout: post
+title: Model
+date: 2020-08-07 00:00:00 +0300
+description: Edite como desejado. # Add post description (optional)
+img: DataScience.jpg # Add image post (optional)
+tags: [Welcome, DataScience] # add tag
+---
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat ultricies justo in varius. Proin quis justo nec quam placerat vehicula. Nullam auctor tortor et velit egestas, ut tempor nibh ultricies. Donec aliquam tristique tortor ut ullamcorper. Nulla facilisi. Nunc scelerisque at justo et convallis. Pellentesque ultricies sed lectus in fermentum.
+
+
+
