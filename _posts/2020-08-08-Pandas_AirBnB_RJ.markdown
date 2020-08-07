@@ -14,3 +14,12 @@ Adiante com apenas uma linha de comando faremos um gráfico em forma de mapa de 
 Ao final serão apresentados exemplos de como variáveis não tratada prejudicam a análise do conjunto, assim como ferramentas para identificar e tratar esses desvios.
 
 o post completo pode ser acessado [aqui](https://medium.com/@marcelmartinsbittar/apresenta%C3%A7%C3%A3o-da-biblioteca-pandas-a7b026bc33e5)
+
+
+A seguir são apresentados alguns resultados obtidos com a ferramentas:
+
+**Distribuição das Vairáveis**
+![](https://miro.medium.com/max/902/1*emYj1c_oK_7CG1SBygrtsg.jpeg)
+
+**Correlação entre as Variáveis**
+![](https://miro.medium.com/max/441/1*QusMgZWYmqDn9BglP-upZQ.png)
