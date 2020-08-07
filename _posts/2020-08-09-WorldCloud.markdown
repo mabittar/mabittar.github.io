@@ -3,7 +3,7 @@ layout: post
 title: WorldCloud
 date: 2020-08-09 00:00:00 +0300
 description: Utilizando Python e a biblioteca wordcloud para criar uma nuvem de palavras.. # Add post description (optional)
-img: Pandas.jpg # Add image post (optional)
+img: Pandas.jpeg # Add image post (optional)
 tags: [Pandas, Cloud, Apresentação, Colab, Google] # add tag
 ---
 
