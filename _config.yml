@@ -11,12 +11,12 @@ site-twitter: #if your site has a twitter account, enter it here
 # Author Settings
 author: Marcel Bittar # add your name
 author-img: photo.jpg # add your photo
-about-author: I am a web developer focusing on front-end development. Always hungry to keep learning. # add description
-social-twitter: marcelbittar# add your Twitter handle
+about-author: My passion in technology and programming skills drive me to start a new knowledgment area in Computer Engineering. I uses this repo to track my projects. # add description
+social-twitter: marcelbittar # add your Twitter handle
 social-facebook: # add your Facebook handle
 social-github: mabittar # add your Github handle
-social-linkedin: marcelbittar# add your Linkedin handle
-social-email: mabittar@github.com# add your Email address
+social-linkedin: marcelbittar # add your Linkedin handle
+social-email: mabittar@github.com # add your Email address
 
 # Disqus
 discus-identifier: marcelbittar # add your discus identifier
