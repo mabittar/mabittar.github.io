@@ -16,15 +16,15 @@ Ao final serão apresentados exemplos de como variáveis não tratada prejudicam
 o post completo pode ser acessado [aqui](https://medium.com/@marcelmartinsbittar/apresenta%C3%A7%C3%A3o-da-biblioteca-pandas-a7b026bc33e5)
 
 
-A seguir são apresentados alguns resultados obtidos com a ferramentas:
+A seguir são apresentados alguns resultados obtidos com a biblioteca durante os estudos:
 
 **Distribuição das Vairáveis**
 
 
-    <
+    
     # plotar o histograma das variáveis numéricas
     df.hist(bins = 15, figsize=(15,10));
-    >
+    
     
 
 ![](https://miro.medium.com/max/902/1*emYj1c_oK_7CG1SBygrtsg.jpeg)
@@ -32,8 +32,8 @@ A seguir são apresentados alguns resultados obtidos com a ferramentas:
 **Correlação entre as Variáveis**
 Para plotar um mapa de calor que indica visualmente a correlação entre as variáveis usamos
 
-    <
+    
     sns.heatmap(corr, cmap='RdBu', fmt='.2f', square=True, linecolor='white', annot=True);
-    >
+    
 
 ![](https://miro.medium.com/max/441/1*QusMgZWYmqDn9BglP-upZQ.png)
