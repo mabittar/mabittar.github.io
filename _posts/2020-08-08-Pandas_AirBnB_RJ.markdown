@@ -27,7 +27,7 @@ A seguir são apresentados alguns resultados obtidos com a ferramentas:
     >
     
 
-![](https://miro.medium.com/max/902/1*emYj1c_oK_7CG1SBygrtsg.jpeg)![]
+![](https://miro.medium.com/max/902/1*emYj1c_oK_7CG1SBygrtsg.jpeg)
 
 **Correlação entre as Variáveis**
 Para plotar um mapa de calor que indica visualmente a correlação entre as variáveis usamos
@@ -36,4 +36,4 @@ Para plotar um mapa de calor que indica visualmente a correlação entre as vari
     sns.heatmap(corr, cmap='RdBu', fmt='.2f', square=True, linecolor='white', annot=True);
     >
 
-![](https://miro.medium.com/max/441/1*QusMgZWYmqDn9BglP-upZQ.png)1[]
+![](https://miro.medium.com/max/441/1*QusMgZWYmqDn9BglP-upZQ.png)
