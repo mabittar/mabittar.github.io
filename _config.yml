@@ -23,7 +23,7 @@ social-facebook: # add your Facebook handle
 discus-identifier: marcelbittar # add your discus identifier
 
 # Tracker
-analytics: # Google Analytics
+analytics: UA-174924624-1 # Google Analytics
 
 # Build Settings
 markdown: kramdown

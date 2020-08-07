@@ -19,6 +19,6 @@ Imagina uma situação onde você fez uma análise para a sua empresa, 6 meses a
 Se você tem apenas o relatório estático (ou mesmo um monte de arquivos .py, sem documentação), as chances são que você não vai ser capaz de entregar a informação nova em tempo hábil.
 
 Agora, se você tem salvo todos os seus notebooks de maneira organizada, preferencialmente na nuvem, você pode executar todas as células novamente e apenas incluir mais essa análise extra.
-Ficou curioso sobre o Colab, mande a pergunta nos comentários. Caso queira explorar um pouco mais, a [documentação oficial](https://research.google.com/colaboratory/faq.html) é vasta.
+Ficou curioso sobre o Colab, mande a pergunta nos comentários. Caso queira explorar um pouco mais, a [documentação oficial](https://research.google.com/colaboratory/intl/pt-BR/faq.html) é vasta.
 
 Você pode clicar [aqui](https://colab.research.google.com/) para ver os seus notebooks ou mesmo criar um novo arquivo, pode tentar também.
