@@ -14,6 +14,7 @@ Mas no python fica muito mais fácil, veja um exemplo:
 
 ![](https://miro.medium.com/max/556/1*LXRvqD389NScGJtyDfNYog.png)
 
+{% highlight python linenos %}
     import numpy as np
     from PIL import Image
 
@@ -34,6 +35,7 @@ Mas no python fica muito mais fácil, veja um exemplo:
     
     plt.imshow(wordcloud3);
     wordcloud.to_file("airbnb_summary_wordcloud.png")
+{% endhighlight %}
 
 Com poucas linhas de códigos é possível criar muito mais. Veja no notebook onde eu apresento os passos para preparar um nuvem de palavras ou tags utilizando Python e a biblioteca wordcloud.
 
