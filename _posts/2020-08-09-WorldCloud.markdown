@@ -15,26 +15,26 @@ Mas no python fica muito mais fácil, veja um exemplo:
 ![](https://miro.medium.com/max/556/1*LXRvqD389NScGJtyDfNYog.png)
 
 {% highlight python linenos %}
-    import numpy as np
-    from PIL import Image
+import numpy as np
+from PIL import Image
 
-    # endereço LOCAL da SUA imagem
-    sing_image = np.array(Image.open("/content/merlion-singapore.jpg"))
+# endereço LOCAL da SUA imagem
+sing_image = np.array(Image.open("/content/merlion-singapore.jpg"))
     
-    # gerar uma wordcloud
-    wordcloud3 = WordCloud(stopwords=stopwords2,
+# gerar uma wordcloud
+wordcloud3 = WordCloud(stopwords=stopwords2,
                         background_color="black",
                         width=1000, height=1000, max_words=500,
                         mask=sing_image, max_font_size=200,
                         min_font_size=.5, contour_width=3, contour_color='steelblue').generate(all_summary2)
     
-    # mostrar a imagem final
-    fig, ax = plt.subplots(figsize=(10,10))
-    ax.imshow(wordcloud3, interpolation='bilinear')
-    ax.set_axis_off()
+# mostrar a imagem final
+fig, ax = plt.subplots(figsize=(10,10))
+ax.imshow(wordcloud3, interpolation='bilinear')
+ax.set_axis_off()
     
-    plt.imshow(wordcloud3);
-    wordcloud.to_file("airbnb_summary_wordcloud.png")
+plt.imshow(wordcloud3);
+wordcloud.to_file("airbnb_summary_wordcloud.png")
 {% endhighlight %}
 
 Com poucas linhas de códigos é possível criar muito mais. Veja no notebook onde eu apresento os passos para preparar um nuvem de palavras ou tags utilizando Python e a biblioteca wordcloud.
