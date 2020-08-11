@@ -14,7 +14,7 @@ Mas no python fica muito mais fácil, veja um exemplo:
 
 ![](https://miro.medium.com/max/556/1*LXRvqD389NScGJtyDfNYog.png)
 
-{% highlight python linenos %}
+{% highlight python %}
 import numpy as np
 from PIL import Image
 
