@@ -49,11 +49,74 @@ Nesse [notebook](https://colab.research.google.com/github/mabittar/Portfolio/blo
   df_total_cases_per_million.iloc[1:6,]
   {% endhighlight %}
 
-  ### Visualização dos dados
+### Visualização dos dados
 
   Para facilitar a análise comparativa podemos plotar os dados das análises anteriores.
+  
+ #### Casos totais reportados
+  ![](https://github.com/mabittar/mabittar.github.io/blob/master/assets/img/covid-total-cases.png)
 
-![](covid-total-cases.png)
+ #### Casos totais para população normalizada
+  ![](https://github.com/mabittar/mabittar.github.io/blob/master/assets/img/covid-total_cases_per_million.png)
+
+Ao fim do [notebook](https://colab.research.google.com/github/mabittar/Portfolio/blob/master/Panorama_do_COVID_19_no_Mundo.ipynb) demonstro a sintaxe para elaboramos um gráfico com um eixo secundário onde podemos observar os novos casos em relação ao número de casos acumulados:
+
+{% highlight python %}
+plt.close()
+#criar o objeto gráfico
+f, ax8 = plt.subplots(figsize=(10, 5))
+#dados para o gráfico de barra barplot
+ax8 = sns.barplot(x='week_number', y='new_cases', data=df_search, palette='summer') #define os dados para o gráfico de barra
+ax8.set_xlim(0,)
+
+#adicionar anotação da primeira morte registrada
+#no campo xy=(,) indica as coordenadas onde a seta começa, no campo xytext=(,) indica as coordenadas onde o texto começa e termina a seta
+ax8.annotate('primeira morte registrada', xy=(first_week, 2), xytext=(1, first_week+(max_casos/4)),
+            arrowprops=dict(facecolor='red', shrink=0.05)) 
+
+
+ax9 = ax8.twinx() #passamos a informação que o eixo x é o mesmo e utilizaremos um eixo y secundário
+# dados para o gráfico de linha
+sns.lineplot(x='week_number', y='total_cases', data = df_search, ax=ax9, color="red")
+#define os valores iniciais e finais dos eixos
+ax9.set_xlim(0, max_week)
+ax9.set_ylim(0,)
+
+#definir título e nome dos eixos
+ax8.set_title("Acompanhamento de Casos para {}." .format(escolha_o_pais), fontsize=16)#define os dados para o gráfico de linha
+ax8.set_ylabel("Novos Casos")
+ax8.set_xlabel("Semana")
+
+#apagar o número da semana do eixo x
+ax8.xaxis.set_major_formatter(plt.NullFormatter())
+
+plt.show()
+{% endhighlight %}
+
+e obtemos a seguinte imagem:
+
+![](https://github.com/mabittar/mabittar.github.io/blob/master/assets/img/covid-acompanhamento.png)
+
+## Conclusão
+Um detalhe extremamente importante a ser destacado é que esses dados são medidos diariamente, e esse conjunto de dados ficará desatualizado "rapidamente".
+
+Entretanto, levando em consideração o contexto dos dados analisados na primeira parte desse notebook, vale a pena destacar que:
+
+ - Os Estados Unidos estão disparados em relação aos casos e mortes.
+ - A evolução dos casos no Brasil está em crescimento.
+ - No geral, casos e mortes ainda estão crescendo.
+ - A letalidade da pandemia foi maior nas primeiras semanas e hoje encontra-se em uma curva decrescente.
+Muitas outras análises podem ser retiradas desse conjunto de dados, mas com essa análise inicial já conseguimos obter algumas hipóteses.
+
+**Data Science na Prática**
+
+O material aqui desenvolvido é parte da provocação feita no curso de Data Science na Prática onde fui desafiado a tentar explicar os passos e ferramentas aplicadas durante a evolução do material.
+Todo o material a ser desenvolvido no curso será centralizado no meu [portfolio de projetos](https://github.com/mabittar/Portfolio). 
+
+[https://sigmoidal.ai](https://sigmoidal.ai)
+
+
+
 
 
 
