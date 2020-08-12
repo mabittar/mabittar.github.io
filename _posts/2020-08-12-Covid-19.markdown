@@ -95,7 +95,7 @@ plt.show()
 
 e obtemos a seguinte imagem:
 
-![](https://github.com/mabittar/mabittar.github.io/blob/master/assets/img/covid-acompanhamento.png)
+![](/assets/img/covid-acompanhamento.png)
 
 ## Conclusão
 Um detalhe extremamente importante a ser destacado é que esses dados são medidos diariamente, e esse conjunto de dados ficará desatualizado "rapidamente".
@@ -114,39 +114,3 @@ O material aqui desenvolvido é parte da provocação feita no curso de Data Sci
 Todo o material a ser desenvolvido no curso será centralizado no meu [portfolio de projetos](https://github.com/mabittar/Portfolio). 
 
 [https://sigmoidal.ai](https://sigmoidal.ai)
-
-
-
-
-
-
-
-
-
-![](https://miro.medium.com/max/556/1*LXRvqD389NScGJtyDfNYog.png)
-
-
-
-Com poucas linhas de códigos é possível criar muito mais. Veja no notebook onde eu apresento os passos para preparar um nuvem de palavras ou tags utilizando Python e a biblioteca wordcloud.
-
-Acesse o [notebook](https://colab.research.google.com/drive/1SSGPl-BWrrPENhPKhEHYW8TfLbOwBHWK?usp=sharing) para conferir os detalhes.
-
-
-Veja outro exemplo do que podemos criar
-
-![](https://miro.medium.com/max/425/1*3HFD6KgKLaExqs3VabgyJA.png)
-
-
-**Data Science na Prática**
-
-O material aqui desenvolvido é parte da provocação feita no curso de Data Science na Prática onde fui desafiado a tentar explicar os passos e ferramentas aplicadas durante a evolução do material.
-Todo o material a ser desenvolvido no curso será centralizado no GitHub. 
-
-[https://sigmoidal.ai](https://sigmoidal.ai)
-
-
-
-
-
-
-
