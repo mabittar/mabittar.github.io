@@ -57,7 +57,7 @@ Nesse [notebook](https://colab.research.google.com/github/mabittar/Portfolio/blo
   ![](/assets/img/covid-total-cases.png)
 
 ## Casos totais para população normalizada
-  ![](assets/img/covid-total_cases_per_million.png)
+  ![](/assets/img/covid-total_cases_per_million.png)
 
 Ao fim do [notebook](https://colab.research.google.com/github/mabittar/Portfolio/blob/master/Panorama_do_COVID_19_no_Mundo.ipynb) demonstrei a sintaxe para elaboramos um gráfico com um eixo secundário onde podemos observar os novos casos em relação ao número de casos acumulados:
 
