@@ -12,7 +12,7 @@ A pandemia de Covid-19, causada pelo vírus SARS-CoV-2 ou Novo Coronavírus, vem
 
 Nesse [notebook](https://colab.research.google.com/github/mabittar/Portfolio/blob/master/Panorama_do_COVID_19_no_Mundo.ipynb) pretendo criar um passo a passo de como utilizar um dataset com os dados de acompanhamento do site [World in Data](https://ourworldindata.org/) para explorar a evolução da pandemia pelo mundo.
 
-## Análise Exploratória dos Dados
+# Análise Exploratória dos Dados
 
   Câmeras com inteligência artificial são capazes de identificar doenças de pele, programas estão sendo usados para análises laboratóriais auxiliando médicos e pacientes no tratamento das mais diversas doenças. Esses novos recursos permitem intervenções eficientes e eficazes.
 
@@ -26,10 +26,10 @@ Nesse [notebook](https://colab.research.google.com/github/mabittar/Portfolio/blo
 
   Após esses passos será demonstrado como corrigir as informações das viáveis e uma abordagem inicial para tratamento dos dados ausentes.
 
-  ## Comparando os dados
+# Comparando os dados
   Após a análise inicial iremos ver como comparar os dados obtidos.
 
-  ### Verificando os casos reportados:
+## Verificando os casos reportados:
   Utilizando a sintaxe podemos consultar no dataframe os países com mais casos reportados:
   {% highlight python %}
   print("A classificação dos países com mais casos de Covid-19 em {} é:".format(print_recente))
@@ -39,7 +39,7 @@ Nesse [notebook](https://colab.research.google.com/github/mabittar/Portfolio/blo
   df_total_cases.iloc[1:6,]
   {% endhighlight %}
 
-  ### Normalizando as populações e quantidade de casos
+## Normalizando as populações e quantidade de casos
   A fim de permitir uma melhor análise comparativa precisamos normalizar a população dos países, pois permitirá uma análise de casos pela proporção de habitantes.
 
   {% highlight python %}
@@ -49,15 +49,15 @@ Nesse [notebook](https://colab.research.google.com/github/mabittar/Portfolio/blo
   df_total_cases_per_million.iloc[1:6,]
   {% endhighlight %}
 
-### Visualização dos dados
+# Visualização dos dados
 
   Para facilitar a análise comparativa podemos plotar os dados das análises anteriores.
   
- #### Casos totais reportados
-  ![](https://github.com/mabittar/mabittar.github.io/blob/master/assets/img/covid-total-cases.png)
+## Casos totais reportados
+  ![](/assets/img/covid-total-cases.png)
 
- #### Casos totais para população normalizada
-  ![](https://github.com/mabittar/mabittar.github.io/blob/master/assets/img/covid-total_cases_per_million.png)
+## Casos totais para população normalizada
+  ![](assets/img/covid-total_cases_per_million.png)
 
 Ao fim do [notebook](https://colab.research.google.com/github/mabittar/Portfolio/blob/master/Panorama_do_COVID_19_no_Mundo.ipynb) demonstro a sintaxe para elaboramos um gráfico com um eixo secundário onde podemos observar os novos casos em relação ao número de casos acumulados:
 
@@ -97,7 +97,7 @@ e obtemos a seguinte imagem:
 
 ![](/assets/img/covid-acompanhamento.png)
 
-## Conclusão
+# Conclusão
 Um detalhe extremamente importante a ser destacado é que esses dados são medidos diariamente, e esse conjunto de dados ficará desatualizado "rapidamente".
 
 Entretanto, levando em consideração o contexto dos dados analisados na primeira parte desse notebook, vale a pena destacar que:
