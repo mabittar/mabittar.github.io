@@ -31,11 +31,8 @@ layout: main
             <a href="{{site.baseurl}}/tags#{{tag}}" class="tag">&#35; {{ tag }}</a>
           {% endfor %}
         </div>
-      
-        <div class="ad-sense">
-        <script data-ad-client="ca-pub-7441448290565945" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        </div> <!-- End Ad-Sense -->
-      </div>  <!-- End Ad-Sense -->
+      </div>
+      {% include advertisements.html %}
       {% include disqus.html %}
     </div> <!-- End Wrap Content -->
   </div> <!-- End Page Content -->
