@@ -17,7 +17,7 @@ A métrica explica e compara o desempenho entre os diferentes modelos utilizados
 
 Um modelo ainda pode apresentar resultados satisfatórios quando avaliados por uma métrica, mas fornecer resultados reais ruins quando colocado em atividade.  A escolha da métrica influencia o desempenho de aprendizado de máquina e como avaliamos a importância de diferentes características nos resultados.
 
-Conforme [documentação](https://scikit-learn.org/stable/modules/model_evaluation.html) do scikit learning as métricas podem ser divididas em três grandes blocos: **Classificação, Clustering(agrupamento), Regressão**.
+Conforme [documentação](https://scikit-learn.org/stable/modules/model_evaluation.html) do Scikit Learning as métricas podem ser divididas em três grandes blocos: **Classificação, Clustering(agrupamento) e Regressão.**
 
 Neste post irei abordar os métodos mais comuns utilizados em Regressão e Classificação. Caso deseje se aprofundar no assunto a documentação oficial é um ótimo ponto de partida.
 
@@ -37,6 +37,7 @@ Neste post irei abordar os métodos mais comuns utilizados em Regressão e Class
 
 $$ Mean\ Absolute\ Error = \frac{1}{N} \sum_{i=1}^{N} |y_{i} - \hat{y_{i}}|$$
 
+
   Amplitude: 0 ao + infinito
   Quanto menor o erro melhor o modelo.
 
@@ -51,6 +52,7 @@ $$ Mean\ Absolute\ Error = \frac{1}{N} \sum_{i=1}^{N} |y_{i} - \hat{y_{i}}|$$
 
 $$ Mean\ Squared\ Error = \frac{1}{N} \sum_{i=1}^{N} (y_{i} - \hat{y_{i}})^2$$
 
+
   Amplitude: 0 ao +infinito
   Quanto menor o erro melhor o modelo.
 
@@ -62,6 +64,8 @@ $$ Mean\ Squared\ Error = \frac{1}{N} \sum_{i=1}^{N} (y_{i} - \hat{y_{i}})^2$$
   A fórmula para cálculo é:
 
 $$ Root\ Mean\ Squared\ Error =\sqrt{ \frac{1}{N} \sum_{i=1}^{N} (y_{i} - \hat{y_{i}})^2}$$ 
+
+
 
 
 
