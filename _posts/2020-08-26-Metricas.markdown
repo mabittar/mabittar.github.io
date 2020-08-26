@@ -1,0 +1,98 @@
+---
+layout: post
+title: Métricas para Avaliação de modelos de Machine Learning
+date: 2020-08-26 00:00:00 +0300
+description: Avaliações e Comparação de modelos de Machine Learning # Add post description (optional)
+img: metricas.png # Add image post (optional)
+tags: [Machine Learning, Python, Colab, Google, Data Analysis] # add tag
+---
+
+Tão importante quanto definir um modelo é escolher a métrica correta para avaliá-lo!
+
+"Aquilo que não podemos medir, não podemos controlar." `Vicente Falconi`
+
+Depois de fazermos a engenharia de dados, ajustes, seleção do modelo e obter alguma saída na forma de probabilidade ou classe a próxima etapa é descobrir quão eficaz é o modelo baseado em alguma métrica.
+
+A métrica explica e compara o desempenho entre os diferentes modelos utilizados no algorítimo.
+
+Um modelo ainda pode apresentar resultados satisfatórios quando avaliados por uma métrica, mas fornecer resultados reais ruins quando colocado em atividade.  A escolha da métrica influencia o desempenho de aprendizado de máquina e como avaliamos a importância de diferentes características nos resultados.
+
+Conforme [documentação](https://scikit-learn.org/stable/modules/model_evaluation.html) do scikit learning as métricas podem ser divididas em três grandes blocos: **Classificação, Clustering(agrupamento), Regressão**.
+
+Neste post irei abordar os métodos mais comuns utilizados em Regressão e Classificação. Caso deseje se aprofundar no assunto a documentação oficial é um ótimo ponto de partida.
+
+# Regressão
+
+ ## MAE: Mean Absolut Error
+  
+    É a média da diferença do módulo entre o valor original e o valor de previsão obtido pelo modelo;
+    Não fornece referência para a direção do erro;
+    Influenciado por outliers;
+    Atribui o mesmo peso para todas as diferenças.
+    ![](https://en.wikipedia.org/wiki/File:MAE_example.png#/media/File:MAE_example.png)
+
+    A fórmula para cálculo é:
+    [](https://miro.medium.com/max/630/1*OVlFLnMwHDx08PHzqlBDag.gif)
+    $$ Mean\ Absolute\ Error = \frac{1}{N} \sum_{i=1}^{N} |y_{i} - \hat{y_{i}}|$$
+
+    Amplitude: 0 ao + infinito
+    Quanto menor o erro melhor o modelo.
+
+ ## MSE: Mean Square Error
+
+    Utiliza a média do quadrado do módulo da diferença entre o valor original e o valor de previsão obtido pelo modelo;
+    Como considera-se o quadrado da diferença penaliza maiores errros;
+    Muito influenciável por outliers;
+    Antes de utilizarmos essa métrica devemos eliminar os valores nulos e outliers do dataset;
+    ![](https://study.com/cimages/multimages/16/heightweightall.png)
+
+    A fórmula para cálculo é:
+    ![](https://i.imgur.com/vB3UAiH.jpg)
+    $$ Mean\ Squared\ Error = \frac{1}{N} \sum_{i=1}^{N} (y_{i} - \hat{y_{i}})^2$$
+
+    Amplitude: 0 ao +infinito
+    Quanto menor o erro melhor o modelo.
+
+  ## RMSE: Root Mean Squarre Error
+
+    Calcula a raíz quadrada dos erros do modelo ao quadrado da diferença entreo o valor original a e o valor de previsão obtido pelo modelo;
+    RMSE é a raíz do MSE;
+    Como as métricas RMSE e MSE são elevadas ao quadrado, ambas são muito influenciadas por outliers;
+    Normalmente RMSE é maior ou igual ao MSE
+    $$ Root\ Mean\ Squared\ Error =\sqrt{ \frac{1}{N} \sum_{i=1}^{N} (y_{i} - \hat{y_{i}})^2}$$ 
+
+
+
+
+
+
+
+
+## Verificando os casos reportados:
+  Utilizando a sintaxe podemos consultar no dataframe os países com mais casos reportados:
+  {% highlight python %}
+  print("A classificação dos países com mais casos de Covid-19 em {} é:".format(print_recente))
+
+  #usando a função .loc para restringir a pesquisa na data mais recente  ordernar os valores por total de casos
+  df_total_cases = df.loc[df.date == data_recente].sort_values(by="total_cases", ascending=False)
+  df_total_cases.iloc[1:6,]
+  {% endhighlight %}
+
+
+# Conclusão
+Um detalhe extremamente importante a ser destacado é que esses dados são medidos diariamente, e esse conjunto de dados ficará desatualizado "rapidamente".
+
+Entretanto, levando em consideração o contexto dos dados analisados na primeira parte desse notebook, vale a pena destacar que:
+
+ - Os Estados Unidos estão disparados em relação aos casos e mortes.
+ - A evolução dos casos no Brasil está em crescimento.
+ - No geral, casos e mortes ainda estão crescendo.
+ - A letalidade da pandemia foi maior nas primeiras semanas e hoje encontra-se em uma curva decrescente.
+Muitas outras análises podem ser retiradas desse conjunto de dados, mas com essa análise inicial já conseguimos obter algumas hipóteses.
+
+**Data Science na Prática**
+
+O material aqui desenvolvido é parte da provocação feita no curso de Data Science na Prática onde fui desafiado a tentar explicar os passos e ferramentas aplicadas durante a evolução do material.
+Todo o material a ser desenvolvido no curso será centralizado no meu [portfolio de projetos](https://github.com/mabittar/Portfolio). 
+
+[https://sigmoidal.ai](https://sigmoidal.ai)
