@@ -23,44 +23,42 @@ Neste post irei abordar os métodos mais comuns utilizados em Regressão e Class
 
 # Regressão
 
-  ## MAE: Mean Absolut Error
+MAE: Mean Absolut Error
     
-  É a média da diferença do módulo entre o valor original e o valor de previsão obtido pelo modelo;
-  Não fornece referência para a direção do erro;
-  Influenciado por outliers;
-  Atribui o mesmo peso para todas as diferenças.
+É a média da diferença do módulo entre o valor original e o valor de previsão obtido pelo modelo;
+Não fornece referência para a direção do erro;
+Influenciado por outliers;
+Atribui o mesmo peso para todas as diferenças.
 
-  No gráfico a baixo podemos obsevar o que são as diferenças entre a média `linha` e o valor `pontos`:
-  ![](https://study.com/cimages/multimages/16/heightweightall.png)
+No gráfico a baixo podemos obsevar o que são as diferenças entre a média `linha` e o valor `pontos`:
+![](https://study.com/cimages/multimages/16/heightweightall.png)
 
-  A fórmula para cálculo é:
-
+A fórmula para cálculo é:
 $$ Mean\ Absolute\ Error = \frac{1}{N} \sum_{i=1}^{N} |y_{i} - \hat{y_{i}}|$$
 
+Amplitude: 0 ao + infinito
+Quanto menor o erro melhor o modelo.
 
-  Amplitude: 0 ao + infinito
-  Quanto menor o erro melhor o modelo.
+## MSE: Mean Square Error
 
-  ## MSE: Mean Square Error
+Utiliza a média do quadrado do módulo da diferença entre o valor original e o valor de previsão obtido pelo modelo;
+Como considera-se o quadrado da diferença penaliza maiores errros;
+Muito influenciável por outliers;
+Antes de utilizarmos essa métrica devemos eliminar os valores nulos e outliers do dataset;
 
-  Utiliza a média do quadrado do módulo da diferença entre o valor original e o valor de previsão obtido pelo modelo;
-  Como considera-se o quadrado da diferença penaliza maiores errros;
-  Muito influenciável por outliers;
-  Antes de utilizarmos essa métrica devemos eliminar os valores nulos e outliers do dataset;
-
-  A fórmula para cálculo é:
+A fórmula para cálculo é:
 
 $$ Mean\ Squared\ Error = \frac{1}{N} \sum_{i=1}^{N} (y_{i} - \hat{y_{i}})^2$$
 
-  Amplitude: 0 ao +infinito
-  Quanto menor o erro melhor o modelo.
+Amplitude: 0 ao +infinito
+Quanto menor o erro melhor o modelo.
 
-  ## RMSE: Root Mean Squarre Error
-  Calcula a raíz quadrada dos erros do modelo ao quadrado da diferença entreo o valor original a e o valor de previsão obtido pelo modelo;
-  RMSE é a raíz do MSE;
-  Como as métricas RMSE e MSE são elevadas ao quadrado, ambas são muito influenciadas por outliers;
-  Normalmente RMSE é maior ou igual ao MSE
-  A fórmula para cálculo é:
+## RMSE: Root Mean Squarre Error
+Calcula a raíz quadrada dos erros do modelo ao quadrado da diferença entreo o valor original a e o valor de previsão obtido pelo modelo;
+RMSE é a raíz do MSE;
+Como as métricas RMSE e MSE são elevadas ao quadrado, ambas são muito influenciadas por outliers;
+Normalmente RMSE é maior ou igual ao MSE
+A fórmula para cálculo é:
 
 $$ Root\ Mean\ Squared\ Error =\sqrt{ \frac{1}{N} \sum_{i=1}^{N} (y_{i} - \hat{y_{i}})^2}$$ 
 
