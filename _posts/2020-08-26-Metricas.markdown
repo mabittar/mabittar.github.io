@@ -146,8 +146,7 @@ desempenho algorítmico. Publicação de resultados na comunidade de ML é o fim
 No entanto, essas oportunidades de impacto real são generalizadas. Os mundos do direito, finanças, política, medicina, educação e muito mais podem se beneficiar de sistemas que podem analisar, adaptar e aceitar (ou pelo menos recomendar) uma ação.
 
 
- - XXXXXXXX
-
+# Motivação
 
 **Data Science na Prática**
 
@@ -157,3 +156,10 @@ O material aqui desenvolvido é parte da provocação feita no curso de Data Sci
 Todo o material a ser desenvolvido no curso será centralizado no meu [portfolio de projetos](https://github.com/mabittar/Portfolio). 
 
 Para saber mais sobre o curso acesse [https://sigmoidal.ai](https://sigmoidal.ai)
+
+# Fontes
+
+ - Documentação oficial: [Scikit Leaning](https://scikit-learn.org/stable/modules/model_evaluation.html)
+ - How to choose right metric from Kaggle: [link](https://www.kaggle.com/vipulgandhi/how-to-choose-right-metric-for-evaluating-ml-model/)
+ - Notebook desenvolvido durante o curso: [Colab](https://colab.research.google.com/drive/1-ZNVFO59xaOPLAR0wYolKwp-f9I0Vg4x?usp=sharing)
+ - Machine Learning that Matters: [Paper](https://arxiv.org/ftp/arxiv/papers/1206/1206.4656.pdf)
