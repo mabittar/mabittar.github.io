@@ -23,7 +23,7 @@ Neste post irei abordar os métodos mais comuns utilizados em Regressão e Class
 
 # Regressão
 
-MAE: Mean Absolut Error
+## MAE: Mean Absolut Error
     
 É a média da diferença do módulo entre o valor original e o valor de previsão obtido pelo modelo;
 Não fornece referência para a direção do erro;
@@ -54,12 +54,46 @@ Quanto menor o erro melhor o modelo.
 Calcula a raíz quadrada dos erros do modelo ao quadrado da diferença entreo o valor original a e o valor de previsão obtido pelo modelo;
 RMSE é a raíz do MSE;
 Como as métricas RMSE e MSE são elevadas ao quadrado, ambas são muito influenciadas por outliers;
-Normalmente RMSE é maior ou igual ao MSE
+
 A fórmula para cálculo é: $$ Root\ Mean\ Squared\ Error =\sqrt{ \frac{1}{N} \sum_{i=1}^{N} (y_{i} - \hat{y_{i}})^2}$$ 
 
+Normalmente RMSE é maior ou igual ao MSE.
 
+# Classificação
 
+Como se avalia um modelo de classificação?
 
+Seja trabalhando com classificação binária ou com diversas classes, as métricas relacionadas a modelos de classificação não podem ser os mesmos que usamos em modelos de regressão.
+
+## Accuracy ou Acurácia
+
+Contabiliza a taxa de acertos;
+Mede o quão próximo o modelo está dos valores reais;
+Deve ser utilizada quando temos um dataset com dados balanceados;
+
+Resumidamente podemos falar que acurácia é: $$= \frac{\text{Número de previsões corretas}}{\text{Número total de previsões}}$$
+
+Em relação as previsões podemos dividí-las em:
+Tipos de erros:
+- **Verdadeiro positivo (*true positive* — TP):** Por exemplo, quando o paciente tem tumor maligno e o modelo classifica como tendo tumor maligno.
+
+- **Falso positivo (*false positive* — FP):** Por exemplo, quando o paciente não tem tumor maligno e o modelo classifica como tendo tumor maligno.
+
+- **Falso negativo (*true negative* — TN)**: Por exemplo, quando o paciente tem tumor maligno e o modelo classifica como não tendo tumor maligno.
+
+- **Verdadeiro negativo (*false negative* — FN):** Por exemplo, quando o paciente não tem tumor maligno e o modelo classifica como não tendo tumor maligno.
+
+![](https://raw.githubusercontent.com/carlosfab/dsnp2/master/img/acuracia.png)
+
+A fórmula para cálculo é: Acuracia = \frac{Number\ of\ correct\ predictions}{Total\ number\ of\ predictions\ made} = \frac{TP + TN}{TP + TN + FP + FN}
+
+Como nos foi apresentado a matriz acima podemos nos aprofundar um pouco mais nos conceitos:
+
+## Precisão
+
+Número de exemplos classificados como pertencentes a uma classe que realmente são daquela classe, dividido pela soma destes números e o número de exemplos classificados  nesta classe, ou seja, proporção previsões positivas corretas e todas as previsões positivas
+
+$$Precision\ = \frac{TP}{TP+FP}$$
 
 
 
@@ -81,19 +115,19 @@ A fórmula para cálculo é: $$ Root\ Mean\ Squared\ Error =\sqrt{ \frac{1}{N} \
 
 Tão importante quanto definir um modelo é escolher a métrica correta para avaliá-lo!
 
+O aprendizado de máquina oferece uma grande variedade de maneiras úteis de abordar problemas que, de outra forma, desafiam a solução manual. No entanto, muitas pesquisas atuais de ML sofrem de um distanciamento crescente desses problemas reais. Muitos pesquisadores retiram-se para seus estudos privados com uma cópia do conjunto de dados e trabalhar isoladamente para aperfeiçoar
+desempenho algorítmico. Publicação de resultados na comunidade de ML é o fim do processo. Sucesso geralmente não são comunicados de volta ao problema original configuração, ou não em uma forma que possa ser usada.
+No entanto, essas oportunidades de impacto real são generalizadas. Os mundos do direito, finanças, política, medicina, educação e muito mais podem se beneficiar de sistemas que podem analisar, adaptar e aceitar (ou pelo menos recomendar) uma ação.
 
 
-Entretanto, levando em consideração o contexto dos dados analisados na primeira parte desse notebook, vale a pena destacar que:
+ - XXXXXXXX
 
- - Os Estados Unidos estão disparados em relação aos casos e mortes.
- - A evolução dos casos no Brasil está em crescimento.
- - No geral, casos e mortes ainda estão crescendo.
- - A letalidade da pandemia foi maior nas primeiras semanas e hoje encontra-se em uma curva decrescente.
-Muitas outras análises podem ser retiradas desse conjunto de dados, mas com essa análise inicial já conseguimos obter algumas hipóteses.
 
 **Data Science na Prática**
 
 O material aqui desenvolvido é parte da provocação feita no curso de Data Science na Prática onde fui desafiado a tentar explicar os passos e ferramentas aplicadas durante a evolução do material.
+
+
 Todo o material a ser desenvolvido no curso será centralizado no meu [portfolio de projetos](https://github.com/mabittar/Portfolio). 
 
-[https://sigmoidal.ai](https://sigmoidal.ai)
+Para saber mais sobre o curso acesse [https://sigmoidal.ai](https://sigmoidal.ai)
