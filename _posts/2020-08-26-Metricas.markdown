@@ -39,7 +39,7 @@ Amplitude: 0 ao + infinito.
 
 Quanto menor o erro melhor o modelo.
 
-A fórmula para cálculo é: $$ Mean\ Absolute\ Error = \frac{1}{N} \sum_{i=1}^{N} |y_{i} - \hat{y_{i}}| $$
+A fórmula para cálculo é: $$Mean\ Absolut\ Error = \frac{1}{m}\sum_{i=1}^{n}|y_i - \hat{y}_i|$$
 
 ## MSE: Mean Square Error
 
