@@ -131,12 +131,6 @@ O algorítimo do Scikit Learn nos permite com um simples comando invocar as mét
 ![](http://sigmoidal.ai/wp-content/uploads/2019/10/Screen-Shot-2019-10-07-at-10.02.40.png)
 
 
-
-
-## Verificando os casos reportados:
-
-
-
 # Conclusão
 
 Tão importante quanto definir um modelo é escolher a métrica correta para avaliá-lo!
