@@ -33,8 +33,7 @@ Atribui o mesmo peso para todas as diferenças.
 No gráfico a baixo podemos obsevar o que são as diferenças entre a média `linha` e o valor `pontos`:
 ![](https://study.com/cimages/multimages/16/heightweightall.png)
 
-A fórmula para cálculo é:
-$$ Mean\ Absolute\ Error = \frac{1}{N} \sum_{i=1}^{N} |y_{i} - \hat{y_{i}}|$$
+A fórmula para cálculo é: $$ Mean\ Absolute\ Error = \frac{1}{N} \sum_{i=1}^{N} |y_{i} - \hat{y_{i}}|$$
 
 Amplitude: 0 ao + infinito
 Quanto menor o erro melhor o modelo.
@@ -46,9 +45,7 @@ Como considera-se o quadrado da diferença penaliza maiores errros;
 Muito influenciável por outliers;
 Antes de utilizarmos essa métrica devemos eliminar os valores nulos e outliers do dataset;
 
-A fórmula para cálculo é:
-
-$$ Mean\ Squared\ Error = \frac{1}{N} \sum_{i=1}^{N} (y_{i} - \hat{y_{i}})^2$$
+A fórmula para cálculo é: $$ Mean\ Squared\ Error = \frac{1}{N} \sum_{i=1}^{N} (y_{i} - \hat{y_{i}})^2$$
 
 Amplitude: 0 ao +infinito
 Quanto menor o erro melhor o modelo.
@@ -58,9 +55,7 @@ Calcula a raíz quadrada dos erros do modelo ao quadrado da diferença entreo o 
 RMSE é a raíz do MSE;
 Como as métricas RMSE e MSE são elevadas ao quadrado, ambas são muito influenciadas por outliers;
 Normalmente RMSE é maior ou igual ao MSE
-A fórmula para cálculo é:
-
-$$ Root\ Mean\ Squared\ Error =\sqrt{ \frac{1}{N} \sum_{i=1}^{N} (y_{i} - \hat{y_{i}})^2}$$ 
+A fórmula para cálculo é: $$ Root\ Mean\ Squared\ Error =\sqrt{ \frac{1}{N} \sum_{i=1}^{N} (y_{i} - \hat{y_{i}})^2}$$ 
 
 
 
