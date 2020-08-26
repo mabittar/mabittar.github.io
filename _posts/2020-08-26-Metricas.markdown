@@ -52,7 +52,6 @@ $$ Mean\ Absolute\ Error = \frac{1}{N} \sum_{i=1}^{N} |y_{i} - \hat{y_{i}}|$$
 
 $$ Mean\ Squared\ Error = \frac{1}{N} \sum_{i=1}^{N} (y_{i} - \hat{y_{i}})^2$$
 
-
   Amplitude: 0 ao +infinito
   Quanto menor o erro melhor o modelo.
 
