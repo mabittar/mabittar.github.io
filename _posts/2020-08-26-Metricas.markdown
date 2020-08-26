@@ -34,12 +34,14 @@ No gráfico a baixo podemos obsevar o que são as diferenças entre a média `li
 
 ![](https://study.com/cimages/multimages/16/heightweightall.png)
 
-A fórmula para cálculo é: $$ Mean\ Absolute\ Error = \frac{1}{N} \sum_{i=1}^{N} |y_{i} - \hat{y_{i}}| $$
+
 
 $$MAE = \frac{1}{m}\sum_{i=1}^{n}|y_i - \hat{y}_i|$$
 
-Amplitude: 0 ao + infinito
+Amplitude: 0 ao + infinito.
+
 Quanto menor o erro melhor o modelo.
+A fórmula para cálculo é: $$ Mean\ Absolute\ Error = \frac{1}{N} \sum_{i=1}^{N} |y_{i} - \hat{y_{i}}| $$
 
 ## MSE: Mean Square Error
 
