@@ -31,9 +31,10 @@ Influenciado por outliers;
 Atribui o mesmo peso para todas as diferenças.
 
 No gráfico a baixo podemos obsevar o que são as diferenças entre a média `linha` e o valor `pontos`:
+
 ![](https://study.com/cimages/multimages/16/heightweightall.png)
 
-A fórmula para cálculo é: $$ Mean\ Absolute\ Error = \frac{1}{N} \sum_{i=1}^{N} |y_{i} - \hat{y_{i}}|$$
+A fórmula para cálculo é: $$ Mean\ Absolute\ Error = \frac{1}{N} \sum_{i=1}^{N} |y_{i} - \hat{y_{i}}| $$
 
 Amplitude: 0 ao + infinito
 Quanto menor o erro melhor o modelo.
@@ -74,7 +75,9 @@ Deve ser utilizada quando temos um dataset com dados balanceados;
 Resumidamente podemos falar que acurácia é: $$= \frac{\text{Número de previsões corretas}}{\text{Número total de previsões}}$$
 
 Em relação as previsões podemos dividí-las em:
+
 Tipos de erros:
+
 - **Verdadeiro positivo (*true positive* — TP):** Por exemplo, quando o paciente tem tumor maligno e o modelo classifica como tendo tumor maligno.
 
 - **Falso positivo (*false positive* — FP):** Por exemplo, quando o paciente não tem tumor maligno e o modelo classifica como tendo tumor maligno.
@@ -85,7 +88,7 @@ Tipos de erros:
 
 ![](https://raw.githubusercontent.com/carlosfab/dsnp2/master/img/acuracia.png)
 
-A fórmula para cálculo é: Acuracia = \frac{Number\ of\ correct\ predictions}{Total\ number\ of\ predictions\ made} = \frac{TP + TN}{TP + TN + FP + FN}
+A fórmula para cálculo é: $$ Acuracia = \frac{Number\ of\ correct\ predictions}{Total\ number\ of\ predictions\ made} = \frac{TP + TN}{TP + TN + FP + FN} $$
 
 Como nos foi apresentado a matriz acima podemos nos aprofundar um pouco mais nos conceitos:
 
@@ -93,22 +96,45 @@ Como nos foi apresentado a matriz acima podemos nos aprofundar um pouco mais nos
 
 Número de exemplos classificados como pertencentes a uma classe que realmente são daquela classe, dividido pela soma destes números e o número de exemplos classificados  nesta classe, ou seja, proporção previsões positivas corretas e todas as previsões positivas
 
-$$Precision\ = \frac{TP}{TP+FP}$$
+$$= \frac{TP}{TP+FP}$$
 
+O valor máximo será 1.
 
+## Recall
+
+Número de exemplos classificados como pertecentes a uma clase, que realmente são, dividido pelo total de exemplos que pertencem a essa classe. Relação entre previsões positivas corretas e todas as previsões positivas.
+
+$$= \frac{TP}{TP+FN}$$
+
+## F1-Score
+
+É a média harmônica entre precisão e recall.
+Muito utilizado em datasets desbalanceados.
+O melhor resultado para o F1-Score é 1.
+
+É calculado por: $$ 2* \frac{precision*recall}{precision+recall} $$
+
+## Matriz de Confusão
+O algorítimo do Scikit Learn nos permite com um simples comando invocar as métricas aqui apresentadas em forma de sumário:
+  {% highlight python %}
+  #importando a biblioteca necessária
+  from sklearn.metrics import classification_report
+
+  #exemplo de valores
+  y_true = [0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0]
+  y_pred = [0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0]
+
+  #evocando o report de classificação
+  print(classification_report(y_true, y_pred))
+  {% endhighlight %}
+
+![](http://sigmoidal.ai/wp-content/uploads/2019/10/Screen-Shot-2019-10-07-at-10.02.40.png)
 
 
 
 
 ## Verificando os casos reportados:
-  Utilizando a sintaxe podemos consultar no dataframe os países com mais casos reportados:
-  {% highlight python %}
-  print("A classificação dos países com mais casos de Covid-19 em {} é:".format(print_recente))
 
-  #usando a função .loc para restringir a pesquisa na data mais recente  ordernar os valores por total de casos
-  df_total_cases = df.loc[df.date == data_recente].sort_values(by="total_cases", ascending=False)
-  df_total_cases.iloc[1:6,]
-  {% endhighlight %}
 
 
 # Conclusão
