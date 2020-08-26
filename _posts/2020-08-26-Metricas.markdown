@@ -104,7 +104,7 @@ O valor máximo será 1.
 
 Número de exemplos classificados como pertecentes a uma clase, que realmente são, dividido pelo total de exemplos que pertencem a essa classe. Relação entre previsões positivas corretas e todas as previsões positivas.
 
-$$= \frac{TP}{TP+FN}$$
+Recall = $$ \frac{TP}{TP+FN} $$
 
 ## F1-Score
 
@@ -154,6 +154,6 @@ Para saber mais sobre o curso acesse [https://sigmoidal.ai](https://sigmoidal.ai
 # Fontes
 
  - Documentação oficial: [Scikit Leaning](https://scikit-learn.org/stable/modules/model_evaluation.html)
- - How to choose right metric from Kaggle: [link](https://www.kaggle.com/vipulgandhi/how-to-choose-right-metric-for-evaluating-ml-model/)
+ - How to choose right metric from Kaggle: [Link](https://www.kaggle.com/vipulgandhi/how-to-choose-right-metric-for-evaluating-ml-model/)
  - Notebook desenvolvido durante o curso: [Colab](https://colab.research.google.com/drive/1-ZNVFO59xaOPLAR0wYolKwp-f9I0Vg4x?usp=sharing)
  - Machine Learning that Matters: [Paper](https://arxiv.org/ftp/arxiv/papers/1206/1206.4656.pdf)
