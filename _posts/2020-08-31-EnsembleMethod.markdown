@@ -20,7 +20,7 @@ Me inspirei no [post](https://sigmoidal.ai/metodo-de-ensemble-vantagens-da-combi
 
 Como desafio pessoal, preferi utilizar outro dataset no meu exemplo. Os dados aqui foi retirado da [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php) e representa uma abordagem baseada em dados para *prever o sucesso do campanha de marketing* de um banco Português. 
 
-![](https://conteudo.movidesk.com/wp-content/uploads/2019/05/Blog-08-05-Telemarketing.jpg)
+![telemarketing](https://conteudo.movidesk.com/wp-content/uploads/2019/05/Blog-08-05-Telemarketing.jpg)
 
 
 
@@ -100,7 +100,7 @@ Do report anterior podemos verificar que o nosso modelo acertou 90% das previsõ
 
 Para saber mais sobre as métricas de classificação e avaliação de modelos pode acessar [meu post](https://mabittar.github.io/Metricas/) sobre o assunto.
 
-#Conclusão
+# Conclusão
 
 No nosso modelo em questão, a Acurácia nos mostra que 89% das vezes em que o modelo previu sim ou não estava correto. 
 
