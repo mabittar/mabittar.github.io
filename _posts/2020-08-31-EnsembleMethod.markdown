@@ -89,11 +89,11 @@ ac
 
 A partir do modelo acima os resultados de acurácia obtidos foram:
 
-![Acurácia](assets/img/Ensemble-acc.jpg)
+![Acurácia](assets/img/Ensemble-acc.JPG)
 
 Ainda podemos gerar o report para avaliarmos o modelo obtido:
 
-![Classification Report](assets/img/Ensemble-report.jpg)
+![Classification Report](assets/img/Ensemble-report.JPG)
 
 
 Do report anterior podemos verificar que o nosso modelo acertou 90% das previsões onde a resposta a campanha de marketing foi negativa e acertou 71% das vezes onde foi positiva.
