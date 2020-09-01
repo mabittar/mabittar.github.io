@@ -7,7 +7,7 @@ img: ensemble.jpg # Add image post (optional)
 tags: [Machine Learning, Otmização, XGboost, SGD, SVM, RandomTree, Classifiers] # add tag
 ---
 
-Por que usar apenas um modelo de machine learning, por apenas uma forma de fazer previsão? Imagine que você poderia aproveitar o melhor de cada mundo, usar os pontos fortes de cada modelo e seu estimador e até mesmo combiná-los entre si.
+Por que usar apenas um modelo de machine learning, por que apenas uma forma de fazer previsão? Imagine que você poderia aproveitar o melhor de cada mundo, usar os pontos fortes de cada modelo e seu estimador e até mesmo combiná-los entre si.
 
 No [notebook](https://colab.research.google.com/drive/1nrfXv8t_nLUAzeNzja51Ds8cgZFv8Lsb?usp=sharing) que elaborei é apenas uma introdução de um conceito conhecido como Métodos de Ensemble, já que a documentação é vasta e não caberia apenas em um post.
 
