@@ -89,7 +89,7 @@ ac
 
 A partir do modelo acima os resultados de acurácia obtidos foram:
 
-![Acurácia](/assets/img/Ensemble-report.JPG)
+![Acurácia](assets/img/Ensemble-acc.JPG)
 
 Ainda podemos gerar o report para avaliarmos o modelo obtido:
 
