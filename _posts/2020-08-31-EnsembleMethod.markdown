@@ -7,9 +7,9 @@ img: ensemble.jpg # Add image post (optional)
 tags: [Machine Learning, Otmização, XGboost, SGD, SVM, RandomTree, Classifiers] # add tag
 ---
 
-Por que usar apenas um modelo de machine learning, por apenas uma forma de fazer previsão? Imagine que você poderia aproveitar o melhor de cada mundo, usar os pontos fortes de cada estimador e até mesmo combiná-los.
+Por que usar apenas um modelo de machine learning, por apenas uma forma de fazer previsão? Imagine que você poderia aproveitar o melhor de cada mundo, usar os pontos fortes de cada modelo e seu estimador e até mesmo combiná-los entre si.
 
-No [notebook](https://colab.research.google.com/drive/1nrfXv8t_nLUAzeNzja51Ds8cgZFv8Lsb?usp=sharing) elaborado é apenas uma introdução de um conceito conhecido como Métodos de Ensemble, já que a documentação é vasta e não caberia apenas em um post.
+No [notebook](https://colab.research.google.com/drive/1nrfXv8t_nLUAzeNzja51Ds8cgZFv8Lsb?usp=sharing) que elaborei é apenas uma introdução de um conceito conhecido como Métodos de Ensemble, já que a documentação é vasta e não caberia apenas em um post.
 
 A documentação original sobre a metodologia pode ser consultada neste [link](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.VotingClassifier.html).
 
@@ -28,7 +28,7 @@ A página com maiores informações sobre os dados pode ser acessada [aqui](http
 
 O dataset é composto por 17 variáveis (colunas) e 45.211 entradas (linhas).
 
-Na primeira parte do notebook esclareço como importá-lo diretamente do site para um dataframe e começá-lo a usar de pronto.
+Na primeira parte do [notebook](https://colab.research.google.com/drive/1nrfXv8t_nLUAzeNzja51Ds8cgZFv8Lsb?usp=sharing) esclareço como importá-lo diretamente do site para um dataframe e começá-lo a usar de pronto.
 
 Na sequência são executados os comandos para conversão das variáveis categóricas a fim de utilizá-las nos demais modelos.
 
@@ -36,9 +36,9 @@ Na sequência são executados os comandos para conversão das variáveis categó
 
 Você entenderá a importância do método de `Ensemble` ao entrar no [universo do Machine Learning](https://sigmoidal.ai/como-salvar-seu-modelo-de-machine-learning/) e ficar perdido com a quantidade de modelos diferentes que temos a disposição. Temos regressão linear, polinomial e logística, gradiente descendente, [XGBoost](https://sigmoidal.ai/xgboost-aprenda-algoritmo-de-machine-learning-em-python/), máquina de vetores de suporte, naive bayes, árvores de decisão, Random Forest, entre outros.
 
-Observe abaixo o resultado do classificador de votação para os diferentes modelos. No caso, o VotingClassifier fez a combinação dos modelos.
+Observe abaixo o resultado do classificador de votação para os diferentes modelos. No caso, o `VotingClassifier` fez a combinação dos modelos.
 
-No notebook também são apresentados brevemente cada modelo a ser utilizado.
+No [notebook](https://colab.research.google.com/drive/1nrfXv8t_nLUAzeNzja51Ds8cgZFv8Lsb?usp=sharing) também são apresentados brevemente cada modelo a ser utilizado.
 
 Deixarei no post o detalhamento utilizado da método:
 
@@ -98,6 +98,18 @@ Ainda podemos gerar o report para avaliarmos o modelo obtido:
 Do report anterior podemos verificar que o nosso modelo acertou 90% das previsões onde a resposta a campanha de marketing foi negativa e acertou 71% das vezes onde foi positiva.
 
 Para saber mais sobre as métricas de classificação e avaliação de modelos pode acessar [meu post](https://mabittar.github.io/Metricas/) sobre o assunto.
+
+#Conclusão
+
+No nosso modelo em questão, a Acurácia nos mostra que 89% das vezes em que o modelo previu sim ou não estava correto. 
+
+
+Mesmo cometendo erros, o classificador geralmente consegue performar melhor do que os estimadores individualmente. De acordo com Aurélien Géron:,
+
+*Mesmo que cada estimador seja um aprendiz fraco (o que significa que sua classificação é apenas um pouco melhor do que adivinhações aleatórias), o conjunto ainda pode ser um forte aprendiz (alcançando alta acurácia).*
+
+
+Para o nosso exemplo, o modelo XGBoost é o que performa melhor entre os modelos individuais, mas ainda assim é uma performance próxima ao classificador de votação.
 
 
 
