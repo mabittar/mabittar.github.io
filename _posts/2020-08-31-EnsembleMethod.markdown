@@ -30,7 +30,7 @@ O dataset é composto por 17 variáveis (colunas) e 45.211 entradas (linhas).
 
 Na primeira parte do [notebook](https://colab.research.google.com/drive/1nrfXv8t_nLUAzeNzja51Ds8cgZFv8Lsb?usp=sharing) esclareço como importá-lo diretamente do site para um dataframe e começá-lo a usar de pronto.
 
-Na sequência são executados os comandos para conversão das variáveis categóricas a fim de utilizá-las nos demais modelos.
+Na sequência são executados os comandos para conversão das variáveis categóricas a fim de utilizá-las nos demais modelos. Para entender mais sobre conversões de variáveis consulte [aqui](https://colab.research.google.com/drive/1mzthkMQXYSnkyOWUsA0JqR14-ii3HkOf?usp=sharing)
 
 ## Ensemble
 
@@ -38,7 +38,7 @@ Você entenderá a importância do método de `Ensemble` ao entrar no [universo 
 
 Observe abaixo o resultado do classificador de votação para os diferentes modelos. No caso, o `VotingClassifier` fez a combinação dos modelos.
 
-No [notebook](https://colab.research.google.com/drive/1nrfXv8t_nLUAzeNzja51Ds8cgZFv8Lsb?usp=sharing) também são apresentados brevemente cada modelo a ser utilizado.
+No [notebook](https://colab.research.google.com/drive/1nrfXv8t_nLUAzeNzja51Ds8cgZFv8Lsb?usp=sharing) também são apresentados brevemente cada modelo de machine learning que foi utilizado para fazer a previsão.
 
 Deixarei no post o detalhamento utilizado da método:
 
