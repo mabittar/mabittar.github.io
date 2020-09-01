@@ -98,7 +98,7 @@ Como nos foi apresentado a matriz acima podemos nos aprofundar um pouco mais nos
 
 Número de exemplos classificados como pertencentes a uma classe que realmente são daquela classe, dividido pela soma destes números e o número de exemplos classificados  nesta classe, ou seja, proporção previsões positivas corretas e todas as previsões positivas
 
-$$= \frac{TP}{TP+FP}$$
+$$= \frac{TP}{TP+FP} $$
 
 O valor máximo será 1.
 
