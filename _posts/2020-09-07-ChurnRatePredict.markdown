@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Ensemble
+title: Churn Rate Predict
 date: 2020-09-07 00:00:00 +0300
 description: Analisando Churn Rate com diferentes métodos de ML -  # Add post description (optional)
-img: ensemble.jpg # Add image post (optional)
+img: churn-rate.jpg # Add image post (optional)
 tags: [Machine Learning, Otmização, XGboost, SGD, SVM, RandomTree, Classifiers, SHAP, Grid Search, Bayes Search] # add tag
 ---
 
@@ -23,7 +23,7 @@ Mais sobre o curso pode ser visto em: [https://sigmoidal.ai](https://sigmoidal.a
 ## O estudo
 No [notebook](https://colab.research.google.com/drive/1JFs_T1AJTsg7KqlHlQnJRW59xx3rrzMD?usp=sharing) foi elaborado um passo a passo detalhado para que seja possível replicar a analise dos dados disponível. Foram utilizados diferentes modelos de Apredizado de Máquinas. Iniciei os estudos fazendo primeiramente o  estudo e verificação de equilíbrio das variáveis e dados do dataset.
 
-![](assets\img\churn-correlation.jpg)
+![](assets/img/churn-correlation.jpg)
 
 
 ## Diferentes modelos de Machine Learning
@@ -52,13 +52,13 @@ y_pred_rf = model_rf.predict(X_test)
 
 com esse modelo foi possível obter:
 
-![](assets\img\churn-report-DTC.JPG)
+![](assets/img/churn-report-DTC.JPG)
 
 ## Demais modelos
 
 Com os resultados obtidos no modelo inicial, os próximos passos seriam desenvolver novos modelos e compará-los com o modelo base a fim de comparar e verificar o desempenho.
 
-Como explicado no [post](_posts\2020-08-31-EnsembleMethod.markdown) utilizei o método Ensemble para desenvolver paralelamente diversos modelos. A partir foi utilizado a métrica de votação `hard` para obtermos o resultado final desta etapa:
+Como explicado no [post](_posts/2020-08-31-EnsembleMethod.markdown) utilizei o método Ensemble para desenvolver paralelamente diversos modelos. A partir foi utilizado a métrica de votação `hard` para obtermos o resultado final desta etapa:
 
 Deixarei no post o detalhamento utilizado da método:
 
@@ -112,7 +112,7 @@ ac
 
 A partir do modelo acima os resultados de acurácia obtidos foram:
 
-![Acurácia](assets\img\chrun-ensemble.JPG)
+![Acurácia](assets/img/chrun-ensemble.JPG)
 
 
 Após a elaboração dos modelos paralelos foi utilizado o processo de `Validação Cruzada` para otimizar a amostra de dados e tentar obter uma melhora nos resultados
@@ -284,13 +284,13 @@ plt.show()
 
 
 Com os dados desse modelo foi possível obter os seguintes resultados:
-![](assets\img\Churn-report-final.JPG)
+![](assets/img/Churn-report-final.JPG)
 
 
 ## Verificando a Influência de cada Variável no modelo
 SHAP (SHapley Additive exPlanations) é uma abordagem teórica de jogos para explicar a saída de qualquer modelo de Machine Learning. Ele conecta a alocação de peso ideal com explicações locais usando os valores clássicos de Shapley da teoria dos jogos e suas extensões relacionadas.
 
-![](assets\img\churn-shap.jpg)
+![](assets/img/churn-shap.jpg)
 
 Portanto as variáveis que mais influenciaram no nosso modelo são:
   - 33. Tipo de Contrato: Month to Month - contrato mensal
