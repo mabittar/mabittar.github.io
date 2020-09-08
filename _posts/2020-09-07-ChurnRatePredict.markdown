@@ -293,10 +293,10 @@ SHAP (SHapley Additive exPlanations) é uma abordagem teórica de jogos para exp
 ![](/assets/img/churn-shap.jpg)
 
 Portanto as variáveis que mais influenciaram no nosso modelo são:
-  - 33. Tipo de Contrato: Month to Month - contrato mensal
-  - 15. Online Security: No - o cliente não possui serviço adicional de segurança online
-  - 24. Tech Suport: No - o cliente não possui serviço adicional de suporte técnico
-  - 4. Ternure: conforme já observado novos clientes estão mais propensos a cancelar o serviço
+  - Coluna33. *Tipo de Contrato: Month to Month* - contrato mensal
+  - Coluna15. *Online Security: No* - o cliente não possui serviço adicional de segurança online
+  - Coluna24. *Tech Suport: No* - o cliente não possui serviço adicional de suporte técnico
+  - Coluna4. *Ternure*: conforme já observado novos clientes estão mais propensos a cancelar o serviço
 
 No [notebook](https://colab.research.google.com/drive/1JFs_T1AJTsg7KqlHlQnJRW59xx3rrzMD?usp=sharing) elaborado demonstros os passos de utilização dessa ferramenta incrível.
 
