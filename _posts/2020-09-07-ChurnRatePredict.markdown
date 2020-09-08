@@ -21,7 +21,7 @@ Todo o material a ser desenvolvido no curso será centralizado no meu [portfolio
 Mais sobre o curso pode ser visto em: [https://sigmoidal.ai](https://sigmoidal.ai).
 
 ## O estudo
-No [notebook](https://colab.research.google.com/drive/1JFs_T1AJTsg7KqlHlQnJRW59xx3rrzMD?usp=sharing) foi elaborado um passo a passo detalhado para que seja possível replicar a analise dos dados disponível. Foram utilizados diferentes modelos de Apredizado de Máquinas. Iniciei os estudos fazendo primeiramente o  estudo e verificação de equilíbrio das variáveis e dados do dataset.
+No [notebook](https://colab.research.google.com/drive/1JFs_T1AJTsg7KqlHlQnJRW59xx3rrzMD?usp=sharing) foi elaborado um passo a passo detalhado para que seja possível replicar a analise dos dados disponível. Foram utilizados diferentes modelos de Apredizado de Máquinas. Primeiramente foi realizada verificação de equilíbrio e correções necessárias das variáveis e dados do dataset.
 
 ![](/assets/img/churn-correlation.jpg)
 
