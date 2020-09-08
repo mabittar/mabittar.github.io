@@ -58,7 +58,7 @@ com esse modelo foi possível obter:
 
 Com os resultados obtidos no modelo inicial, os próximos passos seriam desenvolver novos modelos e compará-los com o modelo base a fim de comparar e verificar o desempenho.
 
-Como explicado no [post](_posts/2020-08-31-EnsembleMethod.markdown) utilizei o método Ensemble para desenvolver paralelamente diversos modelos. A partir foi utilizado a métrica de votação `hard` para obtermos o resultado final desta etapa:
+Como explicado no [post](https://mabittar.github.io/EnsembleMethod/) utilizei o método Ensemble para desenvolver paralelamente diversos modelos. A partir foi utilizado a métrica de votação `hard` para obtermos o resultado final desta etapa:
 
 Deixarei no post o detalhamento utilizado da método:
 
