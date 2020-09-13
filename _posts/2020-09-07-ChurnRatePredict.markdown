@@ -292,6 +292,7 @@ A partir da otimização Bayes os parâmetros que resultaram na melhor classific
 ('scale_pos_weight', 275), 
 ('subsample', 0.13556548021189216)
 
+## 4. Modelo Final
 Os resultados obtidos nos dois passos anteriores serviram para definir o modelo final
 
 {% highlight python %}
@@ -343,7 +344,7 @@ Se fosse necessário o *deploy* desse classifcador, bastaria utilizarmos o mesmo
 O classificador XGBoost otimizado obteve a performance com um Recall de 0.83%. No entanto, vale destacar que o Precision ficou baixo com um valor de 0.53. Isso significa que identificaríamos 83% dos clientes que realizariam churn, porém, também classificaríamos equivocadamente 36% dos clientes que não cancelariam os serviços. Ou seja, o trade-off entre Precision e Recall não ficou bom.
 
 
-## Verificando a Influência de cada Variável no modelo
+## 5. Verificando a Influência de cada Variável no modelo
 SHAP (SHapley Additive exPlanations) é uma abordagem teórica de jogos para explicar a saída de qualquer modelo de Machine Learning. 
 
 Com o SHAP é possível verificar o peso que cada variável tem no classificador final. Com essa ferramenta é possível o gestor direcionar esforços nos itens que mais impactam o `Churn Rate`.
