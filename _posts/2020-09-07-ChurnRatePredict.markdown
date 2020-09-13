@@ -16,6 +16,8 @@ O `Churn Rate` pode lhe dar boas pistas sobre as escolhas dos clientes, mas afin
 
 Em uma tradução simples `Churn Rate` é a taxa de cancelamento, ou de abandono, registrada em sua base de clientes. por exemplo, para setores de serviço significa o cancelamento do serviço.
 
+![Acurácia](/assets/img/chrun-rate1.jpg)
+
 Embora tenha como principal função medir o percentual de clientes que abandonam um serviço, também serve para evidenciar o impacto negativo desses cancelamentos no caixa. Para alguns setores, esta é uma métrica básica para avaliar o sucesso do negócio, já que apresenta impacto direto no faturamento. Este é o caso dos serviços de assinatura. 
 
 É óbvio que a permanência ou não do cliente na empresa está relacionada a uma série de fatores. Mas a obrigação de todo gestor é partir do princípio de que o abandono foi causado por algum problema do seu lado do contrato.
@@ -28,10 +30,12 @@ Esse estudo é uma provocação feita no curso Data Science na Prática onde fui
 Todo o material a ser desenvolvido no curso será centralizado no meu [portfolio de projetos](https://github.com/mabittar/Portfolio). 
 Mais sobre o curso pode ser visto em: [https://sigmoidal.ai](https://sigmoidal.ai).
 
-## O estudo
-No [notebook](https://colab.research.google.com/drive/1JFs_T1AJTsg7KqlHlQnJRW59xx3rrzMD?usp=sharing) foi elaborado um passo a passo detalhado para que seja possível replicar a analise dos dados disponível. Foram utilizados diferentes modelos de Apredizado de Máquinas. Primeiramente foi realizada verificação de equilíbrio e correções necessárias das variáveis e dados do dataset.
+## 1. O estudo
+Nesse [notebook](https://colab.research.google.com/drive/1JFs_T1AJTsg7KqlHlQnJRW59xx3rrzMD?usp=sharing) elaborei um passo a passo detalhado para que seja possível replicar a análise dos dados disponível e recriar os modelos aqui demonstrados. 
 
-## Suposições Inicias
+Foram utilizados diferentes modelos de Apredizado de Máquinas. Primeiramente foi realizada verificação de equilíbrio e correções necessárias das variáveis e dados do dataset.
+
+## 1.1 Suposições Inicias
 
 Apesar de não haver informações explícitas disponíveis, os nomes das colunas nos permitem algumas suposições:
 
@@ -49,16 +53,21 @@ No [notebook](https://colab.research.google.com/drive/1JFs_T1AJTsg7KqlHlQnJRW59x
 
 Por exemplo:
 Os passos para plotarmos o gráfico de distribuição das cobranças totais:
+
 ![](/assets/img/churn-total-charge.jpg)
 
 Ou como assumi algumas classificações para dividirmos a variável `Ternure`
+
 ![](/assets/img/churn-ternure.jpg)
 
-Então foi possível verificarmos a correlação entre as colunas numéricas com a taxa de `Churn`
+Então foi possível verificarmos a correlação entre as variáveis e a taxa de `Churn`:
+
 ![](/assets/img/churn-correlation.jpg)
 
 
-## Diferentes modelos de Machine Learning
+## 2. Diferentes modelos de Machine Learning
+
+### 2.1 Decision Tree
 
 Primeiramente foi utilizado um modelo de Árvore de Decisões, pois não seria necessário realizar outras intervenções (padronizar e normalizar o dataset) e assim seria possível para obter um paramêtro para verificar em relação aos demais modelos.
 
@@ -86,7 +95,7 @@ com esse modelo foi possível obter:
 
 ![](/assets/img/churn-report-DTC.JPG)
 
-## Demais modelos
+### 2.2 Demais modelos e o método Ensemble
 
 Com os resultados obtidos no modelo inicial, os próximos passos seriam desenvolver novos modelos e compará-los com o modelo base a fim de comparar e verificar o desempenho.
 
@@ -147,6 +156,8 @@ A partir do modelo acima os resultados de acurácia obtidos foram:
 ![Acurácia](/assets/img/chrun-ensemble.JPG)
 
 
+### 2.3 Validação Cruzada
+
 Após a elaboração dos modelos paralelos foi utilizado o processo de `Validação Cruzada` para otimizar a amostra de dados e tentar obter uma melhora nos resultados
 
 {% highlight python %}
@@ -160,11 +171,11 @@ print("Acurácia: {:.2f} %".format(accuracies.mean()*100))
 
 Com a acurácia do modelo em torno de 80% os próximos passos foram otimizar os hiper parâmetros.
 
-## Otimização do Modelo
+## 3. Otimização do Modelo
 
 Nos próximos passos utilizei o modelo `XGBoost Classifier` e executei algumas rotinas de otimização dos hiper parâmetros.
 
-### Grid Search
+### 3.1 Grid Search
 
 O método Grid Search é uma abordagem de força bruta que testa todas as combinações de hiper parâmetros para encontrar o melhor modelo. Seu tempo de execução explode com o número de valores (e combinações dos mesmos) para testar.
 
@@ -202,9 +213,13 @@ grid_result = grid.fit(X_train_scaled, y_train)
 print("Melhor acurácia: {} para {}".format(grid_result.best_score_, grid_result.best_params_))
 {% endhighlight %}
 
-### Bayes Search
+### 3.2 Bayes Search
 
-Uma abordagem bayesiana diminui a probabilidade de que os valores escolhidos para o segundo modelo sejam parte da solução ótima. Agora ele usa as probabilidades atualizadas para selecionar um novo conjunto de valores para cada hiper parâmetro, ver se aumentou ou diminuiu a qualidade do modelo e atualizar as probabilidades. Em outras palavras, é mais provável que o algoritmo escolha valores para a próxima rodada que estão relacionados a um desempenho de modelo superior do que suas alternativas menos eficazes.
+Além do método de Grid Search, podemos utilizar a biblioteca Scikit-Optimize é uma biblioteca Python de código aberto que fornece uma implementação de Otimização Bayesiana que pode ser usada para ajustar os hiperparâmetros de modelos de machine learning da biblioteca Python scikit-Learn.
+
+Em contraste com GridSearchCV, nem todos os valores de parâmetro são testados, mas em vez disso, um número fixo de configurações de parâmetros é amostrado a partir do especificado distribuições.
+
+O Bayes Search é a automação para tunning dos hiper parâmetros. É uma biblioteca relativamente nova que está em desenvolvimento e que facilita a nossa busca no refinamento dos hiper parâmetros.
 
 {% highlight python %}
 
@@ -329,9 +344,9 @@ O classificador XGBoost otimizado obteve a performance com um Recall de 0.83%. N
 ## Verificando a Influência de cada Variável no modelo
 SHAP (SHapley Additive exPlanations) é uma abordagem teórica de jogos para explicar a saída de qualquer modelo de Machine Learning. 
 
-Com o SAP é possível verificar o peso que cada variável tem no classificador final. Com essa ferramenta é possível o gestor direcionar esforços nos itens que mais impactam o `Churn Rate`.
+Com o SHAP é possível verificar o peso que cada variável tem no classificador final. Com essa ferramenta é possível o gestor direcionar esforços nos itens que mais impactam o `Churn Rate`.
 
-A expliação oficial, essa abordagem conecta a alocação de peso ideal com explicações locais usando os valores clássicos de Shapley da teoria dos jogos e suas extensões relacionadas.
+Na expliação oficial: *essa abordagem conecta a alocação de peso ideal com explicações locais usando os valores clássicos de Shapley da teoria dos jogos e suas extensões relacionadas.*
 
 [link para documentação oficial](https://github.com/slundberg/shap)
 
