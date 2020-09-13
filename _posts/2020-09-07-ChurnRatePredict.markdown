@@ -16,7 +16,7 @@ O `Churn Rate` pode lhe dar boas pistas sobre as escolhas dos clientes, mas afin
 
 Em uma tradução simples `Churn Rate` é a taxa de cancelamento, ou de abandono, registrada em sua base de clientes. por exemplo, para setores de serviço significa o cancelamento do serviço.
 
-![Acurácia](/assets/img/chrun-rate1.jpg)
+![Churn](/assets/img/churn-rate1.jpg)
 
 Embora tenha como principal função medir o percentual de clientes que abandonam um serviço, também serve para evidenciar o impacto negativo desses cancelamentos no caixa. Para alguns setores, esta é uma métrica básica para avaliar o sucesso do negócio, já que apresenta impacto direto no faturamento. Este é o caso dos serviços de assinatura. 
 
