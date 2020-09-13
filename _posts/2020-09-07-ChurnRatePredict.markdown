@@ -331,6 +331,8 @@ plt.show()
 
 
 Com os dados desse modelo foi possível obter os seguintes resultados:
+
+
 ![](/assets/img/Churn-report-final.JPG)
 
 
