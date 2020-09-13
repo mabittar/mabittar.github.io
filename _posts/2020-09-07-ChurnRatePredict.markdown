@@ -8,13 +8,21 @@ tags: [Machine Learning, Otmização, XGboost, SGD, SVM, RandomTree, Classifiers
 ---
 
 ## Churn Rate
-Se você vende o mesmo produto que seu vizinho vende, e ainda, por um preço melhor, por que o cliente não fica com o seu produto?
+Se você oferece o mesmo serviço que seu concorrente, e ainda, por um preço melhor, por que o cliente não fica com o seu serviço? 
 
-Entender por que seus clientes abandonam o seu produto ou serviço é vital para conquistar um crescimento sustentável. Como o Churn tem um efeito negativo na receita de uma empresa, entender o que é esse indicador e como trabalhar para mitigar essa métrica é algo crítico para o sucesso de muitos negócios.
+Entender por que seus clientes abandonam o seu produto ou serviço é vital para conquistar um crescimento sustentável e lucrativo.
 
-O que é Churn Rate? Em uma tradução simples Churn Rate é a taxa de cancelamento, ou de abandono, registrada em sua base de clientes. por exemplo, para setores de serviço significa o cancelamento do serviço.
+O `Churn Rate` pode lhe dar boas pistas sobre as escolhas dos clientes, mas afinal o que é isso???
 
-Embora tenha como principal função medir o percentual de clientes que abandonam um serviço, também serve para evidenciar o impacto negativo desses cancelamentos no caixa. Para alguns setores, esta é uma métrica básica para avaliar o sucesso do negócio, já que apresenta impacto direto no faturamento. Este é o caso dos serviços de assinatura.
+Em uma tradução simples `Churn Rate` é a taxa de cancelamento, ou de abandono, registrada em sua base de clientes. por exemplo, para setores de serviço significa o cancelamento do serviço.
+
+Embora tenha como principal função medir o percentual de clientes que abandonam um serviço, também serve para evidenciar o impacto negativo desses cancelamentos no caixa. Para alguns setores, esta é uma métrica básica para avaliar o sucesso do negócio, já que apresenta impacto direto no faturamento. Este é o caso dos serviços de assinatura. 
+
+É óbvio que a permanência ou não do cliente na empresa está relacionada a uma série de fatores. Mas a obrigação de todo gestor é partir do princípio de que o abandono foi causado por algum problema do seu lado do contrato.
+
+Entender o *Churn* também pode auxiliar ao gestor identificar potenciais cancelamentos, com um tempo de antecedência, e promover ações direcionadas para tentar reter tais clientes. Ou seja, um alto valor para o *churn rate* é o que não desejamos.
+
+Como o `Churn` tem um efeito negativo na receita de uma empresa, entender o que é esse indicador e como trabalhar para mitigar essa métrica é algo crítico para o sucesso de muitos negócios.
 
 Esse estudo é uma provocação feita no curso Data Science na Prática onde fui desafiado a tentar explicar os passos e ferramentas aplicadas durante a evolução do material.
 Todo o material a ser desenvolvido no curso será centralizado no meu [portfolio de projetos](https://github.com/mabittar/Portfolio). 
@@ -23,6 +31,30 @@ Mais sobre o curso pode ser visto em: [https://sigmoidal.ai](https://sigmoidal.a
 ## O estudo
 No [notebook](https://colab.research.google.com/drive/1JFs_T1AJTsg7KqlHlQnJRW59xx3rrzMD?usp=sharing) foi elaborado um passo a passo detalhado para que seja possível replicar a analise dos dados disponível. Foram utilizados diferentes modelos de Apredizado de Máquinas. Primeiramente foi realizada verificação de equilíbrio e correções necessárias das variáveis e dados do dataset.
 
+## Suposições Inicias
+
+Apesar de não haver informações explícitas disponíveis, os nomes das colunas nos permitem algumas suposições:
+
+ - A variável alvo, que classifica se o cliente cancelou a assinatura é a `Churn`;
+
+ - A coluna CustomerID representa o chave única do cliente na base de dados e pode ser excluída, pois não interfere nossa análise;
+
+ - A variável `tenure` está relacionada ao tempo que um cliente permanece com a assinatura do serviço. Em outras palavras, pode-se dizer que é um indicativo de fidelidade;
+
+ - Apesar de não haver nenhuma documentação, assumo que a unidade de tempo utilizada é "mês";
+
+ - Podemos observar ainda outras informações do cadastro do cliente como outros serviços contratados, dados sobre a forma de pagamento, tipo de contrato, valores da última fatura e o total acumulado;
+
+No [notebook](https://colab.research.google.com/drive/1JFs_T1AJTsg7KqlHlQnJRW59xx3rrzMD?usp=sharing) é possível se aprofundar nos estudos desses dados
+
+Por exemplo:
+Os passos para plotarmos o gráfico de distribuição das cobranças totais:
+![](/assets/img/churn-total-charge.jpg)
+
+Ou como assumi algumas classificações para dividirmos a variável `Ternure`
+![](/assets/img/churn-ternure.jpg)
+
+Então foi possível verificarmos a correlação entre as colunas numéricas com a taxa de `Churn`
 ![](/assets/img/churn-correlation.jpg)
 
 
@@ -35,7 +67,7 @@ Primeiramente foi utilizado um modelo de Árvore de Decisões, pois não seria n
 #1. Escolha do modelo
 from sklearn.ensemble import RandomForestClassifier
 
-#2. Instanciar o modelo e optimizar hiperparâmetros
+#2. Instanciar o modelo e optimizar hiper parâmetros
 model_rf = RandomForestClassifier(max_depth=4, random_state=42)
 
 #Separando os dados em features matrix e target vector
@@ -126,15 +158,15 @@ print("Acurácia: {:.2f} %".format(accuracies.mean()*100))
 {% endhighlight %}
 
 
-Com a acurácia do modelo em torno de 80% os próximos passos foram otimizar os hiperparâmetros.
+Com a acurácia do modelo em torno de 80% os próximos passos foram otimizar os hiper parâmetros.
 
 ## Otimização do Modelo
 
-Nos próximos passos utilizei o modelo `XGBoost Classifier` e executei algumas rotinas de otimização dos hiperparâmetros.
+Nos próximos passos utilizei o modelo `XGBoost Classifier` e executei algumas rotinas de otimização dos hiper parâmetros.
 
 ### Grid Search
 
-O método Grid Search é uma abordagem de força bruta que testa todas as combinações de hiperparâmetros para encontrar o melhor modelo. Seu tempo de execução explode com o número de valores (e combinações dos mesmos) para testar.
+O método Grid Search é uma abordagem de força bruta que testa todas as combinações de hiper parâmetros para encontrar o melhor modelo. Seu tempo de execução explode com o número de valores (e combinações dos mesmos) para testar.
 
 Ao executar os testes durante a elaboração deste notebook exagerei nas combinações possíveis e levei quase 2 horas para que chegasse no valor final.
 
@@ -172,7 +204,7 @@ print("Melhor acurácia: {} para {}".format(grid_result.best_score_, grid_result
 
 ### Bayes Search
 
-Uma abordagem bayesiana diminui a probabilidade de que os valores escolhidos para o segundo modelo sejam parte da solução ótima. Agora ele usa as probabilidades atualizadas para selecionar um novo conjunto de valores para cada hiperparâmetro, ver se aumentou ou diminuiu a qualidade do modelo e atualizar as probabilidades. Em outras palavras, é mais provável que o algoritmo escolha valores para a próxima rodada que estão relacionados a um desempenho de modelo superior do que suas alternativas menos eficazes.
+Uma abordagem bayesiana diminui a probabilidade de que os valores escolhidos para o segundo modelo sejam parte da solução ótima. Agora ele usa as probabilidades atualizadas para selecionar um novo conjunto de valores para cada hiper parâmetro, ver se aumentou ou diminuiu a qualidade do modelo e atualizar as probabilidades. Em outras palavras, é mais provável que o algoritmo escolha valores para a próxima rodada que estão relacionados a um desempenho de modelo superior do que suas alternativas menos eficazes.
 
 {% highlight python %}
 
@@ -205,7 +237,7 @@ bayes = BayesSearchCV(
         'scale_pos_weight': (1e-6, 500, 'log-uniform')
     },    
     # 2. definindo método de avaliação
-    scoring = 'recall',
+    scoring = 'roc_auc',
     cv = StratifiedKFold(
         n_splits=3,
         shuffle=True,
@@ -253,16 +285,16 @@ from sklearn.metrics import roc_auc_score, roc_curve
 
 # modelo final
 modelo_final = XGBClassifier(
-    learning_rate=0.00885928719200224 , 
-    n_estimators=87,
-    max_delta_step = 13, 
-    max_depth=1, 
-    min_child_weight=2, 
-    gamma=0.13031389926541354,
-    colsample_bylevel = 0.4160029192647807,
-    colsample_bytree = 0.7304484857455519,
-    reg_lambda= 648
-
+    learning_rate= 0.2700390206185342 , 
+    n_estimators= 83,
+    max_delta_step = 18, 
+    max_depth= 36, 
+    min_child_weight= 2, 
+    gamma= 3.811128976537413e-05,
+    colsample_bylevel = 0.8015579071911014,
+    colsample_bytree = 0.44364889457651413,
+    reg_lambda= 659,
+    reg_alpha= 1.5057560255472018e-06,
     )
 
 modelo_final.fit(X_train_rus, y_train_rus)
@@ -287,12 +319,26 @@ Com os dados desse modelo foi possível obter os seguintes resultados:
 ![](/assets/img/Churn-report-final.JPG)
 
 
+Optei por classificador ‘XGBClassifier’ devido as diversas possibilidades de refinamento. 
+
+Se fosse necessário o *deploy* desse classifcador, bastaria utilizarmos o mesmo modelo com as utimizações que aqui criamos, validamos e testamos.
+
+O classificador XGBoost otimizado obteve a performance com um Recall de 0.83%. No entanto, vale destacar que o Precision ficou baixo com um valor de 0.53. Isso significa que identificaríamos 83% dos clientes que realizariam churn, porém, também classificaríamos equivocadamente 36% dos clientes que não cancelariam os serviços. Ou seja, o trade-off entre Precision e Recall não ficou bom.
+
+
 ## Verificando a Influência de cada Variável no modelo
-SHAP (SHapley Additive exPlanations) é uma abordagem teórica de jogos para explicar a saída de qualquer modelo de Machine Learning. Ele conecta a alocação de peso ideal com explicações locais usando os valores clássicos de Shapley da teoria dos jogos e suas extensões relacionadas.
+SHAP (SHapley Additive exPlanations) é uma abordagem teórica de jogos para explicar a saída de qualquer modelo de Machine Learning. 
+
+Com o SAP é possível verificar o peso que cada variável tem no classificador final. Com essa ferramenta é possível o gestor direcionar esforços nos itens que mais impactam o `Churn Rate`.
+
+A expliação oficial, essa abordagem conecta a alocação de peso ideal com explicações locais usando os valores clássicos de Shapley da teoria dos jogos e suas extensões relacionadas.
+
+[link para documentação oficial](https://github.com/slundberg/shap)
+
 
 ![](/assets/img/churn-shap.jpg)
 
-Portanto as variáveis que mais influenciaram no nosso modelo são:
+Utilizando a biblioteca SHAP podemos obsevar que as variáveis que mais influenciaram no nosso classificador são:
   - Coluna33. *Tipo de Contrato: Month to Month* - contrato mensal
   - Coluna15. *Online Security: No* - o cliente não possui serviço adicional de segurança online
   - Coluna24. *Tech Suport: No* - o cliente não possui serviço adicional de suporte técnico
@@ -302,9 +348,10 @@ No [notebook](https://colab.research.google.com/drive/1JFs_T1AJTsg7KqlHlQnJRW59x
 
 # Conclusão
 
-Compreendendo melhor o churn rate, gestores e equipes estarão mais bem preparados para reduzir os índices de cancelamentos e, assim, ampliar a sua base de clientes.
+Compreender o `Churn Rate`, facilita que gestores e equipes atuem antecipadamente procurando reduzir os índices de cancelamentos e, assim, ampliar a sua base de clientes.
 
 No modelo matemático criado a partir da base de dados fornecida foi possível observar que clientes com contratos mensais, sem serviços adicionais como segurança online e suporte técnico são mais suscetíveis ao cancelamento do serviço. Com os insights obtidos a empresa pode direcionar seus esforços e custos em pontos críticos e assim modificar o `Churn Rate`.
+
 
 
 
