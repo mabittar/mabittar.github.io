@@ -1,11 +1,52 @@
 ---
 layout: post
-title: Curvas para Avaliação de modelos de Machine Learning
-date: 2020-09-23 00:00:00 +0300
-description: Utilizando Curvas para Avaliações e Comparação de modelos de Machine Learning # Add post description (optional)
-img: metricas.png # Add image post (optional)
+title: Métricas para Avaliação de modelos de Machine Learning
+date: 2020-08-26 00:00:00 +0300
+description: Avaliações e Comparação de modelos de Machine Learning # Add post description (optional)
+img: curve.jpg # Add image post (optional)
 tags: [Machine Learning, Python, Colab, Google, Data Analysis] # add tag
 ---
+
+Essa é a segunda parte do [post](_posts/2020-08-26-Metricas.markdown) referente a métricas para avaliação dos modelos de Machine Learing.
+No primeiro post foi abordado alguns temas sobre TP, TN, FP, FN, acurácia, precisão e matriz de confusão utilizadas para que possamos comparar os resultados obtidos em diversos modelos matemáticos.
+
+Entretanto quando estamos lidando com modelo de Machine Learning podemos observar também a performance de aprendizado com tempo e experiência de utilização do modelo. Neste post, você vai descobrir os que são as curvas de aprendizado e como elas são utilizadas no diagnóstico de comportamento dos modelos de Machine Learning.
+
+
+# ROC
+
+A sigla **ROC** significa *“Receiver Operating Characteristic”* e demonstra a capacidade do modelo em distinguir corretamente duas coisas (portanto utilizado para classificação).  Portanto para plotarmos a curva ROC é necessário calcular as probabilidades de cada observação pertencer a classe em questão.
+
+Uma vantagem da curva ROC é podermos observar o ponto de corte (onde o modelo fica estável) e otimizar o desempenho do mesmo, economizando recurso.
+
+O ROC possui os seguintes parâmetros:
+
+ - Sensibilidade
+ - Especificidade
+
+A curva ROC traça a Sensibilidade (Taxa de Verdadeiros Positivos) x Especificidade (Taxa de Falsos Positivos)
+
+
+![](https://scikit-learn.org/stable/_images/sphx_glr_plot_roc_0011.png)
+
+# AUC
+
+Já a **AUC** (*area under the ROC curve*) ou área sobre a curva ROC, ou seja, a derivada da ROC. 
+
+É uma tentativa de resumir a curva ROC em um único valor.
+
+O valor de AUC varia entre 0 e 1,0 e quanto maior for o AUC melhor é a capacidade do modelo em prever a categoria correta.
+
+![](https://www.flai.com.br/wp-content/uploads/2020/06/roc.png)
+
+
+
+
+
+
+
+In this post, you will discover learning curves and how they can be used to diagnose the learning and generalization behavior of machine learning models, with example plots showing common learning problems.
+
 
 Depois de fazermos a engenharia de dados, ajustes, seleção do modelo e obter alguma saída na forma de probabilidade ou classe a próxima etapa é descobrir quão eficaz é o modelo baseado em alguma métrica.
 
@@ -76,8 +117,6 @@ Deve ser utilizada quando temos um dataset com dados balanceados;
 
 Resumidamente podemos falar que acurácia é: $$= \frac{\text{Número de previsões corretas}}{\text{Número total de previsões}}$$
 
-Ou podemos definir que é a média global de acertos ao classificar as classes.
-
 Em relação as previsões podemos dividí-las em:
 
 Tipos de erros:
@@ -94,32 +133,23 @@ Tipos de erros:
 
 A fórmula para cálculo é: $$ Acuracia = \frac{Number\ of\ correct\ predictions}{Total\ number\ of\ predictions\ made} = \frac{TP + TN}{TP + TN + FP + FN} $$
 
-
-
-**Sensibilidade**: mostra a proporção dos classificados como positivos em relação ao total de positivos
-$$ Sensibilidade = \frac{TP}{TP + FN} $$
-
-**Especificidade**: mostra  proporção dos classificados como negativos em relação ao total de negativos
-$$ Especificidade = \frac{TN}{TN+FP} $$
-
-
-
 Como nos foi apresentado a matriz acima podemos nos aprofundar um pouco mais nos conceitos:
 
 ## Precisão
 
 Número de exemplos classificados como pertencentes a uma classe que realmente são daquela classe, dividido pela soma destes números e o número de exemplos classificados  nesta classe, ou seja, proporção previsões positivas corretas e todas as previsões positivas.
 
-
+Representa a capacidade de um modelo em prever a classe negativa.
 
 $$= \frac{TP}{TP+FP} $$
 
 O valor máximo será 1.
 
-## Recall
+## Recall ou sensibilidade
 
 Número de exemplos classificados como pertecentes a uma clase, que realmente são, dividido pelo total de exemplos que pertencem a essa classe. Relação entre previsões positivas corretas e todas as previsões positivas.
 
+Representa a capacidade de um modelo em prever a classe positiva.
 
 Recall = $$ \frac{TP}{TP+FN} $$
 
@@ -172,7 +202,7 @@ Para saber mais sobre o curso acesse [https://sigmoidal.ai](https://sigmoidal.ai
 
 # Fontes
 
- - Documentação oficial: [Scikit Leaning](https://scikit-learn.org/stable/modules/model_evaluation.html)
- - How to choose right metric from Kaggle: [Link](https://www.kaggle.com/vipulgandhi/how-to-choose-right-metric-for-evaluating-ml-model/)
- - Notebook desenvolvido durante o curso: [Colab](https://colab.research.google.com/drive/1-ZNVFO59xaOPLAR0wYolKwp-f9I0Vg4x?usp=sharing)
- - Machine Learning that Matters: [Paper](https://arxiv.org/ftp/arxiv/papers/1206/1206.4656.pdf)
+ - Documentação oficial: [Scikit Leaning](https://scikit-learn.org/stable/modules/model_evaluation.html#roc-metrics)
+ - ML Wiki: [Link](http://mlwiki.org/index.php/ROC_Analysis)
+ - How to use Learning Curves to Diagnose Machine Learning Model Performance: [Link](https://machinelearningmastery.com/learning-curves-for-diagnosing-machine-learning-model-performance/)
+ - 10 questões de entrevistas: [Link](https://www.flai.com.br/10-questoes-de-data-science-em-entrevistas-de-emprego-da-microsoft/) 
