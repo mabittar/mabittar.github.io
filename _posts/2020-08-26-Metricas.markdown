@@ -68,7 +68,7 @@ Como se avalia um modelo de classificação?
 
 Seja trabalhando com classificação binária ou com diversas classes, as métricas relacionadas a modelos de classificação não podem ser os mesmos que usamos em modelos de regressão.
 
-## Accuracy ou Acurácia ou Taxa de Acertos
+## Accuracy ou Acurácia
 
 Contabiliza a taxa de acertos;
 Mede o quão próximo o modelo está dos valores reais;
@@ -97,9 +97,11 @@ A fórmula para cálculo é: $$ Acuracia = \frac{Number\ of\ correct\ prediction
 
 
 **Sensibilidade**: mostra a proporção dos classificados como positivos em relação ao total de positivos
+
 $$ Sensibilidade = \frac{TP}{TP + FN} $$
 
 **Especificidade**: mostra  proporção dos classificados como negativos em relação ao total de negativos
+
 $$ Especificidade = \frac{TN}{TN+FP} $$
 
 
