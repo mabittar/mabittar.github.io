@@ -1306,6 +1306,12 @@ a.newer-posts:hover {
   text-decoration: underline;
 }
 
+.center-image
+{
+    margin: 0 auto;
+    display: block;
+}
+
 /* - - - - - - - - - - Tag Styles - - - - - - - - - - */
 .blog-tags {
   width: 100%;
