@@ -36,4 +36,4 @@ Para plotar um mapa de calor que indica visualmente a correlação entre as vari
     sns.heatmap(corr, cmap='RdBu', fmt='.2f', square=True, linecolor='white', annot=True);
     
 
-![](https://miro.medium.com/max/441/1*QusMgZWYmqDn9BglP-upZQ.png)
+![](https://miro.medium.com/max/441/1*QusMgZWYmqDn9BglP-upZQ.png){: .center-image }

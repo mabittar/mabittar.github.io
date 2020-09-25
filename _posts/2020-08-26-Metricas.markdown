@@ -32,7 +32,7 @@ Atribui o mesmo peso para todas as diferenças.
 
 No gráfico a baixo podemos obsevar o que são as diferenças entre a média `linha` e o valor `pontos`:
 
-![](https://study.com/cimages/multimages/16/heightweightall.png)
+![](https://study.com/cimages/multimages/16/heightweightall.png){: .center-image }
 
 
 Amplitude: 0 ao + infinito.
