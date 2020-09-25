@@ -7,7 +7,7 @@ img: curve.jpg # Add image post (optional)
 tags: [Machine Learning, Python, Model, Metrics] # add tag
 ---
 
-Essa é a segunda parte do [post]({% post_url 2020-08-26-Metricas.markdown %}) referente a métricas para avaliação dos modelos de Machine Learing.
+Essa é a segunda parte do [post]({% post_url /_post/2020-08-26-Metricas %}) referente a métricas para avaliação dos modelos de Machine Learing.
 No primeiro post foi abordado alguns temas sobre TP, TN, FP, FN, acurácia, precisão e matriz de confusão utilizadas para que possamos comparar os resultados obtidos em diversos modelos matemáticos.
 
 *"Uma métrica de avaliação quantifica a performance de um modelo de machine learning."* `Jason Brownlee`
