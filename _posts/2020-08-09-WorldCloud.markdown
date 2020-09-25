@@ -12,7 +12,7 @@ A apresentação de dados é um dos grandes desafios para quem prepara apresenta
 Imagine o caso que lhe fosse pedido para analisar as palavras que aparecem repetidamente nas descrições de imóveis do AirBnB, que trabalho seria fazer no excel e depois transformar em um gráfico. Muitas vezes as ferramentas disponíveis nos pacotes pré-instalados no computador são limitadas.
 Mas no python fica muito mais fácil, veja um exemplo:
 
-![](https://miro.medium.com/max/556/1*LXRvqD389NScGJtyDfNYog.png){: .center-image }
+![](https://miro.medium.com/max/556/1*LXRvqD389NScGJtyDfNYog.png)
 
 {% highlight python %}
 import numpy as np
@@ -44,8 +44,7 @@ Acesse o [notebook](https://colab.research.google.com/drive/1SSGPl-BWrrPENhPKhEH
 
 Veja outro exemplo do que podemos criar
 
-![](https://miro.medium.com/max/425/1*3HFD6KgKLaExqs3VabgyJA.png){: .center-image }
-
+![](https://miro.medium.com/max/425/1*3HFD6KgKLaExqs3VabgyJA.png)
 
 **Data Science na Prática**
 
