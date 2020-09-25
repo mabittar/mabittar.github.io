@@ -34,7 +34,7 @@ A curva ROC traça a Sensibilidade (Taxa de Verdadeiros Positivos) x Especificid
 
 # AUC
 
-Já a **AUC** (*area under the ROC curve*) ou área sobre a curva ROC, ou seja, a derivada da ROC. 
+Já a **AUC** (*area under the ROC curve*) ou área sobre a curva ROC é a derivada da ROC. 
 
 É uma tentativa de resumir a curva ROC em um único valor.
 
