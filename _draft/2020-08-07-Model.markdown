@@ -10,4 +10,26 @@ tags: [Welcome, DataScience] # add tag
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat ultricies justo in varius. Proin quis justo nec quam placerat vehicula. Nullam auctor tortor et velit egestas, ut tempor nibh ultricies. Donec aliquam tristique tortor ut ullamcorper. Nulla facilisi. Nunc scelerisque at justo et convallis. Pellentesque ultricies sed lectus in fermentum.
 
 
+link:
+[portfolio de projetos](https://github.com/mabittar/Portfolio)
+
+link outros posts:
+[post](_posts/2020-08-26-Metricas.markdown)
+
+imagem externa:
+![](https://raw.githubusercontent.com/carlosfab/dsnp2/master/img/acuracia.png)
+
+imagem interna:
+![Churn](/assets/img/churn-rate1.jpg)
+
+python code:
+  {% highlight python %}
+  print(classification_report(y_true, y_pred))
+  {% endhighlight %}
+
+fórmulas RegEx:
+$$ Especificidade = \frac{TN}{TN+FP} $$
+
+
+
 
