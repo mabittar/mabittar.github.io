@@ -4,14 +4,14 @@ title: Curvas para Avaliação de modelos de Machine Learning
 date: 2020-08-26 00:00:00 +0300
 description: Utilizando Curvas para Avaliações e Comparação de modelos de Machine Learning # Add post description (optional)
 img: metricas.png # Add image post (optional)
-tags: [Machine Learning, Python, Colab, Google, Data Analysis] # add tag
+tags: [Machine Learning, Python, Model, Metrics] # add tag
 ---
 
 Depois de fazermos a engenharia de dados, ajustes, seleção do modelo e obter alguma saída na forma de probabilidade ou classe a próxima etapa é descobrir quão eficaz é o modelo baseado em alguma métrica.
 
 
 
-"Aquilo que não podemos medir, não podemos controlar." `Vicente Falconi`
+*"Aquilo que não podemos medir, não podemos controlar."* `Vicente Falconi`
 
 A métrica explica e compara o desempenho entre os diferentes modelos utilizados no algorítimo.
 

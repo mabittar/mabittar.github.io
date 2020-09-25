@@ -4,15 +4,15 @@ title: Métricas para Avaliação de modelos de Machine Learning
 date: 2020-09-25 00:00:00 +0300
 description: Avaliações e Comparação de modelos de Machine Learning # Add post description (optional)
 img: curve.jpg # Add image post (optional)
-tags: [Machine Learning, Python, Colab, Google, Data Analysis] # add tag
+tags: [Machine Learning, Python, Model, Metrics] # add tag
 ---
 
 Essa é a segunda parte do [post]({% post_url 2020-08-26-Metricas.markdown %}) referente a métricas para avaliação dos modelos de Machine Learing.
 No primeiro post foi abordado alguns temas sobre TP, TN, FP, FN, acurácia, precisão e matriz de confusão utilizadas para que possamos comparar os resultados obtidos em diversos modelos matemáticos.
 
-"Uma métrica de avaliação quantifica a performance de um modelo de machine learning." `Jason Brownlee`
+*"Uma métrica de avaliação quantifica a performance de um modelo de machine learning."* `Jason Brownlee`
 
-Entretanto quando estamos lidando com modelo de Machine Learning podemos observar também a performance de aprendizado com tempo e experiência de utilização do modelo. Neste post, você vai descobrir os que são as curvas de aprendizado e como elas são utilizadas no diagnóstico de comportamento dos modelos de Machine Learning.
+Entretanto quando estamos lidando com modelo de Machine Learning podemos observar também a performance de aprendizado com tempo e experiência de utilização do modelo. Neste post, você vai descobrir o que são as curvas de aprendizado e como elas são utilizadas no diagnóstico de comportamento dos modelos de Machine Learning.
 
 Escolher o modelo de Machine Learning a ser utilizado na solução de um problema é tão desafiador quando definir a métrica apropriada.
 
