@@ -441,7 +441,7 @@ Ainda da [documentação oficial](https://xgboost.readthedocs.io/en/latest/tutor
 e a curva ROC, com o respectivos AUC
 
 
-![ROC Curve](/assets/img/Default-XGB-curves.jpg)
+![ROC Curve](/assets/img/Default-XGB-curves.JPG)
 
 
 Antes de realizar o ajuste do hyper parâmentro para lidar com  o desbalanceamento do dataset, o modelo estava resultando em **overfitting**, isso é, obtinha um resultado melhor durante o treinamento do que a previsão dos valores (praticamente decorando os resultados) ou mesmo se compararmos com os resultados iniciais sem ajustes observei a perda eficiência. O modelo otimizado era muito bom em prever quando não ocorria o `default`, porém o nível de acerto para 1 era extremamente baixo.
