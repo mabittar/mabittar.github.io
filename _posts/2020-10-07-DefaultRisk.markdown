@@ -14,7 +14,8 @@ Com a crise econômica gerada pela pandemia de Covid-19, até os grandes bancos 
 
 Com o rápido aumento na disponibilidade de dados e na capacidade de computação, a área de Machine Learning agora desempenha um papel vital no setor financeiro. Modelos de Machine Learning estão contribuindo significativamente para modelagem de risco de crédito. Grandes bancos e Fintechs têm apostado cada vez mais em modelos de Machine Learning para prevenir a inadimplência de alguns clientes e assim ajustar suas taxas de juros aos clientes finais.
 
-![Default Analysis](/assets/img/default.jpg)
+![Default-Analysis](/assets/img/default.jpg)
+
 
 Neste [notebook](https://colab.research.google.com/drive/19VejrLBDOWqNhFjnlLT6XXY9nAM6mNsV?usp=sharing) você pode encontrar todos os passos para recriar o modelo que será demonstrado aqui nesse post e observar as etapas que aqui serão comentadas.
 
@@ -27,7 +28,7 @@ Todo o material a ser desenvolvido durante o curso e nos demais proejtos poderã
 Mais sobre o curso pode ser visto em: [https://sigmoidal.ai](https://sigmoidal.ai).
 
 ## 1. Contextualização do Problema
-Neste problema, o objetivo é identificar um cliente da Startup Nubank que não cumprirá com suas obrigações financeiras e deixará de pagar a sua fatura do Cartão de Crédito (`default`).
+Neste problema, o objetivo é identificar um cliente da Startup Nubank que não cumprirá com suas obrigações financeiras e deixará de pagar a sua fatura do Cartão de Crédito `default`.
 
 Vale ressaltar que essa avaliação deve ser realizada quando o cliente solicita o cartão (normalmente no primeiro contato com a instituição).
 
@@ -98,7 +99,8 @@ Também é possível observar que a coluna `profile_phone_number` possui 45.000 
 
 Na sequência as linhas que não estavam preenchidas na variável alvo foram excluídas. Ainda foi gerado um gráfico para compararmos nossa variável alvo para verificar o balanceamento das categorias
 
-![Imbalanced Dataset](/assets/img/Default-inadimplentes.jpg)
+
+![Imbalanced-Dataset](/assets/img/Default-inadimplentes.jpg)
 
 
 Pelo gráfico anterior foi possível obserar, como já esperado, que estamos lidando com um dataset desbalanceado (imbalanced dataset):
@@ -111,7 +113,9 @@ Adiante foi necessário tratarmos esse ponto, para não prejudicarmos os modelos
 Continuando a exploração de dados, ainda gerei um gráfico de dispersão (scatter plot) comparando as variáveis `income`e `credit_limit`.
 
 
-![Scatter Plot: Income x Credit Limit](/asset/img/Default-scatterplot.jpg)
+
+![Scatter-Plot: Income x Credit Limit](/asset/img/Default-scatterplot.jpg)
+
 
 ## 2. Divisão de Dados entre treino e teste
 
@@ -174,7 +178,9 @@ Não se esqueça de acompanhar no [notebook](https://colab.research.google.com/d
 
 Agora com as variáveis categóricas tansformadas em variáveis numéricas, podemos continuar nossa analise de dados e verificar qual a correlação entre os dados:
 
-![Correlation Plot](/asset/img/Default-corr-plot.jpg)
+
+![Correlation-Plot](/asset/img/Default-corr-plot.jpg)
+
 
 Do gráfico anterior é possível observar que a correlação entre as variáveis do dataset e a variável alvo são muito fracas.
 
@@ -182,7 +188,7 @@ Uma obsevação: para elaborar esse gráfico utilizei a biblioteca biokit, pois 
 
 Uma outra forma de verificar a correlação entre as variáveis é fazendo um gráfico de pares:
 
-![Pair plots](/asset/img/Default-pairplot.jpg)
+![Pair-plots](/asset/img/Default-pairplot.jpg)
 
 
 Depois de rever nossas distribuições, correlações e visualizá-las agrupadas, vamos rever alguns insights:
@@ -222,9 +228,11 @@ model_sgd = SGDClassifier()
 model_svc = SVC()
 model_dt = DecisionTreeClassifier()
 model_rf = RandomForestClassifier()
-voting_clf = VotingClassifier(estimators=[('xgbc', model_xgbc), ('sgd', model_sgd), ('svc', model_svc),
+voting_clf = VotingClassifier(estimators=[('xgbc', model_xgbc), ('sgd', model_sgd), 
+                                          ('svc', model_svc),
                                           ('dt', model_dt), ('rf', model_rf)],
                               n_jobs=-1 , voting='hard')
+
 
 #3. os dados já foram separados anteriormente
 
@@ -236,7 +244,8 @@ for model in (model_xgbc, model_sgd, model_svc, model_dt, model_rf, voting_clf):
 model = []
 accuracy = []
 roc_score = []
-for clf in (model_xgbc, model_sgd, model_svc, model_dt, model_rf, voting_clf):
+for clf in (model_xgbc, model_sgd, model_svc, 
+            model_dt, model_rf, voting_clf):
   y_pred = clf.predict(X_test)
   model.append(clf.__class__.__name__)
   accuracy.append(accuracy_score(y_test,y_pred))
@@ -251,13 +260,17 @@ resultado
 
 A partir do modelo acima a acurácia obtida foi:
 
+
 ![Acurácia](/assets/img/default-ensemble.JPG)
+
 
 Podemos verificar ainda qual a importância de cada variável nos modelos desenvolvidos, utilizei como exemplo  modelo `Random Forest`:
 
+
 ![Feature Imporante](/assets/img/feature_importance.jpg)
 
-os passos para gerar o gráfico são: 
+
+Os passos para gerar o gráfico são: 
 
 
 {% highlight python %}
@@ -316,12 +329,15 @@ print("ROC_AUC = {:.3%}\n". format(scores.mean()))
 xgb.fit(X_train, y_train, eval_metric='auc')
 {% endhighlight%}
 
+
 ![Cross Val](/assets/img/defaul-k-fold.jpg)
 
 
 Em comparação ao modelo de Random Forest, podemos comparar quais variáveis tiverem mais influência no modelo XGBoost.
 
+
 ![Features Imporantance - XGB](/assets/img/Default-variaveis-XGB.jpg)
+
 
 ## 3. Otimização do Modelo
 
@@ -397,6 +413,7 @@ def status_print_bayes(optim_result):
 
 Neste momento, utilizando-se do matplotlib foi elaborado um gráfico para visualizarmos a variação dos hiper parâmetros em função das etapas de otimização e aprendizado:
 
+
 ![Hyper Parm](/assets/img/Default-XGB-hyper)
 
 
@@ -407,15 +424,19 @@ Com o modelo otimizado podemos verificar e comparar as métricas de avaliação.
 
 Conforme explanado no [post](https://machinelearningmastery.com/framework-for-imbalanced-classification-projects/) elaborado por Jason Brownlee para classificação de modelos desbalanceados, estamos tratando de um modelo de probabilidades, onde ambas as classes são importantes:
 
+
 ![Imbalanced Classification Binary](https://3qeqpr26caki16dnhd19sv6by6v-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/How-to-Choose-a-Metric-for-Imbalanced-Classification-latest.png)
+
 
 Por esse motivo defini a métrica ROC AUC para verificar o desempenho do modelo otimizado.
 
 Ainda da [documentação oficial](https://xgboost.readthedocs.io/en/latest/tutorials/param_tuning.html#handle-imbalanced-dataset) do XGBoost há recomendação para utilizarmos da métrica AUC para dataset desbalanceados, entre outros possíveis ajustes de hyper parâmetros.
 
+
 ![Classification Report](/assets/img/Default-XGB-CM.jpg)
 
 e a curva ROC, com o respectivos AUC
+
 
 ![ROC Curve](/assets/img/Default-XGB-curves.jpg)
 
@@ -433,8 +454,8 @@ O princípio geral é que queremos um modelo simples e preditivo. A compensaçã
 Do site oficial do [XGBoost](https://xgboost.readthedocs.io/en/latest/tutorials/param_tuning.html#understanding-bias-variance-tradeoff) temos ainda sobre o viés-variância:
 
 
-    *"Quando permitimos que o modelo fique mais complicado (por exemplo, mais profundidade), o modelo tem melhor capacidade para ajustar os dados de treinamento, resultando em um modelo menos tendencioso. No entanto, esse modelo complicado requer mais dados para se ajustar.
-    A maioria dos parâmetros no XGBoost são sobre compensação de variação de polarização. O melhor modelo deve negociar a complexidade do modelo com seu poder preditivo com cuidado. A documentação de parâmetros dirá se cada parâmetro tornará o modelo mais conservador ou não. Isso pode ser usado para ajudá-lo a girar o botão entre o modelo complicado e o modelo simples."*
+    "Quando permitimos que o modelo fique mais complicado (por exemplo, mais profundidade), o modelo tem melhor capacidade para ajustar os dados de treinamento, resultando em um modelo menos tendencioso. No entanto, esse modelo complicado requer mais dados para se ajustar.
+    A maioria dos parâmetros no XGBoost são sobre compensação de variação de polarização. O melhor modelo deve negociar a complexidade do modelo com seu poder preditivo com cuidado. A documentação de parâmetros dirá se cada parâmetro tornará o modelo mais conservador ou não. Isso pode ser usado para ajudá-lo a girar o botão entre o modelo complicado e o modelo simples."
 
 
 # 4. Redes Neurais
@@ -470,7 +491,7 @@ Da documentação oficial do [TensorFlow](https://www.tensorflow.org/tutorials/s
 
 
 
-    *"A classificação de dados desbalanceados é uma tarefa inerentemente difícil, pois há tão poucos exemplos para aprender. Devemos sempre começar com os dados primeiro e fazer o seu melhor para coletar o maior número possível de amostras e pensar bastante sobre quais recursos podem ser relevantes para que o modelo possa obter o máximo de sua classe minoritária. Em algum ponto, o modelo pode ter dificuldades para melhorar e produzir os resultados desejados, portanto, é importante ter em mente o contexto do seu problema e as compensações entre os diferentes tipos de erros."*
+    "A classificação de dados desbalanceados é uma tarefa inerentemente difícil, pois há tão poucos exemplos para aprender. Devemos sempre começar com os dados primeiro e fazer o seu melhor para coletar o maior número possível de amostras e pensar bastante sobre quais recursos podem ser relevantes para que o modelo possa obter o máximo de sua classe minoritária. Em algum ponto, o modelo pode ter dificuldades para melhorar e produzir os resultados desejados, portanto, é importante ter em mente o contexto do seu problema e as compensações entre os diferentes tipos de erros."
 
 
 
