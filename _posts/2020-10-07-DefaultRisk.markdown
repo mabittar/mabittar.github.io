@@ -497,6 +497,16 @@ Da documentação oficial do [TensorFlow](https://www.tensorflow.org/tutorials/s
     "A classificação de dados desbalanceados é uma tarefa inerentemente difícil, pois há tão poucos exemplos para aprender. Devemos sempre começar com os dados primeiro e fazer o seu melhor para coletar o maior número possível de amostras e pensar bastante sobre quais recursos podem ser relevantes para que o modelo possa obter o máximo de sua classe minoritária. Em algum ponto, o modelo pode ter dificuldades para melhorar e produzir os resultados desejados, portanto, é importante ter em mente o contexto do seu problema e as compensações entre os diferentes tipos de erros."
 
 
+Imagine que um modelo deste poderia elevar em muito as provisões utilizadas pelo banco para cobrir casos em que o cliente não cumpre com suas obrigações financeiras, elevando assim o custo de capital da instituição patrocinadora Nubank e consequentemente a taxa de juros a ser cobrada em cada empréstimo do cliente final.
+
+
+
+Conforme foi possível obsevar durante o desenvolvimento dos modelos algumas variáveis possuem mais ou menos peso em determinado modelo, porém as métricas que influenciam os modelos aqui desenvolvidos, com os dados disponíveis são: `income` e `score_` de crédito. 
+
+
+
+Grandes empresas de crédito implementam áreas robustas para estudar modelos e ajustá-los conforme crescimento da base de dados. Esse é um campo muito fértil e financeiramente viável de estudos relacionados a Data Science e Machine Learning.
+
 
 
 
