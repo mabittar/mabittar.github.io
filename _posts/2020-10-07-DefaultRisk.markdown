@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Análise de Risco de Default
-date: 2020-09-07 00:00:00 +0300
+date: 2020-10-10 00:00:00 +0300
 description: Analisando Risco de Inadimplência -  # Add post description (optional)
-img: Default-melting.jpg # Add image post (optional)
+img: default-melting.jpg # Add image post (optional)
 tags: [Machine Learning, Otmização, XGboost, SGD, SVM, RandomTree, Bayes Optimization, Keras] # add tag
 ---
 
@@ -13,6 +13,7 @@ Como um modelo de machine learning pode influenciar na taxa de juros que você p
 Com a crise econômica gerada pela pandemia de Covid-19, até os grandes bancos brasileiros reforçaram provisões para o caso de clientes que não cumpram com suas obrigações financeiros, ou seja, o não pagamento de suas dívidas, o que afetou diretamente o resultado destas instituições.
 
 Com o rápido aumento na disponibilidade de dados e na capacidade de computação, a área de Machine Learning agora desempenha um papel vital no setor financeiro. Modelos de Machine Learning estão contribuindo significativamente para modelagem de risco de crédito. Grandes bancos e Fintechs têm apostado cada vez mais em modelos de Machine Learning para prevenir a inadimplência de alguns clientes e assim ajustar suas taxas de juros aos clientes finais.
+
 
 ![Default-Analysis](/assets/img/default.jpg)
 
@@ -114,7 +115,7 @@ Continuando a exploração de dados, ainda gerei um gráfico de dispersão (scat
 
 
 
-![Scatter-Plot: Income x Credit Limit](/asset/img/Default-scatterplot.jpg)
+![Scatter-Plot](/asset/img/Default-scatterplot.jpg)
 
 
 ## 2. Divisão de Dados entre treino e teste
