@@ -115,7 +115,7 @@ Continuando a exploração de dados, ainda gerei um gráfico de dispersão (scat
 
 
 
-![Scatter-Plot](/asset/img/Default-scatterplot.jpg)
+![Scatter-Plot](/assets/img/Default-scatterplot.jpg)
 
 
 ## 2. Divisão de Dados entre treino e teste
@@ -180,7 +180,7 @@ Não se esqueça de acompanhar no [notebook](https://colab.research.google.com/d
 Agora com as variáveis categóricas tansformadas em variáveis numéricas, podemos continuar nossa analise de dados e verificar qual a correlação entre os dados:
 
 
-![Correlation-Plot](/asset/img/Default-corr-plot.jpg)
+![Correlation-Plot](/assets/img/Default-corr-plot.jpg)
 
 
 Do gráfico anterior é possível observar que a correlação entre as variáveis do dataset e a variável alvo são muito fracas.
@@ -189,7 +189,7 @@ Uma obsevação: para elaborar esse gráfico utilizei a biblioteca biokit, pois 
 
 Uma outra forma de verificar a correlação entre as variáveis é fazendo um gráfico de pares:
 
-![Pair-plots](/asset/img/Default-pairplot.jpg)
+![Pair-plots](/assets/img/Default-pairplot.jpg)
 
 
 Depois de rever nossas distribuições, correlações e visualizá-las agrupadas, vamos rever alguns insights:
@@ -268,7 +268,7 @@ A partir do modelo acima a acurácia obtida foi:
 Podemos verificar ainda qual a importância de cada variável nos modelos desenvolvidos, utilizei como exemplo  modelo `Random Forest`:
 
 
-![Feature Imporante](/assets/img/feature_importance.jpg)
+![Feature Imporante](/assets/img/Default-feature_importance.jpg)
 
 
 Os passos para gerar o gráfico são: 
@@ -331,13 +331,14 @@ xgb.fit(X_train, y_train, eval_metric='auc')
 {% endhighlight%}
 
 
-![Cross Val](/assets/img/defaul-k-fold.jpg)
+![Cross Val](/assets/img/Defaul-k-fold.jpg)
 
 
 Em comparação ao modelo de Random Forest, podemos comparar quais variáveis tiverem mais influência no modelo XGBoost.
 
 
 ![Features Imporantance - XGB](/assets/img/Default-variaveis-XGB.jpg)
+
 
 
 ## 3. Otimização do Modelo
@@ -415,7 +416,7 @@ def status_print_bayes(optim_result):
 Neste momento, utilizando-se do matplotlib foi elaborado um gráfico para visualizarmos a variação dos hiper parâmetros em função das etapas de otimização e aprendizado:
 
 
-![Hyper Parm](/assets/img/Default-XGB-hyper)
+![Hyper-Param](/assets/img/Default-XGB-hyper)
 
 
 Com o modelo otimizado podemos verificar e comparar as métricas de avaliação.
