@@ -101,7 +101,7 @@ Também é possível observar que a coluna `profile_phone_number` possui 45.000 
 Na sequência as linhas que não estavam preenchidas na variável alvo foram excluídas. Ainda foi gerado um gráfico para compararmos nossa variável alvo para verificar o balanceamento das categorias
 
 
-![Imbalanced-Dataset](/assets/img/Default-inadimplentes.jpg)
+![Imbalanced-Dataset](/assets/img/Default-inadimplentes.png)
 
 
 Pelo gráfico anterior foi possível obserar, como já esperado, que estamos lidando com um dataset desbalanceado (imbalanced dataset):
@@ -189,7 +189,8 @@ Uma obsevação: para elaborar esse gráfico utilizei a biblioteca biokit, pois 
 
 Uma outra forma de verificar a correlação entre as variáveis é fazendo um gráfico de pares:
 
-![Pair-plots](/assets/img/Default-pairplot.jpg)
+
+![Pair-plots](/assets/img/Default-pairplot.png)
 
 
 Depois de rever nossas distribuições, correlações e visualizá-las agrupadas, vamos rever alguns insights:
@@ -268,7 +269,7 @@ A partir do modelo acima a acurácia obtida foi:
 Podemos verificar ainda qual a importância de cada variável nos modelos desenvolvidos, utilizei como exemplo  modelo `Random Forest`:
 
 
-![Feature Imporante](/assets/img/Default-feature_importance.jpg)
+![Feature Imporante](/assets/img/Default-feature_importance.png)
 
 
 Os passos para gerar o gráfico são: 
@@ -331,13 +332,13 @@ xgb.fit(X_train, y_train, eval_metric='auc')
 {% endhighlight%}
 
 
-![Cross Val](/assets/img/Defaul-k-fold.jpg)
+![Cross-Val](/assets/img/Default-K-fold.PNG)
 
 
 Em comparação ao modelo de Random Forest, podemos comparar quais variáveis tiverem mais influência no modelo XGBoost.
 
 
-![Features Imporantance - XGB](/assets/img/Default-variaveis-XGB.jpg)
+![Features Imporantance - XGB](/assets/img/Default-XGB-features.png)
 
 
 
@@ -416,7 +417,7 @@ def status_print_bayes(optim_result):
 Neste momento, utilizando-se do matplotlib foi elaborado um gráfico para visualizarmos a variação dos hiper parâmetros em função das etapas de otimização e aprendizado:
 
 
-![Hyper-Param](/assets/img/Default-XGB-hyper)
+![Hyper-Param](/assets/img/Default-XGB-hyper.jpg)
 
 
 Com o modelo otimizado podemos verificar e comparar as métricas de avaliação.
