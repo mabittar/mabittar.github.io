@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Default Risk Analysis
+title: Análise de Risco de Default
 date: 2020-09-07 00:00:00 +0300
 description: Analisando Risco de Inadimplência -  # Add post description (optional)
-img: churn-rate.jpg # Add image post (optional)
+img: Default-melting.jpg # Add image post (optional)
 tags: [Machine Learning, Otmização, XGboost, SGD, SVM, RandomTree, Bayes Optimization, Keras] # add tag
 ---
 
