@@ -112,11 +112,14 @@ Amostas:
 
 Adiante foi necessário tratarmos esse ponto, para não prejudicarmos os modelos de machine learning.
 
-Continuando a exploração de dados, ainda gerei um gráfico de dispersão (scatter plot) comparando as variáveis `income`e `credit_limit`.
+Continuando a exploração de dados, ainda gerei um gráfico de dispersão (scatter plot) comparando as variáveis `income` e `credit_limit`.
 
 
 
 ![Scatter-Plot](/assets/img/Default-scatterplot.jpg)
+
+
+Do gráfico anterior é possível  observar pela linha vermelha que conforme o income (ou salário / pró-labore) aumenta, o limite de crédito também se eleva (indica uma correlação positiva), porém existem algumas distorções na base de dados, pois alguns limites de crédito são bem elevados em relação ao outro parâmetro.
 
 
 ## 2. Divisão de Dados entre treino e teste
