@@ -100,6 +100,7 @@ Também é possível observar que a coluna `profile_phone_number` possui 45.000 
 
 Na sequência as linhas que não estavam preenchidas na variável alvo foram excluídas. Ainda foi gerado um gráfico para compararmos nossa variável alvo para verificar o balanceamento das categorias
 
+### 1.1.3 Balanceamento dos Dados
 
 ![Imbalanced-Dataset](/assets/img/Default-inadimplentes.png)
 
