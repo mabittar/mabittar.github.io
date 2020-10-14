@@ -505,7 +505,7 @@ Conforme foi possível obsevar durante o desenvolvimento dos modelos algumas var
 
 
 
-Grandes empresas de crédito implementam áreas robustas para estudar modelos e ajustá-los conforme crescimento da base de dados. Esse é um campo muito fértil e financeiramente viável de estudos relacionados a Data Science e Machine Learning.
+Grandes empresas de crédito implementam áreas robustas para desenvolver modelos e ajustá-los conforme crescimento da base de dados. Esse é um campo muito fértil e financeiramente viável de estudos relacionados a Data Science e Machine Learning.
 
 
 
