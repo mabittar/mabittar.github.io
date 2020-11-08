@@ -9,7 +9,7 @@ tags: [Machine Learning, Deploy, Imsomnia, Heroku] # add tag
 #sniptes activated: {%%} - highlight python; ![] - new images
 ---
 
-## Desenvolvimento de um modelo de Machine Learnin
+## Desenvolvimento de um modelo de Machine Learning
 
 Por que aproximadamente 90% dos modelos de Machine Learning não evoluem de um trabalho acadêmico ou de um notebook no Google Colab para um modelo online, para que possa alimentar outras aplicações?
 
@@ -26,7 +26,7 @@ Nesse post iremos ver como preparar um ambiente em Windows para desenvolvimento 
 Todo o conteúdo desenvolvido está sincronizado com o [repositório](https://github.com/mabittar/imovsp/tree/master) desse projeto.
 Deixo aqui me reconhecimento e agradeciamento ao curso que provocou esse posto e outros projetos mais sobre o curso pode ser visto em: [https://sigmoidal.ai](https://sigmoidal.ai).
 
-## 1. Preparação do ambiente.
+## 1. Preparação do ambiente
 
 Em um ponto ou outro quando trabalhamos com desenvolvimento de software acabamos por nos deparar com ambientes virtuais. Essa é uma boa prática e altamente recomendável.
 
@@ -36,7 +36,13 @@ Em um ambiente virtual, ou `virtualenv` são instalações leves e independentes
 
 O `virtualenv` evita a necessidade de instalar pacotes globalmente. Quando um virtualenv está ativo, em Python pro exemplo, o pip instala pacotes no ambiente, o que não afeta a instalação base do Python que foi realizada no sistema operacional de forma alguma.
 
-### 1.1 Instalação do Python
+### 1.1 O Plano
+
+O nosso plano será preparar um ambiente windows de desenvolvimento, para criarmos um modelo de Machine Learning, a partir de um notebook criado no ambiente virtual de forma a receber novas consultas no formato json e retornar um valor de previsão de venda para um imóvel em São Paulo. 
+
+A paritr do notebook iremos exportar o modelo de Machine Learning. Com o [Insomnia](https://insomnia.rest/) iremos certificarnos que a API está recebendo corretametne os dados e retornando  valor desejado. Com a confirmação do teste, iremos exportar a API para o ambiente web utilizando o [Heroku](https://heroku.com/) a fim de disponibilizarmos para consultas na online de forma independente do ambiente virtual que .
+
+### 1.2 Instalação do Python
 
 Após diversas tentativas com erros e acertos acabei esbarrando em um tutorial que me auxiliou muito durante esse processo:
 
@@ -50,7 +56,7 @@ O vídeo pode ser acessado diretamente neste [link](https://youtu.be/28eLP22SMTA
 
    - Após a criação do ambiente virtual será necessário acessá-lo, para acessá-lo será necessário mais um comando: `nome_projeto\Scripts\activate` , mais uma vez será necessário substituir name_projeto pelo nome que você deu ao seu projeto, no meu caso ficou assim: `imovsp\Scripts\activate` .
 
-### 1.2 Visual Studio Code ou VSCode
+### 1.3 Visual Studio Code ou VSCode
 
 Largamente utiizado pela industria o [VSCode](https://code.visualstudio.com/) é a IDE desenvolvida pela Microsoft com uma série de facilidades embutidas.
 
