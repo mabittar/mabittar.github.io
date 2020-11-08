@@ -56,11 +56,11 @@ O vídeo pode ser acessado diretamente neste [link](https://youtu.be/28eLP22SMTA
 
   + Com o python instalado, a partir da versão 3.3, já é possível criar prontamente um ambiente virtual, pois já possui com as bibliotecas necessárias. Para tanto no terminal do windows (tecla windows + r -> digite cmd.exe e tecle enter), acesse a pasta onde deseja criar o seu projeto. Aqui fica mais uma dica para que você crie uma pasta de projetos no seu hd, por exemplo: `c:\pyprojeto` para acessar a pasta digite `cd\pyprojeto`, uma vez dentro da pasta entre com o seguinte comando para criar o ambiente virtual `c:\pasta_de_instalação_python\python -m venv nome_projeto` substituindo pasta_de_instalação_python pelo caminho onde seu python foi instalado e no lugar de nome_projeto o nome do seu projeto, para mim ficou: `c:\python\386\python -m venv imovsp`. Aguarde um tempo, pois seu projeto estará em criação.
 
-   - Após a criação do ambiente virtual será necessário ativá-lo, para isso entre com o comando: `nome_projeto\Scripts\activate` , mais uma vez será necessário substituir name_projeto pelo nome que você deu ao seu projeto, no meu caso ficou assim: `imovsp\Scripts\activate`. Você poderá obserar na linha de comando que o nome do projeto estará entre parênteses `(imvosp) c:\pyprojeto\imovsp` isso significa que o ambiente virtual está ativado e as bibliotecas que futuramente forem instaladas utilizando o comando pip, por exemplo: `pip install pandas numpy` ficarão restritas a esse ambiente.
+   - Após a criação do ambiente virtual será necessário ativá-lo, para isso entre com o comando: `nome_projeto\Scripts\activate` , mais uma vez será necessário substituir name_projeto pelo nome que você deu ao seu projeto, no meu caso ficou assim: `imovsp\Scripts\activate` . Você poderá obserar na linha de comando que o nome do projeto estará entre parênteses `(imvosp) c:\pyprojeto\imovsp` isso significa que o ambiente virtual está ativado e as bibliotecas que futuramente forem instaladas utilizando o comando pip, por exemplo: `pip install pandas numpy` ficarão restritas a esse ambiente.
 
    - Aproveito para utilizar o gancho aqui, que ao final do desenvolvimento iremos utilizar o comando `pip freeze > requirements.txt` a fim de gerar um lista de todas as bibliotecas que utilizamos durante o desenvolvimento.
 
-   - O python irá ser acionado com o comando direto `python`, após o enter você verá o prompt inciaindo com  >>. Para desativar o ambiente virtual basta entrar com o comando `deactivate`.
+   - O python irá ser acionado com o comando direto `python` , após o enter você verá o prompt inciaindo com  >>. Para desativar o ambiente virtual basta entrar com o comando `deactivate` .
 
 ### 1.3 Visual Studio Code ou VSCode
 
@@ -74,27 +74,168 @@ Em relação as dificuldades encontradas posso destacar principalmente a minha f
 
 Novamente apoiei em um dos vídeos do Corey Schafer [Setting up a Python Development Environment](https://youtu.be/-nh9rCzPJ20), o vídeo possui mais de uma 1hora de gravação, bem extenso passando por diversas possibilidades com muito detalhes e dicas, vale muito a pena para evitar algumas dores de cabeça.
 
+## 2. Notebook
 
-### Notebook
+O notebook desenvolvido pode ser acessado no link [notebook](https://github.com/mabittar/imovsp/blob/master/model.ipynb)
 
-[notebook](https://github.com/mabittar/imovsp/blob/master/model.ipynb)
+O obetivo desse post são os passos necessários para o deploy de uma aplicação com base em Machine Learning, a etapa de análise exploratória de dados foi propositalmente suprimida.
 
+notebook irei treinar um modelo para fazer a previsão do proço de venda para imóveis em São Paulo, entretanto o objetivo final é fazer o deploy de um modelo para fazer a alimenação de uma aplicação web.
 
-### Imsomnia
+Os dados utilizados foram obtidos no [link](https://www.kaggle.com/argonalyst/sao-paulo-real-estate-sale-rent-april-2019) e os dados foram tratados pelo [Carlos Melo](https://sigmodail.ai).
+
+Entretando irei demonstrar como exportar o modelo treinado e as variáveis utilizadas, para que possam ser utilizados em uma aplicação web.
+
+### Salvado o modelo
+
+Após importar os dados, tratá-los e treinar o modelo, se você quiser que uma aplicação web utilize esse conhecimento será necessário exportá-lo, para tanto utilize o comando:
+
+{% highlight python %}
+from joblib import dump, load
+
+dump(model, 'model\\model.joblib')
+{% endhighlight%}
+
+o comando irá exportar o modelo criado com o instância model e salvá-lo na pasta model com o nome e extensão model.joblib.
+
+Entratando para utilizá-lo será necessário exportar também as features (variáveis) utilizadas durante o aprendizado, para tanto utilize:
+
+{% highlight python %}
+
+# salvando os nomes das features
+
+features = X_train.columns.values
+
+dump (features, 'model\\features.names')
+{% endhighlight%}
+
+novamente você irá salvar as features na pasta model com o nome e extensão features.name. Observe que na primeira linha do bloco anterior criamos uma variável ( `features` ) a fim de receber os nomes das colunas da matriz de variáveis (feature matrix).
+
+Após exportarmos o modelo podemos importá-lo para verificar se tudo está correto.
+
+{% highlight python %}
+#importando o modelo
+novo_modelo = load('model\\model.joblib')
+
+#verificando o tipo
+type(novo_modelo)
+{% endhighlight%}
+
+Do bloco anteior obtemos o output:
+sklearn.ensemble._forest. RandomForestRegressor
+
+## 3. Cirando a API com Flask
+
+Com nosso modelo pronto e salvo, é hora de criarmos a API utilizando o framework Flask.
+
+A documentação sobre o Flask pode ser acessada [aqui](https://flask.palletsprojects.com/en/1.1.x/quickstart/).
+
+Iremos criar um novo arquivo com o nome `app.py` a fim de instanciar o framework, carregar o modelo (exportado do passo anteior), uma classe com a definição de GET e POST e iremos acrescentar tudo a API.
+
+{% highlight python %}
+
+# importando bibliotecas necessárias
+import numpy as np
+from flask import Flask, jsonify, request
+from flask_restful import Api, Resource
+from joblib import load
+
+# instanciando objeto Flask
+
+app = Flask(__name__)
+
+# API
+
+api = Api(app)
+
+# carregar modelo
+
+model = load('model/model.joblib')
+
+class PrecoImoveis(Resource):
+
+    def get(self):
+        """
+        retorna as informações iniciais da API
+        """
+        return {'Nome': 'Marcel Bittar', 'web': 'http://mabittar.github.io'}
+
+    def post(self):
+        """
+        recebe todos os argumentos que estão sendo enviados para a aplicação
+        valor com base no modelo.joblib elaborado
+        permitido apenas uma consulta por vez
+        var input_values recebe uma matriz reformatada para utilizar no sklearn
+        var predict faz a previsão de valor calculado utilizando o modelo criado anteriormente com os valores fornecidos pela input_values retornando apenas o primeiro valor
+        retorna um json da previsão de valor do imóvel
+        """
+        args = request.get_json(force=True)
+        input_values = np.asarray(list(args.values())).reshape(1, -1)
+        predict = model.predict(input_values)[0]
+
+        return jsonify({'Previsao do valor R$ ': float(predict)})
+
+api.add_resource(PrecoImoveis, '/')
+
+if __name__ == '__main__':
+
+    app.run()
+
+{% endhighlight%}
+
+Com o arquivo pronto, iremos executá-lo usando o terminal do VSCode:
+
+ `python app.py`
+
+caso o arquivo esteja correto o terminal irá retornar que a API está funcionando no link http://127.0.0.1:5000/ esse link significa que temos um aplicação rodando localmente na máquina e que pode ser acessada pelo navegador web. Para tanto basta copiar e colocar o link no navegador que você utiliza.
+
+Caso seja necesário interromper o aplicativo, clique na janela do terminal e entre com as teclas `CRTL+C` e a aplicação será finalizada.
+
+## 4. Imsomnia
 
 [documentação oficial](https://hcode.com.br/blog/usando-insomnia-para-testar-as-requisicoes-de-nossas-apis) para utilização do Imsonia
 
-Criar get
-criar post
+### New Request
 
-![Test API](/assets/imgs/deploy-test-post.JPG)
+Para realizar a requisição precisamos habilitar o Imsomina para que consiga acessar o caminho que o Flask nos forneceu
 
+![New Request](https://lh6.googleusercontent.com/U4VzAzITnEm-eny9jDlY3Eb82J3Px1dYYYgw_U1ojhpulciGXpU8nhARYeR6C3LPGf3Yre6E3Re89_TArb-w4qsXOyMiI_Q9aL_8KC6tuWU1i-RvbZek0xujqShDMH7dkHjfc-3r)
 
-### Heroku
+### GET 
 
+Aqui devemos nomear nossa requisição (GET). Fique a vontade para escolher, pois esse é apenas um ambiente de testes
+
+![Name New Request](https://lh5.googleusercontent.com/1ehII1lLGN034WBsrpPfy7Gm7ZAV4d5VoIlGwwdTgk-Eaj-KVWBSP60K_0sM9jS-l6XnapYX_9eriEpU2lzwzxzXxbxBoiXMnEBDVVEVTij1gGmVsX5Mj_sIofYUupCkZavD0AGG)
+
+O próximo passo é apontar o Imsomnia para o link que o flask nos deu:
+
+![URL](https://lh4.googleusercontent.com/Tb8PBw3Y1eG9I85N3JkLTNvwCl524g_AIlbg5Aq6eo4HNxMIqzJPZ4Rw9p8ezHqdFdLcEqM8VCVxZfiMAQQ_7RovizpWgKj5RekEE_WH_6lbGVfR_AM3nzpM6H3JB9Sxv4PObYR8)
+
+Após informar a URL da API basta clicar no botão send.
+Lembre-se que durante a criação da API em flask definimos um posição para GET, no meu caso utilizei meu nome e meu contato.
+Após acionar o botão get você deverá estar vendo essa informação na tela para certificar que a API está em funcionamento, caso não tenh visto a mensagem retorne na IDE, para mim era o VSCode e veja no painel de terminal se há algum erro.
+
+Na primeira vez eu havia posicionado o `:` em local errado e a API não estava funcionando. Foi necessário interromper o funcionamento, alterar o arquivo, salvar e iniciá-lo novamente.
+
+### POST
+
+Agora que temos certeza que a API está funcionando vamos criar uma requisição do tipo POST para testar o modelo preditivo.
+
+Para testar o modelo é necessário se lembrar de preencher todas as colunas (features) do modelo, para tanto deixei um arquivo .txt com as informações necessárias:
+
+[Valores Usados](https://raw.githubusercontent.com/mabittar/imovsp/master/model/values_used.txt)
+
+Será necessário criar uma nova requisição, porém agora do tipo PSOT, após inserir os valores no painel do Imsomnia, clique em SEND. a API deverá retornar o valor previsto para o imóvel de acordo com as características que você inseriu.
+
+Caso não tenha resposta ou ocorra algum erro retorne novamente para o terminal e verifique se está apontado algum erro. Caso seja necessário corrigir algo lembre-se de interromper a API, editar o arquivo, salvar e iniciar novamente, para então clicar no botão SEND.
+
+Na imagem a seguir é possível ver a API retornando com o valor previsto para o imóvel com as características desejadas.
+
+![Test API](/assets/imgs/deploy-test-post. JPG)
+
+## 5. Heroku
 
 Os passos para enviar a API testada para o Heroku são:
-
 
 Criar um arquivo "Procfile"
 Atualizar o Procfile com web: gunicorn app:app
@@ -112,7 +253,6 @@ Durante o upload dos arquivos utilizando o git push tive diversas dificuldades, 
 Apenas como exemplo, quando eu criei o documento requirements.txt estava com a biblioteca pylint na versão 3.3, porém o Heroku possuia apenas a versão 2.6.0, bastou alterar manualmente no arquivo e realizar os passos que esse erro foi superado.
 
 [link](https://imovsp.herokyapp.com/)
-
 
 # Conclusão
 
