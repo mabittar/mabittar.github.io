@@ -58,6 +58,8 @@ O vídeo pode ser acessado diretamente neste [link](https://youtu.be/28eLP22SMTA
 
    - Após a criação do ambiente virtual será necessário ativá-lo, para isso entre com o comando: `nome_projeto\Scripts\activate` , mais uma vez será necessário substituir name_projeto pelo nome que você deu ao seu projeto, no meu caso ficou assim: `imovsp\Scripts\activate` . Você poderá obserar na linha de comando que o nome do projeto estará entre parênteses `(imvosp) c:\pyprojeto\imovsp` isso significa que o ambiente virtual está ativado e as bibliotecas que futuramente forem instaladas utilizando o comando pip, por exemplo: `pip install pandas numpy` ficarão restritas a esse ambiente.
 
+   - Caso você esteja refazendo esses passos e seja necessário instalar alguma das bilbiotecas basta repetir o comando `pip install biblioteca_desejada`, por exemplo adiante iremos utilizar o flask e algumas bibliotecas, para instalar eu utilizei `pip install flask-restful flask gunicorn`.
+
    - Aproveito para utilizar o gancho aqui, que ao final do desenvolvimento iremos utilizar o comando `pip freeze > requirements.txt` a fim de gerar um lista de todas as bibliotecas que utilizamos durante o desenvolvimento.
 
    - O python irá ser acionado com o comando direto `python` , após o enter você verá o prompt inciaindo com  >>. Para desativar o ambiente virtual basta entrar com o comando `deactivate` .
@@ -68,11 +70,35 @@ Largamente utiizado pela industria o [VSCode](https://code.visualstudio.com/) é
 
 Todas as etapas que vimos no passo 1.1 podem se feitas diretamente no VSCode. Como há muitas referênciaspara configuração do ambiente na web e a própria documentação desenvolvida pela MS é ampla, vou passar apenas pelos pontos que tive dificuldade.
 
-Vale ressaltar que a principal facilidade do VSCode é trabalhar com diversas extensões, criando uma infinidade de facilidades. Se você ainda não o utilizou após as atualizações em 2019 vale conhecê-lo ou mesmo se voc~e utiliza outras IDE´s vai ficar impressinado com as facilidades de importação de todas as configurção para a nova IDE.
+Vale ressaltar que a principal facilidade do VSCode é trabalhar com diversas extensões, criando uma infinidade de facilidades. Se você ainda não o utilizou após as atualizações em 2019 vale conhecê-lo ou mesmo se você utiliza outras IDE´s vai ficar impressinado com as facilidades de importação de todas as configurção para a nova IDE.
 
 Em relação as dificuldades encontradas posso destacar principalmente a minha falta de experiência para lidar com o software me si, apesar da minha vontade em aprender programação e disciplinas ligadas a inteligência artifical, estava muito acustumado com o ambiente do [Google Colab](https://colab.research.google.com/github/tensorflow/examples/blob/master/courses/udacity_intro_to_tensorflow_for_deep_learning/l01c01_introduction_to_colab_and_python.ipynb). Sair da zona de conforto nos possibilita novos aprendizados e favorece o nosso desenvolvimento.
 
 Novamente apoiei em um dos vídeos do Corey Schafer [Setting up a Python Development Environment](https://youtu.be/-nh9rCzPJ20), o vídeo possui mais de uma 1hora de gravação, bem extenso passando por diversas possibilidades com muito detalhes e dicas, vale muito a pena para evitar algumas dores de cabeça.
+
+### 1.4 GitHub
+
+Outra facilidade do VScode é a integração nativa com o GitHub, basta clicar no ícone correspondente:
+
+![GitHub Interation](https://code.visualstudio.com/assets/docs/editor/github/clone-from-github.gif)
+
+
+Antes de clicar e iniciar um novo repositório, crie na raíz do seu projeto um arqivo `.gitignore`. Esse arquivo irá apontar para a plataforma quais arquivos deverão ser ignorados durante o versionamento e sincronização da sua aplicação, como sugestão indico o site:
+
+[GitIgnore IO](https://www.toptal.com/developers/gitignore), basta apontar qual linguagem você está desenvolvendo a sua aplicação que ele irá gerar automaticamente o arquivo. Após isso basta copiar o texto gerado para o arquivo no seu ambiente de desenvolvimento.
+
+Lembre-se de acrescentar também, em qualquer lugar:
+
+.vscode (para evitar a sincronização da sua configuração do VSCode local)
+[sS]cripts/ (para evitar o envio dos scripts de criação do ambiente virtual)
+
+Se quiser ver o meu, pode consultá-lo em [.gitignore](https://raw.githubusercontent.com/mabittar/imovsp/master/.gitignore)
+
+Após salvar arquivo vocÊ já está pronto para realizar a integração com o GitHub, basta clicar no ícone correpondente e criar novo repositório.
+
+
+Após estes passos nosso ambiente está pronto para desenvolvimento. Espero ter ajudado com esses passos, pois são muitas informações disponíveis que muitas vezes apenas confundem mais. Caso tenha ainda alguma dúvida entre em contato.
+
 
 ## 2. Notebook
 
