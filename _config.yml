@@ -1,5 +1,6 @@
 title: Olá! Seja bem vindo ao meu repositório
-description: Marcel Bittar - repositório de projetos, posts, insights sobre programação, machine learing, deep learning, python e tecnologia. # this means to ignore newlines until "baseurl:"
+description: Marcel Bittar - repositório de projetos, posts, insights sobre programação, machine learing,
+deep learning, python e tecnologia. # this means to ignore newlines until "baseurl:"
   
 permalink: ':title/'
 baseurl: "/" # the subpath of your site, e.g. /blog
@@ -9,7 +10,9 @@ site-twitter: #if your site has a twitter account, enter it here
 # Author Settings
 author: Marcel Bittar # add your name
 author-img: photo.jpg # add your photo
-about-author: My passion for technology led me to a new path of knowledge: the application of Python for Data Science and Algorithms for Machine Learning and Deep Learning I uses this website to track my projects, insights and toughts. # add description
+about-author: My passion for technology led me to a new path of knowledge the application of 
+Python for Data Science and Algorithms for Machine Learning and Deep Learning I uses 
+this website to track my projects, insights and toughts. # add description
 social-linkedin: marcelbittar # add your Linkedin handle
 social-email: mabittar@github.com # add your Email address
 social-github: mabittar # add your Github handle

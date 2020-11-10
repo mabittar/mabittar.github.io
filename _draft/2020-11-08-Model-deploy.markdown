@@ -268,7 +268,7 @@ Atualizar o Procfile com `web: gunicorn app:app`
 
 Feito isso basta salvar o arquivo e fechá-lo.
 
-### 
+### Exportando as bibliotecas utilizadas
 
 pip3 freeze > requirements.txt
 git init
