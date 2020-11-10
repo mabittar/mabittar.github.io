@@ -17,14 +17,14 @@ Outra resposta seria a desconexão entre profissionais de TI e cientistas de dad
 
 Um artigo muito interessante sobre a dificuldade desta etapa pode ser visto no post do [KDnuggtes](https://www.kdnuggets.com/2019/10/machine-learning-deployment-hard.html).
 
-Nesse post irei abordar os passos necessários para disponibilizar uma API que faz a previsão de valor para imóveis basead anas características do imóvel, a API foi treinada com Machine Learning. O post detalha os passos necessários para completar a etapa de deploy no fluxo de um projeto de Machine Learning, conforme pode ser visto na figura seguinte.
+Nesse post irei abordar os passos necessários para disponibilizar uma API que faz a previsão de valor para imóveis baseada nas características do imóvel, tal API será treinada com Machine Learning. Iremos ver quais são passos necessários para completar a etapa de deploy no fluxo de um projeto de Machine Learning, conforme pode ser visto na figura seguinte.
 
 ![AWS Machine Learning Flow](/assets/img/deploy2.gif)
 
-Nesse post iremos ver como preparar um ambiente em Windows para desenvolvimento de software, na passo seguinte irei abordar brevemente o modelo de Machine Learning criado e de forma mais abrangente a sequência para que esse modelo alimente uma API online.
+Irei abordar nesse post como preparar o ambiente Windows para desenvolvimento de software, ilustrar brevemente o modelo de Machine Learning criado e de forma mais abrangente a sequência para que esse modelo não fique limitado somente ao seu computador, mas que fique disponível para acesso online.
 
 Todo o conteúdo desenvolvido está sincronizado com o [repositório](https://github.com/mabittar/imovsp/tree/master) desse projeto.
-Deixo aqui me reconhecimento e agradeciamento ao curso que provocou esse posto e outros projetos mais sobre o curso pode ser visto em: [https://sigmoidal.ai](https://sigmoidal.ai).
+Deixo aqui me reconhecimento e agradeciamento ao curso que provocou esse post. Mais sobre o curso pode ser visto em: [https://sigmoidal.ai](https://sigmoidal.ai).
 
 ## 1. Preparação do ambiente
 
