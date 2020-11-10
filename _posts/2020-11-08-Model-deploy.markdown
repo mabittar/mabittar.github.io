@@ -19,7 +19,7 @@ Um artigo muito interessante sobre a dificuldade desta etapa pode ser visto no p
 
 Nesse post irei abordar os passos necessários para disponibilizar uma API de previsão de valores para imóveis treinada com Machine Learning. O post detalha o próximo passo após os passos iniciais do fluxo de um projeto de Machine Learning: entendimento do problema, aquisição e tratamento dos dados; criação de hipóteses; definição, avaliação e validação do modelo de machine learning; validação das hipóteses.
 
-![Machine Learning Flow](/assets/img/deploy2.gif)
+![AWS Machine Learning Flow](/assets/img/deploy2.gif)
 
 Nesse post iremos ver como preparar um ambiente em Windows para desenvolvimento de software, na passo seguinte irei abordar brevemente o modelo de Machine Learning criado e de forma mais abrangente a sequência para que esse modelo alimente uma API online.
 
