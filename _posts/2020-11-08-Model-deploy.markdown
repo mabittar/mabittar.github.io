@@ -251,7 +251,7 @@ Caso não tenha resposta ou ocorra algum erro retorne novamente para o terminal 
 
 Na imagem a seguir é possível ver a API retornando com o valor previsto para o imóvel com as características desejadas.
 
-![Test API](/assets/imgs/deploy-test-post. JPG)
+![Test API](/assets/imgs/deploy-test-post.JPG)
 
 ## 5. Heroku
 
