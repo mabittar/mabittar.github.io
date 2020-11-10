@@ -30,9 +30,9 @@ Deixo aqui me reconhecimento e agradeciamento ao curso que provocou esse post. M
 
 Em um ponto ou outro quando trabalhamos com desenvolvimento de software acabamos por nos deparar com ambientes virtuais. Essa é uma boa prática e altamente recomendável.
 
-Desenvolver um aplicativo limita você a uma versão específica da linguagem e das bilbiotecas que utilizou para o desenvolvimento, instalados em seu sistema operacional. Tentar executar todos os aplicativos em uma única instalação torna provável que ocorram conflitos de versões entre coleções de bibliotecas. Também é possível que mudanças no sistema operacional quebrem outros recursos de desenvolviment que dependem dele.
+Desenvolver um aplicativo limita você a uma versão específica da linguagem e das bilbiotecas que utilizou para o desenvolvimento, instalados em seu sistema operacional. Tentar executar todos os aplicativos em uma única instalação torna provável que ocorram conflitos de versões entre coleções de bibliotecas. Também é possível que mudanças no sistema operacional quebrem outros recursos de desenvolvimento que dependem dele.
 
-Em um ambiente virtual, ou `virtualenv` são instalações leves e independentes, projetadas para serem configuradas com o mínimo de confusão e "simplesmente funcionar" sem exigir configuração extensiva ou conhecimento especializado.
+O ambiente virtual, ou `virtualenv` são instalações leves e independentes, projetadas para serem configuradas com o mínimo de confusão e "simplesmente funcionar" sem exigir configuração extensiva ou conhecimento especializado.
 
 O `virtualenv` evita a necessidade de instalar pacotes globalmente. Quando um virtualenv está ativo, em Python por exemplo, o pip instala pacotes no ambiente, o que não afeta a instalação base do Python que foi realizada no sistema operacional de forma alguma.
 
@@ -251,7 +251,7 @@ Caso não tenha resposta ou ocorra algum erro retorne novamente para o terminal 
 
 Na imagem a seguir é possível ver a API retornando com o valor previsto para o imóvel com as características desejadas.
 
-![Test API](/assets/imgs/deploy-test-post.JPG)
+![Test API](/assets/imgs/deploy-test-post. JPG)
 
 ## 5. Heroku
 
