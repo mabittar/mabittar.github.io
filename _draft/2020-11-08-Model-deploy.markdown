@@ -5,8 +5,6 @@ date: 2020-11-08 00:00:00 +0300
 description: Desenvolvimento e disponibilização de um modelo de Machine Learnin -  # Add post description (optional)
 img: deploy.jpg # Add image post (optional)
 tags: [Machine Learning, Deploy, Imsomnia, Heroku] # add tag
-
-#sniptes activated: {%%} - highlight python; ![] - new images
 ---
 
 ## Desenvolvimento de um modelo de Machine Learning
@@ -38,13 +36,13 @@ Em um ambiente virtual, ou `virtualenv` são instalações leves e independentes
 
 O `virtualenv` evita a necessidade de instalar pacotes globalmente. Quando um virtualenv está ativo, em Python pro exemplo, o pip instala pacotes no ambiente, o que não afeta a instalação base do Python que foi realizada no sistema operacional de forma alguma.
 
-### 1.1 O Plano
+### O Plano
 
 O nosso plano será preparar um ambiente windows de desenvolvimento, para criarmos um modelo de Machine Learning, a partir de um notebook criado no ambiente virtual de forma a receber novas consultas no formato json e retornar um valor de previsão de venda para um imóvel em São Paulo. 
 
 A paritr do notebook iremos exportar o modelo de Machine Learning. Com o [Insomnia](https://insomnia.rest/) iremos certificarnos que a API está recebendo corretametne os dados e retornando  valor desejado. Com a confirmação do teste, iremos exportar a API para o ambiente web utilizando o [Heroku](https://heroku.com/) a fim de disponibilizarmos para consultas na online de forma independente do ambiente virtual que .
 
-### 1.2 Instalação do Python
+### Instalação do Python
 
 Após diversas tentativas com erros e acertos acabei esbarrando em um tutorial que me auxiliou muito durante esse processo:
 
@@ -58,13 +56,13 @@ O vídeo pode ser acessado diretamente neste [link](https://youtu.be/28eLP22SMTA
 
    - Após a criação do ambiente virtual será necessário ativá-lo, para isso entre com o comando: `nome_projeto\Scripts\activate` , mais uma vez será necessário substituir name_projeto pelo nome que você deu ao seu projeto, no meu caso ficou assim: `imovsp\Scripts\activate` . Você poderá obserar na linha de comando que o nome do projeto estará entre parênteses `(imvosp) c:\pyprojeto\imovsp` isso significa que o ambiente virtual está ativado e as bibliotecas que futuramente forem instaladas utilizando o comando pip, por exemplo: `pip install pandas numpy` ficarão restritas a esse ambiente.
 
-   - Caso você esteja refazendo esses passos e seja necessário instalar alguma das bilbiotecas basta repetir o comando `pip install biblioteca_desejada`, por exemplo adiante iremos utilizar o flask e algumas bibliotecas, para instalar eu utilizei `pip install flask-restful flask gunicorn`.
+   - Caso você esteja refazendo esses passos e seja necessário instalar alguma das bilbiotecas basta repetir o comando `pip install biblioteca_desejada` , por exemplo adiante iremos utilizar o flask e algumas bibliotecas, para instalar eu utilizei `pip install flask-restful flask gunicorn` .
 
    - Aproveito para utilizar o gancho aqui, que ao final do desenvolvimento iremos utilizar o comando `pip freeze > requirements.txt` a fim de gerar um lista de todas as bibliotecas que utilizamos durante o desenvolvimento.
 
    - O python irá ser acionado com o comando direto `python` , após o enter você verá o prompt inciaindo com  >>. Para desativar o ambiente virtual basta entrar com o comando `deactivate` .
 
-### 1.3 Visual Studio Code ou VSCode
+### Visual Studio Code ou VSCode
 
 Largamente utiizado pela industria o [VSCode](https://code.visualstudio.com/) é a IDE desenvolvida pela Microsoft com uma série de facilidades embutidas.
 
@@ -76,14 +74,13 @@ Em relação as dificuldades encontradas posso destacar principalmente a minha f
 
 Novamente apoiei em um dos vídeos do Corey Schafer [Setting up a Python Development Environment](https://youtu.be/-nh9rCzPJ20), o vídeo possui mais de uma 1hora de gravação, bem extenso passando por diversas possibilidades com muito detalhes e dicas, vale muito a pena para evitar algumas dores de cabeça.
 
-### 1.4 GitHub
+### GitHub
 
 Outra facilidade do VScode é a integração nativa com o GitHub, basta clicar no ícone correspondente:
 
 ![GitHub Interation](https://code.visualstudio.com/assets/docs/editor/github/clone-from-github.gif)
 
-
-Antes de clicar e iniciar um novo repositório, crie na raíz do seu projeto um arqivo `.gitignore`. Esse arquivo irá apontar para a plataforma quais arquivos deverão ser ignorados durante o versionamento e sincronização da sua aplicação, como sugestão indico o site:
+Antes de clicar e iniciar um novo repositório, crie na raíz do seu projeto um arqivo `.gitignore` . Esse arquivo irá apontar para a plataforma quais arquivos deverão ser ignorados durante o versionamento e sincronização da sua aplicação, como sugestão indico o site:
 
 [GitIgnore IO](https://www.toptal.com/developers/gitignore), basta apontar qual linguagem você está desenvolvendo a sua aplicação que ele irá gerar automaticamente o arquivo. Após isso basta copiar o texto gerado para o arquivo no seu ambiente de desenvolvimento.
 
@@ -96,9 +93,7 @@ Se quiser ver o meu, pode consultá-lo em [.gitignore](https://raw.githubusercon
 
 Após salvar arquivo vocÊ já está pronto para realizar a integração com o GitHub, basta clicar no ícone correpondente e criar novo repositório.
 
-
 Após estes passos nosso ambiente está pronto para desenvolvimento. Espero ter ajudado com esses passos, pois são muitas informações disponíveis que muitas vezes apenas confundem mais. Caso tenha ainda alguma dúvida entre em contato.
-
 
 ## 2. Notebook
 
@@ -161,6 +156,7 @@ Iremos criar um novo arquivo com o nome `app.py` a fim de instanciar o framework
 {% highlight python %}
 
 # importando bibliotecas necessárias
+
 import numpy as np
 from flask import Flask, jsonify, request
 from flask_restful import Api, Resource
@@ -209,25 +205,23 @@ if __name__ == '__main__':
 
 {% endhighlight%}
 
-Com o arquivo pronto, iremos executá-lo usando o terminal do VSCode:
+Com o arquivo pronto, iremos executá-lo usando o terminal do VSCode: `python app.py`
 
- `python app.py`
-
-caso o arquivo esteja correto o terminal irá retornar que a API está funcionando no link http://127.0.0.1:5000/ esse link significa que temos um aplicação rodando localmente na máquina e que pode ser acessada pelo navegador web. Para tanto basta copiar e colocar o link no navegador que você utiliza.
+Caso o arquivo esteja correto o terminal irá retornar que a API está funcionando no link `http://127.0.0.1:5000/` esse link significa que temos um aplicação rodando localmente na máquina e que pode ser acessada pelo navegador web. Para tanto basta copiar e colocar o link no navegador que você utiliza.
 
 Caso seja necesário interromper o aplicativo, clique na janela do terminal e entre com as teclas `CRTL+C` e a aplicação será finalizada.
 
 ## 4. Imsomnia
 
-[documentação oficial](https://hcode.com.br/blog/usando-insomnia-para-testar-as-requisicoes-de-nossas-apis) para utilização do Imsonia
+[documentação oficial](https://hcode.com.br/blog/usando-insomnia-para-testar-as-requisicoes-de-nossas-apis) para utilização do Imsonia.
 
-### New Request
+### Criando um New Request
 
-Para realizar a requisição precisamos habilitar o Imsomina para que consiga acessar o caminho que o Flask nos forneceu
+Para realizar a requisição precisamos habilitar o Imsomina para que consiga acessar a url que o Flask nos forneceu anteriormente
 
 ![New Request](https://lh6.googleusercontent.com/U4VzAzITnEm-eny9jDlY3Eb82J3Px1dYYYgw_U1ojhpulciGXpU8nhARYeR6C3LPGf3Yre6E3Re89_TArb-w4qsXOyMiI_Q9aL_8KC6tuWU1i-RvbZek0xujqShDMH7dkHjfc-3r)
 
-### GET 
+### Criando um GET 
 
 Aqui devemos nomear nossa requisição (GET). Fique a vontade para escolher, pois esse é apenas um ambiente de testes
 
@@ -243,7 +237,7 @@ Após acionar o botão get você deverá estar vendo essa informação na tela p
 
 Na primeira vez eu havia posicionado o `:` em local errado e a API não estava funcionando. Foi necessário interromper o funcionamento, alterar o arquivo, salvar e iniciá-lo novamente.
 
-### POST
+### Criando um POST
 
 Agora que temos certeza que a API está funcionando vamos criar uma requisição do tipo POST para testar o modelo preditivo.
 
@@ -263,8 +257,19 @@ Na imagem a seguir é possível ver a API retornando com o valor previsto para o
 
 Os passos para enviar a API testada para o Heroku são:
 
+### Criando um Web App
+
+Conforme documentação oficial do Heroku para [Deploy de App com Gunicorn](https://devcenter.heroku.com/articles/python-gunicorn) o primeiro passo é criarmos um servidor HTTP para atender aos requests. O [Gunicorn](https://gunicorn.org/) é um servidor HTTP em python desenvolvido para atender entre outros aplicações WSGI. Ele permite rodar qualquer aplicação desenvolvida em Python rodando diversos processos em um simples Dyno.
+
+Para adicionarmos o gunicorn a nossa aplicação é necessário seguir as etapas:
+
 Criar um arquivo "Procfile"
-Atualizar o Procfile com web: gunicorn app:app
+Atualizar o Procfile com `web: gunicorn app:app`
+
+Feito isso basta salvar o arquivo e fechá-lo.
+
+### 
+
 pip3 freeze > requirements.txt
 git init
 heroku login

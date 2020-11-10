@@ -27,6 +27,11 @@ python code:
   print(classification_report(y_true, y_pred))
   {% endhighlight %}
 
+
+#sniptes activated: 
+  {%%} - highlight python; 
+  ![] - new images,
+
 fórmulas RegEx:
 $$ Especificidade = \frac{TN}{TN+FP} $$
 
