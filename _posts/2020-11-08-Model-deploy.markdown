@@ -4,7 +4,7 @@ title: Machine Learning Deploy
 date: 2020-11-08 00:00:00 +0300
 description: Desenvolvimento e disponibilização de um modelo de Machine Learning -  # Add post description (optional)
 img: deploy.jpg # Add image post (optional)
-tags: [Machine Learning, Deploy, Imsomnia, Heroku] # add tag
+tags: [Machine Learning, Deploy, Insomnia, Heroku] # add tag
 ---
 
 ## Desenvolvimento de um modelo de Machine Learning
@@ -211,13 +211,13 @@ Caso o arquivo esteja correto o terminal irá retornar que a API está funcionan
 
 Caso seja necesário interromper o aplicativo, clique na janela do terminal e entre com as teclas `CRTL+C` e a aplicação será finalizada.
 
-## 4. Imsomnia
+## 4. Insomnia
 
-[documentação oficial](https://hcode.com.br/blog/usando-insomnia-para-testar-as-requisicoes-de-nossas-apis) para utilização do Imsonia.
+[documentação oficial](https://hcode.com.br/blog/usando-insomnia-para-testar-as-requisicoes-de-nossas-apis) para utilização do Insomnia.
 
 ### Criando um New Request
 
-Para realizar a requisição precisamos habilitar o Imsomina para que consiga acessar a url que o Flask nos forneceu anteriormente
+Para realizar a requisição precisamos habilitar o Insomina para que consiga acessar a url que o Flask nos forneceu anteriormente
 
 ![New Request](https://lh6.googleusercontent.com/U4VzAzITnEm-eny9jDlY3Eb82J3Px1dYYYgw_U1ojhpulciGXpU8nhARYeR6C3LPGf3Yre6E3Re89_TArb-w4qsXOyMiI_Q9aL_8KC6tuWU1i-RvbZek0xujqShDMH7dkHjfc-3r)
 
@@ -227,7 +227,7 @@ Aqui devemos nomear nossa requisição (GET). Fique a vontade para escolher, poi
 
 ![Name New Request](https://lh5.googleusercontent.com/1ehII1lLGN034WBsrpPfy7Gm7ZAV4d5VoIlGwwdTgk-Eaj-KVWBSP60K_0sM9jS-l6XnapYX_9eriEpU2lzwzxzXxbxBoiXMnEBDVVEVTij1gGmVsX5Mj_sIofYUupCkZavD0AGG)
 
-O próximo passo é apontar o Imsomnia para o link que o flask nos deu:
+O próximo passo é apontar o Insomnia para o link que o flask nos deu:
 
 ![URL](https://lh4.googleusercontent.com/Tb8PBw3Y1eG9I85N3JkLTNvwCl524g_AIlbg5Aq6eo4HNxMIqzJPZ4Rw9p8ezHqdFdLcEqM8VCVxZfiMAQQ_7RovizpWgKj5RekEE_WH_6lbGVfR_AM3nzpM6H3JB9Sxv4PObYR8)
 
@@ -245,7 +245,7 @@ Para testar o modelo é necessário se lembrar de preencher todas as colunas (fe
 
 [Valores Usados](https://raw.githubusercontent.com/mabittar/imovsp/master/model/values_used.txt)
 
-Será necessário criar uma requisição, porém agora do tipo PSOT, após inserir os valores no painel do Imsomnia, clique em SEND. a API deverá retornar o valor previsto para o imóvel de acordo com as características que você inseriu.
+Será necessário criar uma requisição, porém agora do tipo PSOT, após inserir os valores no painel do Insomnia, clique em SEND. a API deverá retornar o valor previsto para o imóvel de acordo com as características que você inseriu.
 
 Caso não tenha resposta ou ocorra algum erro retorne novamente para o terminal e verifique se está apontado algum erro. Caso seja necessário corrigir algo lembre de interromper a API, editar o arquivo, salvar e iniciar novamente, para então clicar no botão SEND.
 
@@ -305,9 +305,9 @@ Apenas como exemplo, quando eu criei o documento requirements.txt estava com a b
 
 # Conclusão
 
-Após todas as etapas nosso modelo de Machine Learning está funcionando na nuvem, agora é possível subsituir no Imsomnia a url antiga http://127.0.0.1/ pela url fornecida pelo Heroku.
+Após todas as etapas nosso modelo de Machine Learning está funcionando na nuvem, agora é possível subsituir no Insomnia a url antiga http://127.0.0.1/ pela url fornecida pelo Heroku.
 
-Você pode consultar meu app em: [https://imovsp.herokuapp.com/](https://imovsp.herokuapp.com/). Usando o Imsomnia é possível fazer um post (pode usar o exemplo das features do arquivo [valores usados](https://raw.githubusercontent.com/mabittar/imovsp/master/model/values_used.txt)) e fazer um previsão de preço do imóvel que deseja consultar.
+Você pode consultar meu app em: [https://imovsp.herokuapp.com/](https://imovsp.herokuapp.com/). Usando o Insomnia é possível fazer um post (pode usar o exemplo das features do arquivo [valores usados](https://raw.githubusercontent.com/mabittar/imovsp/master/model/values_used.txt)) e fazer um previsão de preço do imóvel que deseja consultar.
 
 Como visto é um trabalho extenso e acaba envolvendo parte de desenvolvimento web, requisções para servidores e etc. Esse temas acabam fugindo da área de conhecimento da ciência de dados. 
 
