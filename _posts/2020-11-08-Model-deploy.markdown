@@ -40,7 +40,7 @@ O `virtualenv` evita a necessidade de instalar pacotes globalmente. Quando um vi
 
 O nosso plano será preparar um ambiente windows de desenvolvimento, para criarmos um modelo de Machine Learning, a partir de um notebook criado no ambiente virtual de forma a receber novas consultas no formato json e retornar um valor de previsão de venda para um imóvel em São Paulo. 
 
-A paritr do notebook iremos exportar o modelo de Machine Learning. Com o [Insomnia](https://insomnia.rest/) iremos certificarnos que a API está recebendo corretametne os dados e retornando  valor desejado. Com a confirmação do teste, iremos exportar a API para o ambiente web utilizando o [Heroku](https://heroku.com/) a fim de disponibilizarmos para consultas na online de forma independente do ambiente virtual que .
+A paritr do notebook iremos exportar o modelo de Machine Learning. Com o [Insomnia](https://insomnia.rest/) iremos certificar que a API está recebendo corretametne os dados e retornando o valor desejado. Com a confirmação do teste, iremos exportar a API para o ambiente web utilizando o [Heroku](https://heroku.com/) a fim de disponibilizarmos para consultas na online de forma independente do ambiente virtual que fizemos o desenvolvimento.
 
 ### Instalação do Python
 
@@ -58,9 +58,9 @@ O vídeo pode ser acessado diretamente neste [link](https://youtu.be/28eLP22SMTA
 
    - Caso você esteja refazendo esses passos e seja necessário instalar alguma das bilbiotecas basta repetir o comando `pip install biblioteca_desejada` , por exemplo adiante iremos utilizar o flask e algumas bibliotecas, para instalar eu utilizei `pip install flask-restful flask gunicorn` .
 
-   - Aproveito para utilizar o gancho aqui, que ao final do desenvolvimento iremos utilizar o comando `pip freeze > requirements.txt` a fim de gerar um lista de todas as bibliotecas que utilizamos durante o desenvolvimento.
+   - Aproveito para utilizar o gancho aqui, que ao final do desenvolvimento iremos utilizar o comando `pip freeze > requirements.txt` a fim de exportar um lista com todas as bibliotecas que utilizamos durante o desenvolvimento.
 
-   - O python irá ser acionado com o comando direto `python` , após o enter você verá o prompt inciaindo com  >>. Para desativar o ambiente virtual basta entrar com o comando `deactivate` .
+   - No ambiente virtual o python poderá ser acionado diretamento com `python` , após o enter você verá o prompt inciaindo com  >>>. Para desativar o ambiente virtual basta entrar com o comando `deactivate` .
 
 ### Visual Studio Code ou VSCode
 
