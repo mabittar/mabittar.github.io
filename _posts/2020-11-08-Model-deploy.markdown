@@ -17,7 +17,7 @@ Outra resposta seria a desconexão entre profissionais de TI e cientistas de dad
 
 Um artigo muito interessante sobre a dificuldade desta etapa pode ser visto no post do [KDnuggtes](https://www.kdnuggets.com/2019/10/machine-learning-deployment-hard.html).
 
-Nesse post irei abordar os passos necessários para disponibilizar uma API de previsão de valores para imóveis treinada com Machine Learning. O post detalha o próximo passo após os passos iniciais do fluxo de um projeto de Machine Learning: entendimento do problema, aquisição e tratamento dos dados; criação de hipóteses; definição, avaliação e validação do modelo de machine learning; validação das hipóteses.
+Nesse post irei abordar os passos necessários para disponibilizar uma API que faz a previsão de valor para imóveis basead anas características do imóvel, a API foi treinada com Machine Learning. O post detalha os passos necessários para completar a etapa de deploy no fluxo de um projeto de Machine Learning, conforme pode ser visto na figura seguinte.
 
 ![AWS Machine Learning Flow](/assets/img/deploy2.gif)
 
