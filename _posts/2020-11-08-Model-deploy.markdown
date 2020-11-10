@@ -2,7 +2,7 @@
 layout: post
 title: Machine Learning Deploy 
 date: 2020-11-08 00:00:00 +0300
-description: Desenvolvimento e disponibilização de um modelo de Machine Learnin -  # Add post description (optional)
+description: Desenvolvimento e disponibilização de um modelo de Machine Learning -  # Add post description (optional)
 img: deploy.jpg # Add image post (optional)
 tags: [Machine Learning, Deploy, Imsomnia, Heroku] # add tag
 ---
@@ -34,7 +34,7 @@ Desenvolver um aplicativo limita você a uma versão específica da linguagem e 
 
 Em um ambiente virtual, ou `virtualenv` são instalações leves e independentes, projetadas para serem configuradas com o mínimo de confusão e "simplesmente funcionar" sem exigir configuração extensiva ou conhecimento especializado.
 
-O `virtualenv` evita a necessidade de instalar pacotes globalmente. Quando um virtualenv está ativo, em Python pro exemplo, o pip instala pacotes no ambiente, o que não afeta a instalação base do Python que foi realizada no sistema operacional de forma alguma.
+O `virtualenv` evita a necessidade de instalar pacotes globalmente. Quando um virtualenv está ativo, em Python por exemplo, o pip instala pacotes no ambiente, o que não afeta a instalação base do Python que foi realizada no sistema operacional de forma alguma.
 
 ### O Plano
 
@@ -64,7 +64,7 @@ O vídeo pode ser acessado diretamente neste [link](https://youtu.be/28eLP22SMTA
 
 ### Visual Studio Code ou VSCode
 
-Largamente utiizado pela industria o [VSCode](https://code.visualstudio.com/) é a IDE desenvolvida pela Microsoft com uma série de facilidades embutidas.
+Largamente utiizado por desenvolvedores o [VSCode](https://code.visualstudio.com/) é a IDE da Microsoft com uma série de facilidades embutidas.
 
 Todas as etapas que vimos no passo 1.1 podem se feitas diretamente no VSCode. Como há muitas referênciaspara configuração do ambiente na web e a própria documentação desenvolvida pela MS é ampla, vou passar apenas pelos pontos que tive dificuldade.
 
@@ -84,14 +84,14 @@ Antes de clicar e iniciar um novo repositório, crie na raíz do seu projeto um 
 
 [GitIgnore IO](https://www.toptal.com/developers/gitignore), basta apontar qual linguagem você está desenvolvendo a sua aplicação que ele irá gerar automaticamente o arquivo. Após isso basta copiar o texto gerado para o arquivo no seu ambiente de desenvolvimento.
 
-Lembre-se de acrescentar também, em qualquer lugar:
+Lembre de acrescentar também, em qualquer lugar:
 
-.vscode (para evitar a sincronização da sua configuração do VSCode local)
-[sS]cripts/ (para evitar o envio dos scripts de criação do ambiente virtual)
+* `.vscode` (para evitar a sincronização da sua configuração do VSCode local)
+* `[sS]cripts/` (para evitar o envio dos scripts de criação do ambiente virtual)
 
 Se quiser ver o meu, pode consultá-lo em [.gitignore](https://raw.githubusercontent.com/mabittar/imovsp/master/.gitignore)
 
-Após salvar arquivo vocÊ já está pronto para realizar a integração com o GitHub, basta clicar no ícone correpondente e criar novo repositório.
+Após salvar arquivo você já está pronto para realizar a integração com o GitHub, basta clicar no ícone correpondente e criar o repositório.
 
 Após estes passos nosso ambiente está pronto para desenvolvimento. Espero ter ajudado com esses passos, pois são muitas informações disponíveis que muitas vezes apenas confundem mais. Caso tenha ainda alguma dúvida entre em contato.
 
@@ -151,7 +151,7 @@ Com nosso modelo pronto e salvo, é hora de criarmos a API utilizando o framewor
 
 A documentação sobre o Flask pode ser acessada [aqui](https://flask.palletsprojects.com/en/1.1.x/quickstart/).
 
-Iremos criar um novo arquivo com o nome `app.py` a fim de instanciar o framework, carregar o modelo (exportado do passo anteior), uma classe com a definição de GET e POST e iremos acrescentar tudo a API.
+Iremos criar um arquivo com o nome `app.py` a fim de instanciar o framework, carregar o modelo (exportado do passo anteior), uma classe com a definição de GET e POST e iremos acrescentar tudo a API.
 
 {% highlight python %}
 
@@ -232,7 +232,7 @@ O próximo passo é apontar o Imsomnia para o link que o flask nos deu:
 ![URL](https://lh4.googleusercontent.com/Tb8PBw3Y1eG9I85N3JkLTNvwCl524g_AIlbg5Aq6eo4HNxMIqzJPZ4Rw9p8ezHqdFdLcEqM8VCVxZfiMAQQ_7RovizpWgKj5RekEE_WH_6lbGVfR_AM3nzpM6H3JB9Sxv4PObYR8)
 
 Após informar a URL da API basta clicar no botão send.
-Lembre-se que durante a criação da API em flask definimos um posição para GET, no meu caso utilizei meu nome e meu contato.
+Lembre que durante a criação da API em flask definimos um posição para GET, no meu caso utilizei meu nome e meu contato.
 Após acionar o botão get você deverá estar vendo essa informação na tela para certificar que a API está em funcionamento, caso não tenh visto a mensagem retorne na IDE, para mim era o VSCode e veja no painel de terminal se há algum erro.
 
 Na primeira vez eu havia posicionado o `:` em local errado e a API não estava funcionando. Foi necessário interromper o funcionamento, alterar o arquivo, salvar e iniciá-lo novamente.
@@ -245,9 +245,9 @@ Para testar o modelo é necessário se lembrar de preencher todas as colunas (fe
 
 [Valores Usados](https://raw.githubusercontent.com/mabittar/imovsp/master/model/values_used.txt)
 
-Será necessário criar uma nova requisição, porém agora do tipo PSOT, após inserir os valores no painel do Imsomnia, clique em SEND. a API deverá retornar o valor previsto para o imóvel de acordo com as características que você inseriu.
+Será necessário criar uma requisição, porém agora do tipo PSOT, após inserir os valores no painel do Imsomnia, clique em SEND. a API deverá retornar o valor previsto para o imóvel de acordo com as características que você inseriu.
 
-Caso não tenha resposta ou ocorra algum erro retorne novamente para o terminal e verifique se está apontado algum erro. Caso seja necessário corrigir algo lembre-se de interromper a API, editar o arquivo, salvar e iniciar novamente, para então clicar no botão SEND.
+Caso não tenha resposta ou ocorra algum erro retorne novamente para o terminal e verifique se está apontado algum erro. Caso seja necessário corrigir algo lembre de interromper a API, editar o arquivo, salvar e iniciar novamente, para então clicar no botão SEND.
 
 Na imagem a seguir é possível ver a API retornando com o valor previsto para o imóvel com as características desejadas.
 
@@ -263,21 +263,39 @@ Conforme documentação oficial do Heroku para [Deploy de App com Gunicorn](http
 
 Para adicionarmos o gunicorn a nossa aplicação é necessário seguir as etapas:
 
-Criar um arquivo "Procfile"
-Atualizar o Procfile com `web: gunicorn app:app`
+Criar um arquivo "procfile"
+
+Neste passo é necessário que você tenha o gunicorn instalado. Caso seja necessário use `pip install gunicorn` .
+
+Na sequência edite o procfile criado e insira simplesmente `web: gunicorn app:app` .
 
 Feito isso basta salvar o arquivo e fechá-lo.
 
 ### Exportando as bibliotecas utilizadas
 
-pip3 freeze > requirements.txt
-git init
-heroku login
-heroku create nomedasuaapp
-git add .
-git commit -m "Text do Commit"
-heroku git:remote -a nomedasuaapp
-git push heroku master
+Novamente no terminal do VSCode entre com o comando `pip3 freeze > requirements.txt` . 
+
+Poderá reperar que foi criado um arquivo requirements.txt onde estão listadas todas as bibliotecas utilizadas no desenvolvimento da aplicação, desde a versão do python utilizada e as bibliotecas instaladas pelo VSCode.
+
+### Upload da aplicação para o Heroku
+
+Finalamente iremos iniciar a última etapa do deploy da aplicação. A documentação oficial pode ser consultada [aqui](https://dashboard.heroku.com/apps/imovsp/deploy/heroku-git)
+
+Volte ao terminal do VSCode e insira os comandos:
+
+`git init` para iniciar o repositório local de arquivos (esse comando já foi utilziado anteriormente, porém de forma automática quando foi feita a sincronia com o repositório na web ou GitHub).
+
+`heroku login` nesse momento irá aparecer um pop-up para você logar na sua conta do Heroku, caso ainda não tenha se cadastrado esse é o momento.
+
+`heroku create nomedasuaapp` substitua o *nomedasuaapp* pelo nome do seu aplicativo
+
+`git add .` esse é o passo para preparar todos os arquivos a serem *commitados* e enviados aos Heroku
+
+`git commit -m "Text do Commit"` substitua *Text do Commit* para um texto de controle de versões, que seja fácil de você lembrar quais foram as alterações realizadas por exemplo *first commit* lembre de manter as aspas, pois faz parte da sintaxe.
+
+`heroku git:remote -a nomedasuaapp` substitua o *nomedasuaapp* pelo nome do seu aplicativo informado anteriormente
+
+`git push heroku master` esse será o passo para upload da sua aplicação. Aguarde o envio dos arquivos e na sequência acompanhe a montagem (build) do seu aplicativo.
 
 Durante o upload dos arquivos utilizando o git push tive diversas dificuldades, pois algumas bilbiotecas que eu havia utilizado para desenvolvimento não estavam disponíveis no Heroku, mas com um olhar mais atento pude perceber que tais bibliotecas foram instaladas pelo VSCode e não iriam interferir com o funcionamento do modelo desenvolvido. Para tanto alterei no arquivo `requirements.txt` as versões das bibliotecas que eu utilizei com as que estavam disponíveis no momento em que eu fiz o deploy no Heroku. Na mesma linha de comando que você acompanha o envio dos arquivos para a web será possível observar quais as versões das bibliotecas que estão disponíveis. Tal erro vai aparecer após o envio dos arquivos, quando o Heroky estiver montando a aplicação.
 
@@ -287,10 +305,14 @@ Apenas como exemplo, quando eu criei o documento requirements.txt estava com a b
 
 # Conclusão
 
-Apesar de tudo a cadeia de Machine Learning ainda está em seus estágios iniciais. Na verdade, os componentes de software e hardware estão em constante evolução para atender às demandas atuais do ML.
+Após todas as etapas nosso modelo de Machine Learning está funcionando na nuvem, agora é possível subsituir no Imsomnia a url antiga http://127.0.0.1/ pela url fornecida pelo Heroku.
 
-Docker / Kubernetes e arquitetura de microsserviços podem ser empregados para resolver os desafios de heterogeneidade e infraestrutura. As ferramentas existentes podem resolver muito alguns problemas individualmente. 
+Você pode consultar meu app em: [https://imovsp.herokuapp.com/](https://imovsp.herokuapp.com/). Usando o Imsomnia é possível fazer um post (pode usar o exemplo das features do arquivo [valores usados](https://raw.githubusercontent.com/mabittar/imovsp/master/model/values_used.txt)) e fazer um previsão de preço do imóvel que deseja consultar.
+
+Como visto é um trabalho extenso e acaba envolvendo parte de desenvolvimento web, requisções para servidores e etc. Esse temas acabam fugindo da área de conhecimento da ciência de dados. 
 
 Implantar Machine Learning em empresas é e continuará sendo difícil, e isso é apenas uma realidade com a qual as organizações precisarão lidar. Felizmente, algumas novas arquiteturas e produtos estão ajudando os cientistas de dados. Além disso, à medida que mais empresas estão escalando as operações de ciência de dados, elas também implementam ferramentas que tornam a implantação do modelo mais fácil.
+
+Apesar de tudo a cadeia de Machine Learning ainda está em seus estágios iniciais. Na verdade, os componentes de software e hardware estão em constante evolução para atender às demandas atuais do ML. Docker / Kubernetes e arquitetura de microsserviços podem ser empregados para resolver os desafios de heterogeneidade e infraestrutura. As ferramentas existentes podem resolver muito alguns problemas individualmente. 
 
 Em empresas internacionais acredito que reunir todas essas ferramentas para operacionalizar o ML é o maior desafio hoje, porém em empresas nacionais continua sendo a questão de aquisição e tratamento de dados, portanto ainda estamos engatinhando no processo.
