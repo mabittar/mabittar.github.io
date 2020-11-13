@@ -9,6 +9,11 @@ tags: [Machine Learning, Deploy, Insomnia, Heroku] # add tag
 
 ## Desenvolvimento de um modelo de Machine Learning
 
+Nesse post irei abordar os passos necessários para disponibilizar uma API que faz a previsão do valor de imóveis reinada com Machine Learning. Ao final da leitura você irá ver quais são os passos necessários para completar mais uma etapa do ciclo.
+
+![Deploy AI](/assets/imgs/deploy-ia-prediction.jpeg)
+
+
 Por que aproximadamente 90% dos modelos de Machine Learning não evoluem de um trabalho acadêmico ou de um notebook no Google Colab para um modelo online para alimentar outras aplicações?
 
 Uma das respostas para a pergunta inicial é que a maioria das organizações ainda não estão familiarizadas com a tecnologia e ferramentas similares, muito menos possuem hardware necessários para tal, como GPU´s e ambientes em nuvem.
@@ -17,9 +22,10 @@ Outra resposta seria a desconexão entre profissionais de TI e cientistas de dad
 
 Um artigo muito interessante sobre a dificuldade desta etapa pode ser visto no [post](https://www.kdnuggets.com/2019/10/machine-learning-deployment-hard.html).
 
-Nesse post irei abordar os passos necessários para disponibilizar uma API que faz a previsão de valor para imóveis baseada nas características do imóvel, tal API será treinada com Machine Learning. Iremos ver quais são passos necessários para completar a etapa de deploy no fluxo de um projeto de Machine Learning, conforme pode ser visto na figura seguinte.
+Voltando ao tema desse post a imagem a seguir demonstra o ciclo de vida de um projeto completo. É possivel obsevar que uma das etapas necessárias é o deploy do modelo. Por isso precisamos entender também quais são os passos necessários para realizar essa etapa. 
 
 ![AWS Machine Learning Flow](/assets/img/deploy2.gif)
+
 
 Irei abordar nesse post como preparar o ambiente Windows para desenvolvimento de software, ilustrar brevemente o modelo de Machine Learning criado e de forma mais abrangente a sequência para que esse modelo não fique limitado somente ao seu computador, mas que fique disponível para acesso online.
 
