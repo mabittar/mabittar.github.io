@@ -9,12 +9,12 @@ tags: [Machine Learning, Deploy, Insomnia, Heroku] # add tag
 
 ## Desenvolvimento de um modelo de Machine Learning
 
-Nesse post irei abordar os passos necessários para disponibilizar uma API que faz a previsão do valor de imóveis reinada com Machine Learning. Ao final da leitura você irá ver quais são os passos necessários para completar mais uma etapa do ciclo.
+Nesse post irei abordar os passos necessários para disponibilizar uma API que faz a previsão do valor de imóveis treinada com Machine Learning. Ao final da leitura você irá ver quais são os passos necessários para completar esta etapa.
 
 ![Deploy AI](/assets/img/deploy-ia-prediction.jpeg)
 
 
-Por que aproximadamente 90% dos modelos de Machine Learning não evoluem de um trabalho acadêmico ou de um notebook no Google Colab para um modelo online para alimentar outras aplicações?
+Por que aproximadamente 90% dos modelos de Machine Learning não evoluem de um trabalho acadêmico ou de um notebook no Google Colab para um modelo online que alimente outras aplicações?
 
 Uma das respostas para a pergunta inicial é que a maioria das organizações ainda não estão familiarizadas com a tecnologia e ferramentas similares, muito menos possuem hardware necessários para tal, como GPU´s e ambientes em nuvem.
 
