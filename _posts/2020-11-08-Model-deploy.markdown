@@ -11,7 +11,7 @@ tags: [Machine Learning, Deploy, Insomnia, Heroku] # add tag
 
 Nesse post irei abordar os passos necessários para disponibilizar uma API que faz a previsão do valor de imóveis reinada com Machine Learning. Ao final da leitura você irá ver quais são os passos necessários para completar mais uma etapa do ciclo.
 
-![Deploy AI](/assets/imgs/deploy-ia-prediction.jpeg)
+![Deploy AI](/assets/img/deploy-ia-prediction.jpeg)
 
 
 Por que aproximadamente 90% dos modelos de Machine Learning não evoluem de um trabalho acadêmico ou de um notebook no Google Colab para um modelo online para alimentar outras aplicações?
