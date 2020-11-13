@@ -9,13 +9,13 @@ tags: [Machine Learning, Deploy, Insomnia, Heroku] # add tag
 
 ## Desenvolvimento de um modelo de Machine Learning
 
-Por que aproximadamente 90% dos modelos de Machine Learning não evoluem de um trabalho acadêmico ou de um notebook no Google Colab para um modelo online, para que possa alimentar outras aplicações?
+Por que aproximadamente 90% dos modelos de Machine Learning não evoluem de um trabalho acadêmico ou de um notebook no Google Colab para um modelo online para alimentar outras aplicações?
 
-Uma das respostas para a pergunta incial é que a maioria das orgnizações ainda não estão familiarizadas com a tecnologia e ferramentas similares, muito menos possuem hardware necessários para tal, como GPU´s e ambientes em nuvem.
+Uma das respostas para a pergunta inicial é que a maioria das organizações ainda não estão familiarizadas com a tecnologia e ferramentas similares, muito menos possuem hardware necessários para tal, como GPU´s e ambientes em nuvem.
 
-Outra resposta seria a desconexão entre profissionais de TI e cientistas de dados e engenheiros de Machine Learning. Profissinais de TI tendem a prover um ambiente estável e confiável, em contra partida profissinais que lidam com Machine Learning focam em iterações e experimentação.
+Outra resposta seria a desconexão entre profissionais de TI e cientistas de dados e engenheiros de Machine Learning. Profissionais de TI tendem a prover um ambiente estável e confiável, em contra partida profissionais  que lidam com Machine Learning focam em iterações e experimentação.
 
-Um artigo muito interessante sobre a dificuldade desta etapa pode ser visto no post do [KDnuggtes](https://www.kdnuggets.com/2019/10/machine-learning-deployment-hard.html).
+Um artigo muito interessante sobre a dificuldade desta etapa pode ser visto no [post](https://www.kdnuggets.com/2019/10/machine-learning-deployment-hard.html).
 
 Nesse post irei abordar os passos necessários para disponibilizar uma API que faz a previsão de valor para imóveis baseada nas características do imóvel, tal API será treinada com Machine Learning. Iremos ver quais são passos necessários para completar a etapa de deploy no fluxo de um projeto de Machine Learning, conforme pode ser visto na figura seguinte.
 
@@ -24,13 +24,13 @@ Nesse post irei abordar os passos necessários para disponibilizar uma API que f
 Irei abordar nesse post como preparar o ambiente Windows para desenvolvimento de software, ilustrar brevemente o modelo de Machine Learning criado e de forma mais abrangente a sequência para que esse modelo não fique limitado somente ao seu computador, mas que fique disponível para acesso online.
 
 Todo o conteúdo desenvolvido está sincronizado com o [repositório](https://github.com/mabittar/imovsp/tree/master) desse projeto.
-Deixo aqui me reconhecimento e agradeciamento ao curso que provocou esse post. Mais sobre o curso pode ser visto em: [https://sigmoidal.ai](https://sigmoidal.ai).
+Deixo aqui me reconhecimento e agradecimento ao curso que provocou esse post. Mais sobre o curso pode ser visto em: [https://sigmoidal.ai](https://sigmoidal.ai).
 
 ## 1. Preparação do ambiente
 
 Em um ponto ou outro quando trabalhamos com desenvolvimento de software acabamos por nos deparar com ambientes virtuais. Essa é uma boa prática e altamente recomendável.
 
-Desenvolver um aplicativo limita você a uma versão específica da linguagem e das bilbiotecas que utilizou para o desenvolvimento, instalados em seu sistema operacional. Tentar executar todos os aplicativos em uma única instalação torna provável que ocorram conflitos de versões entre coleções de bibliotecas. Também é possível que mudanças no sistema operacional quebrem outros recursos de desenvolvimento que dependem dele.
+Desenvolver um aplicativo limita você a uma versão específica da linguagem e das bibliotecas que utilizou para o desenvolvimento, instalados em seu sistema operacional. Tentar executar todos os aplicativos em uma única instalação torna provável que ocorram conflitos de versões entre coleções de bibliotecas. Também é possível que mudanças no sistema operacional quebrem outros recursos de desenvolvimento que dependem dele.
 
 O ambiente virtual, ou `virtualenv` são instalações leves e independentes, projetadas para serem configuradas com o mínimo de confusão e "simplesmente funcionar" sem exigir configuração extensiva ou conhecimento especializado.
 
@@ -40,7 +40,7 @@ O `virtualenv` evita a necessidade de instalar pacotes globalmente. Quando um vi
 
 O nosso plano será preparar um ambiente windows de desenvolvimento, para criarmos um modelo de Machine Learning, a partir de um notebook criado no ambiente virtual de forma a receber novas consultas no formato json e retornar um valor de previsão de venda para um imóvel em São Paulo. 
 
-A paritr do notebook iremos exportar o modelo de Machine Learning. Com o [Insomnia](https://insomnia.rest/) iremos certificar que a API está recebendo corretametne os dados e retornando o valor desejado. Com a confirmação do teste, iremos exportar a API para o ambiente web utilizando o [Heroku](https://heroku.com/) a fim de disponibilizarmos para consultas na online de forma independente do ambiente virtual que fizemos o desenvolvimento.
+A partir do notebook iremos exportar o modelo de Machine Learning. Com o [Insomnia](https://insomnia.rest/) iremos certificar que a API está recebendo corretamente os dados e retornando o valor desejado. Com a confirmação do teste, iremos exportar a API para o ambiente web utilizando o [Heroku](https://heroku.com/) a fim de disponibilizarmos para consultas na online de forma independente do ambiente virtual que fizemos o desenvolvimento.
 
 ### Instalação do Python
 
@@ -50,27 +50,27 @@ Para alguns pode complicar um pouco, pois o tutorial está em inglês, porém a 
 
 O vídeo pode ser acessado diretamente neste [link](https://youtu.be/28eLP22SMTA), vou reproduzir aqui algumas anotações que fiz:
 
- - Durante a instalção não adicione o python ao PATH do windows. A princípio pode ser um incômodo toda vez que for utilziar o comando python para iniciar uma aplicação será necessário digitar o caminho completo, por exemplo: `c:\python\386\python` mas repare que dessa forma vc é capaz de escolher qual versão do python desejará utilizar e se você manter o padrão aos selecionar a pasta de instalação poderá ter mais de um versão em seu computador, sem comprometer o que já havia sido criado.
+ - Durante a instalação não adicione o python ao PATH do windows. A princípio pode ser um incômodo toda vez que for utilizar o comando python para iniciar uma aplicação será necessário digitar o caminho completo, por exemplo: `c:\python\386\python` mas repare que dessa forma vc é capaz de escolher qual versão do python desejará utilizar e se você manter o padrão aos selecionar a pasta de instalação poderá ter mais de um versão em seu computador, sem comprometer o que já havia sido criado.
 
   + Com o python instalado, a partir da versão 3.3, já é possível criar prontamente um ambiente virtual, pois já possui com as bibliotecas necessárias. Para tanto no terminal do windows (tecla windows + r -> digite cmd.exe e tecle enter), acesse a pasta onde deseja criar o seu projeto. Aqui fica mais uma dica para que você crie uma pasta de projetos no seu hd, por exemplo: `c:\pyprojeto` para acessar a pasta digite `cd\pyprojeto`, uma vez dentro da pasta entre com o seguinte comando para criar o ambiente virtual `c:\pasta_de_instalação_python\python -m venv nome_projeto` substituindo pasta_de_instalação_python pelo caminho onde seu python foi instalado e no lugar de nome_projeto o nome do seu projeto, para mim ficou: `c:\python\386\python -m venv imovsp`. Aguarde um tempo, pois seu projeto estará em criação.
 
-   - Após a criação do ambiente virtual será necessário ativá-lo, para isso entre com o comando: `nome_projeto\Scripts\activate` , mais uma vez será necessário substituir name_projeto pelo nome que você deu ao seu projeto, no meu caso ficou assim: `imovsp\Scripts\activate` . Você poderá obserar na linha de comando que o nome do projeto estará entre parênteses `(imvosp) c:\pyprojeto\imovsp` isso significa que o ambiente virtual está ativado e as bibliotecas que futuramente forem instaladas utilizando o comando pip, por exemplo: `pip install pandas numpy` ficarão restritas a esse ambiente.
+   - Após a criação do ambiente virtual será necessário ativá-lo, para isso entre com o comando: `nome_projeto\Scripts\activate` , mais uma vez será necessário substituir name_projeto pelo nome que você deu ao seu projeto, no meu caso ficou assim: `imovsp\Scripts\activate` . Você poderá observar na linha de comando que o nome do projeto estará entre parênteses `(imvosp) c:\pyprojeto\imovsp` isso significa que o ambiente virtual está ativado e as bibliotecas que futuramente forem instaladas utilizando o comando pip, por exemplo: `pip install pandas numpy` ficarão restritas a esse ambiente.
 
-   - Caso você esteja refazendo esses passos e seja necessário instalar alguma das bilbiotecas basta repetir o comando `pip install biblioteca_desejada` , por exemplo adiante iremos utilizar o flask e algumas bibliotecas, para instalar eu utilizei `pip install flask-restful flask gunicorn` .
+   - Caso você esteja refazendo esses passos e seja necessário instalar alguma das bibliotecas basta repetir o comando `pip install biblioteca_desejada` , por exemplo adiante iremos utilizar o flask e algumas bibliotecas, para instalar eu utilizei `pip install flask-restful flask gunicorn` .
 
    - Aproveito para utilizar o gancho aqui, que ao final do desenvolvimento iremos utilizar o comando `pip freeze > requirements.txt` a fim de exportar um lista com todas as bibliotecas que utilizamos durante o desenvolvimento.
 
-   - No ambiente virtual o python poderá ser acionado diretamento com `python` , após o enter você verá o prompt inciaindo com  >>>. Para desativar o ambiente virtual basta entrar com o comando `deactivate` .
+   - No ambiente virtual o python poderá ser acionado diretamente com `python` , após o enter você verá o prompt inciaindo com  >>>. Para desativar o ambiente virtual basta entrar com o comando `deactivate` .
 
 ### Visual Studio Code ou VSCode
 
-Largamente utiizado por desenvolvedores o [VSCode](https://code.visualstudio.com/) é a IDE da Microsoft com uma série de facilidades embutidas.
+Largamente utilizado por desenvolvedores o [VSCode](https://code.visualstudio.com/) é a IDE da Microsoft com uma série de facilidades embutidas.
 
-Todas as etapas que vimos no passo 1.1 podem se feitas diretamente no VSCode. Como há muitas referênciaspara configuração do ambiente na web e a própria documentação desenvolvida pela MS é ampla, vou passar apenas pelos pontos que tive dificuldade.
+Todas as etapas que vimos no passo 1.1 podem se feitas diretamente no VSCode. Como há muitas referências para configuração do ambiente na web e a própria documentação desenvolvida pela MS é ampla, vou passar apenas pelos pontos que tive dificuldade.
 
-Vale ressaltar que a principal facilidade do VSCode é trabalhar com diversas extensões, criando uma infinidade de facilidades. Se você ainda não o utilizou após as atualizações em 2019 vale conhecê-lo ou mesmo se você utiliza outras IDE´s vai ficar impressinado com as facilidades de importação de todas as configurção para a nova IDE.
+Vale ressaltar que a principal facilidade do VSCode é trabalhar com diversas extensões, criando uma infinidade de facilidades. Se você ainda não o utilizou após as atualizações em 2019 vale conhecê-lo ou mesmo se você utiliza outras IDE´s vai ficar impressionado com as facilidades de importação de todas as configuração para a nova IDE.
 
-Em relação as dificuldades encontradas posso destacar principalmente a minha falta de experiência para lidar com o software me si, apesar da minha vontade em aprender programação e disciplinas ligadas a inteligência artifical, estava muito acustumado com o ambiente do [Google Colab](https://colab.research.google.com/github/tensorflow/examples/blob/master/courses/udacity_intro_to_tensorflow_for_deep_learning/l01c01_introduction_to_colab_and_python.ipynb). Sair da zona de conforto nos possibilita novos aprendizados e favorece o nosso desenvolvimento.
+Em relação as dificuldades encontradas posso destacar principalmente a minha falta de experiência para lidar com o software me si, apesar da minha vontade em aprender programação e disciplinas ligadas a inteligência artificial, estava muito acostumado com o ambiente do [Google Colab](https://colab.research.google.com/github/tensorflow/examples/blob/master/courses/udacity_intro_to_tensorflow_for_deep_learning/l01c01_introduction_to_colab_and_python.ipynb). Sair da zona de conforto nos possibilita novos aprendizados e favorece o nosso desenvolvimento.
 
 Novamente apoiei em um dos vídeos do Corey Schafer [Setting up a Python Development Environment](https://youtu.be/-nh9rCzPJ20), o vídeo possui mais de uma 1hora de gravação, bem extenso passando por diversas possibilidades com muito detalhes e dicas, vale muito a pena para evitar algumas dores de cabeça.
 
@@ -80,18 +80,18 @@ Outra facilidade do VScode é a integração nativa com o GitHub, basta clicar n
 
 ![GitHub Interation](https://code.visualstudio.com/assets/docs/editor/github/clone-from-github.gif)
 
-Antes de clicar e iniciar um novo repositório, crie na raíz do seu projeto um arqivo `.gitignore` . Esse arquivo irá apontar para a plataforma quais arquivos deverão ser ignorados durante o versionamento e sincronização da sua aplicação, como sugestão indico o site:
+Antes de clicar e iniciar um novo repositório, crie na raiz do seu projeto um arquivo `.gitignore` . Esse arquivo irá apontar para a plataforma quais arquivos deverão ser ignorados durante o versionamento e sincronização da sua aplicação, como sugestão indico o site:
 
 [GitIgnore IO](https://www.toptal.com/developers/gitignore), basta apontar qual linguagem você está desenvolvendo a sua aplicação que ele irá gerar automaticamente o arquivo. Após isso basta copiar o texto gerado para o arquivo no seu ambiente de desenvolvimento.
 
-Lembre de acrescentar também, em qualquer lugar:
+Lembre-se  de acrescentar também, em qualquer lugar:
 
 * `.vscode` (para evitar a sincronização da sua configuração do VSCode local)
 * `[sS]cripts/` (para evitar o envio dos scripts de criação do ambiente virtual)
 
 Se quiser ver o meu, pode consultá-lo em [.gitignore](https://raw.githubusercontent.com/mabittar/imovsp/master/.gitignore)
 
-Após salvar arquivo você já está pronto para realizar a integração com o GitHub, basta clicar no ícone correpondente e criar o repositório.
+Após salvar arquivo você já está pronto para realizar a integração com o GitHub, basta clicar no ícone correspondente e criar o repositório.
 
 Após estes passos nosso ambiente está pronto para desenvolvimento. Espero ter ajudado com esses passos, pois são muitas informações disponíveis que muitas vezes apenas confundem mais. Caso tenha ainda alguma dúvida entre em contato.
 
@@ -99,13 +99,13 @@ Após estes passos nosso ambiente está pronto para desenvolvimento. Espero ter 
 
 O notebook desenvolvido pode ser acessado no link [notebook](https://github.com/mabittar/imovsp/blob/master/model.ipynb)
 
-O obetivo desse post são os passos necessários para o deploy de uma aplicação com base em Machine Learning, a etapa de análise exploratória de dados foi propositalmente suprimida.
+O objetivo desse post são os passos necessários para o deploy de uma aplicação com base em Machine Learning, a etapa de análise exploratória de dados foi propositalmente suprimida.
 
-notebook irei treinar um modelo para fazer a previsão do proço de venda para imóveis em São Paulo, entretanto o objetivo final é fazer o deploy de um modelo para fazer a alimenação de uma aplicação web.
+notebook irei treinar um modelo para fazer a previsão do preço de venda para imóveis em São Paulo, entretanto o objetivo final é fazer o deploy de um modelo para fazer a alimentação de uma aplicação web.
 
 Os dados utilizados foram obtidos no [link](https://www.kaggle.com/argonalyst/sao-paulo-real-estate-sale-rent-april-2019) e os dados foram tratados pelo [Carlos Melo](https://sigmodail.ai).
 
-Entretando irei demonstrar como exportar o modelo treinado e as variáveis utilizadas, para que possam ser utilizados em uma aplicação web.
+Entretanto irei demonstrar como exportar o modelo treinado e as variáveis utilizadas, para que possam ser utilizados em uma aplicação web.
 
 ### Salvado o modelo
 
@@ -119,7 +119,7 @@ dump(model, 'model\\model.joblib')
 
 o comando irá exportar o modelo criado com o instância model e salvá-lo na pasta model com o nome e extensão model.joblib.
 
-Entratando para utilizá-lo será necessário exportar também as features (variáveis) utilizadas durante o aprendizado, para tanto utilize:
+Entratanto para utilizá-lo será necessário exportar também as features (variáveis) utilizadas durante o aprendizado, para tanto utilize:
 
 {% highlight python %}
 
@@ -142,7 +142,7 @@ novo_modelo = load('model\\model.joblib')
 type(novo_modelo)
 {% endhighlight%}
 
-Do bloco anteior obtemos o output:
+Do bloco anterior obtemos o output:
 sklearn.ensemble._forest. RandomForestRegressor
 
 ## 3. Cirando a API com Flask
@@ -151,7 +151,7 @@ Com nosso modelo pronto e salvo, é hora de criarmos a API utilizando o framewor
 
 A documentação sobre o Flask pode ser acessada [aqui](https://flask.palletsprojects.com/en/1.1.x/quickstart/).
 
-Iremos criar um arquivo com o nome `app.py` a fim de instanciar o framework, carregar o modelo (exportado do passo anteior), uma classe com a definição de GET e POST e iremos acrescentar tudo a API.
+Iremos criar um arquivo com o nome `app.py` a fim de instanciar o framework, carregar o modelo (exportado do passo anterior), uma classe com a definição de GET e POST e iremos acrescentar tudo a API.
 
 {% highlight python %}
 
@@ -209,7 +209,7 @@ Com o arquivo pronto, iremos executá-lo usando o terminal do VSCode: `python ap
 
 Caso o arquivo esteja correto o terminal irá retornar que a API está funcionando no link `http://127.0.0.1:5000/` esse link significa que temos um aplicação rodando localmente na máquina e que pode ser acessada pelo navegador web. Para tanto basta copiar e colocar o link no navegador que você utiliza.
 
-Caso seja necesário interromper o aplicativo, clique na janela do terminal e entre com as teclas `CRTL+C` e a aplicação será finalizada.
+Caso seja necessário interromper o aplicativo, clique na janela do terminal e entre com as teclas `CRTL+C` e a aplicação será finalizada.
 
 ## 4. Insomnia
 
@@ -223,7 +223,7 @@ Para realizar a requisição precisamos habilitar o Insomina para que consiga ac
 
 ### Criando um GET 
 
-Aqui devemos nomear nossa requisição (GET). Fique a vontade para escolher, pois esse é apenas um ambiente de testes
+Aqui devemos nomear nossa requisição (GET). Fique à vontade para escolher, pois esse é apenas um ambiente de testes
 
 ![Name New Request](https://lh5.googleusercontent.com/1ehII1lLGN034WBsrpPfy7Gm7ZAV4d5VoIlGwwdTgk-Eaj-KVWBSP60K_0sM9jS-l6XnapYX_9eriEpU2lzwzxzXxbxBoiXMnEBDVVEVTij1gGmVsX5Mj_sIofYUupCkZavD0AGG)
 
@@ -232,7 +232,7 @@ O próximo passo é apontar o Insomnia para o link que o flask nos deu:
 ![URL](https://lh4.googleusercontent.com/Tb8PBw3Y1eG9I85N3JkLTNvwCl524g_AIlbg5Aq6eo4HNxMIqzJPZ4Rw9p8ezHqdFdLcEqM8VCVxZfiMAQQ_7RovizpWgKj5RekEE_WH_6lbGVfR_AM3nzpM6H3JB9Sxv4PObYR8)
 
 Após informar a URL da API basta clicar no botão send.
-Lembre que durante a criação da API em flask definimos um posição para GET, no meu caso utilizei meu nome e meu contato.
+Lembre-se  que durante a criação da API em flask definimos um posição para GET, no meu caso utilizei meu nome e meu contato.
 Após acionar o botão get você deverá estar vendo essa informação na tela para certificar que a API está em funcionamento, caso não tenh visto a mensagem retorne na IDE, para mim era o VSCode e veja no painel de terminal se há algum erro.
 
 Na primeira vez eu havia posicionado o `:` em local errado e a API não estava funcionando. Foi necessário interromper o funcionamento, alterar o arquivo, salvar e iniciá-lo novamente.
@@ -247,7 +247,7 @@ Para testar o modelo é necessário se lembrar de preencher todas as colunas (fe
 
 Será necessário criar uma requisição, porém agora do tipo PSOT, após inserir os valores no painel do Insomnia, clique em SEND. a API deverá retornar o valor previsto para o imóvel de acordo com as características que você inseriu.
 
-Caso não tenha resposta ou ocorra algum erro retorne novamente para o terminal e verifique se está apontado algum erro. Caso seja necessário corrigir algo lembre de interromper a API, editar o arquivo, salvar e iniciar novamente, para então clicar no botão SEND.
+Caso não tenha resposta ou ocorra algum erro retorne novamente para o terminal e verifique se está apontado algum erro. Caso seja necessário corrigir algo lembre-se  de interromper a API, editar o arquivo, salvar e iniciar novamente, para então clicar no botão SEND.
 
 Na imagem a seguir é possível ver a API retornando com o valor previsto para o imóvel com as características desejadas.
 
@@ -275,15 +275,15 @@ Feito isso basta salvar o arquivo e fechá-lo.
 
 Novamente no terminal do VSCode entre com o comando `pip3 freeze > requirements.txt` . 
 
-Poderá reperar que foi criado um arquivo requirements.txt onde estão listadas todas as bibliotecas utilizadas no desenvolvimento da aplicação, desde a versão do python utilizada e as bibliotecas instaladas pelo VSCode.
+Você irá reparar que foi criado um arquivo requirements.txt onde estão listadas todas as bibliotecas utilizadas no desenvolvimento da aplicação, desde a versão do python utilizada e as bibliotecas instaladas pelo VSCode.
 
 ### Upload da aplicação para o Heroku
 
-Finalamente iremos iniciar a última etapa do deploy da aplicação. A documentação oficial pode ser consultada [aqui](https://dashboard.heroku.com/apps/imovsp/deploy/heroku-git)
+Finalmente iremos iniciar a última etapa do deploy da aplicação. A documentação oficial pode ser consultada [aqui](https://dashboard.heroku.com/apps/imovsp/deploy/heroku-git)
 
 Volte ao terminal do VSCode e insira os comandos:
 
-`git init` para iniciar o repositório local de arquivos (esse comando já foi utilziado anteriormente, porém de forma automática quando foi feita a sincronia com o repositório na web ou GitHub).
+`git init` para iniciar o repositório local de arquivos (esse comando já foi utilizado anteriormente, porém de forma automática quando foi feita a sincronia com o repositório na web ou GitHub).
 
 `heroku login` nesse momento irá aparecer um pop-up para você logar na sua conta do Heroku, caso ainda não tenha se cadastrado esse é o momento.
 
@@ -291,25 +291,25 @@ Volte ao terminal do VSCode e insira os comandos:
 
 `git add .` esse é o passo para preparar todos os arquivos a serem *commitados* e enviados aos Heroku
 
-`git commit -m "Text do Commit"` substitua *Text do Commit* para um texto de controle de versões, que seja fácil de você lembrar quais foram as alterações realizadas por exemplo *first commit* lembre de manter as aspas, pois faz parte da sintaxe.
+`git commit -m "Text do Commit"` substitua *Text do Commit* para um texto de controle de versões, que seja fácil de você lembrar quais foram as alterações realizadas por exemplo *first commit* lembre-se  de manter as aspas, pois faz parte da sintaxe.
 
 `heroku git:remote -a nomedasuaapp` substitua o *nomedasuaapp* pelo nome do seu aplicativo informado anteriormente
 
 `git push heroku master` esse será o passo para upload da sua aplicação. Aguarde o envio dos arquivos e na sequência acompanhe a montagem (build) do seu aplicativo.
 
-Durante o upload dos arquivos utilizando o git push tive diversas dificuldades, pois algumas bilbiotecas que eu havia utilizado para desenvolvimento não estavam disponíveis no Heroku, mas com um olhar mais atento pude perceber que tais bibliotecas foram instaladas pelo VSCode e não iriam interferir com o funcionamento do modelo desenvolvido. Para tanto alterei no arquivo `requirements.txt` as versões das bibliotecas que eu utilizei com as que estavam disponíveis no momento em que eu fiz o deploy no Heroku. Na mesma linha de comando que você acompanha o envio dos arquivos para a web será possível observar quais as versões das bibliotecas que estão disponíveis. Tal erro vai aparecer após o envio dos arquivos, quando o Heroky estiver montando a aplicação.
+Durante o upload dos arquivos utilizando o git push tive diversas dificuldades, pois algumas bibliotecas que eu havia utilizado para desenvolvimento não estavam disponíveis no Heroku, mas com um olhar mais atento pude perceber que tais bibliotecas foram instaladas pelo VSCode e não iriam interferir com o funcionamento do modelo desenvolvido. Para tanto alterei no arquivo `requirements.txt` as versões das bibliotecas que eu utilizei com as que estavam disponíveis no momento em que eu fiz o deploy no Heroku. Na mesma linha de comando que você acompanha o envio dos arquivos para a web será possível observar quais as versões das bibliotecas que estão disponíveis. Tal erro vai aparecer após o envio dos arquivos, quando o Heroky estiver montando a aplicação.
 
-Apenas como exemplo, quando eu criei o documento requirements.txt estava com a biblioteca pylint na versão 3.3, porém o Heroku possuia apenas a versão 2.6.0, bastou alterar manualmente no arquivo e realizar os passos que esse erro foi superado.
+Apenas como exemplo, quando eu criei o documento requirements.txt estava com a biblioteca pylint na versão 3.3, porém o Heroku possuía apenas a versão 2.6.0, bastou alterar manualmente no arquivo e realizar os passos que esse erro foi superado.
 
 [link](https://imovsp.herokyapp.com/)
 
 # Conclusão
 
-Após todas as etapas nosso modelo de Machine Learning está funcionando na nuvem, agora é possível subsituir no Insomnia a url antiga http://127.0.0.1/ pela url fornecida pelo Heroku.
+Após todas as etapas nosso modelo de Machine Learning está funcionando na nuvem, agora é possível substituir no Insomnia a url antiga http://127.0.0.1/ pela url fornecida pelo Heroku.
 
 Você pode consultar meu app em: [https://imovsp.herokuapp.com/](https://imovsp.herokuapp.com/). Usando o Insomnia é possível fazer um post (pode usar o exemplo das features do arquivo [valores usados](https://raw.githubusercontent.com/mabittar/imovsp/master/model/values_used.txt)) e fazer um previsão de preço do imóvel que deseja consultar.
 
-Como visto é um trabalho extenso e acaba envolvendo parte de desenvolvimento web, requisções para servidores e etc. Esse temas acabam fugindo da área de conhecimento da ciência de dados. 
+Como visto é um trabalho extenso e acaba envolvendo parte de desenvolvimento web, requisições para servidores e etc. Esses temas acabam fugindo da área de conhecimento da ciência de dados. 
 
 Implantar Machine Learning em empresas é e continuará sendo difícil, e isso é apenas uma realidade com a qual as organizações precisarão lidar. Felizmente, algumas novas arquiteturas e produtos estão ajudando os cientistas de dados. Além disso, à medida que mais empresas estão escalando as operações de ciência de dados, elas também implementam ferramentas que tornam a implantação do modelo mais fácil.
 
