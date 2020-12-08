@@ -51,18 +51,21 @@ Isso ajuda a controlar o acesso de algumas informações importantes, como infog
 
 Entretanto no site da ViaQuatro esse arquivo não foi configurado, pode ser um indicativo que o responsável pelo site não limitou o acesso a essas ferramentas.
 
-
 ### Passos Iniciais
 
 {% highlight python %}
+
 # importando as bibliotecas necessárias
+
 from bs4 import BeautifulSoup
 import requests
 
 # executando o request 
+
 home_request = requests.get('http://www.viaquatro.com.br')
 
 # recuperando todas informações em forma de texto
+
 home_content = home_request.text
 
 soup = BeautifulSoup(home_content, 'html.parser')
@@ -95,9 +98,13 @@ Para facilitar o armazenamento correto, iremos criar duas listas com os nomes da
 
 #criando lista das linhas do Metro
 linhas_metro = ['azul', 'verde', 'vermelha', 'amarela', 'lilás', 'prata']
+
 # criando lista das linhas CPTM
+
 linhas_cptm  = ['rubi', 'diamante', 'esmeralda', 'turquesa', 'coral', 'safira', 'jade']
+
 # criando uma lista única
+
 linhas = linhas_metro + linhas_cptm
 
 #preparando a lista para obter as informações do crawler
@@ -111,6 +118,7 @@ Agora que possuímos o local para armazenamento do status vamos realizar um filt
 lines_containers = operation_column.find_all(class_ = "linhas")
 
 for container in lines_containers:
+
        line_info_divs = container.find_all(class_ = "info")
        for div in line_info_divs:
            line_title  = ''
@@ -121,6 +129,7 @@ for container in lines_containers:
            extracted_status[line_title] = line_status
 
 # Extraindo a data e horário da última atualização do site.
+
 time_data = soup.find('time').text
 {% endhighlight%}
 
@@ -134,12 +143,10 @@ Então vamos quais seriam os próximos passos?
 2. O notebook irá solicitar as informações de acesso do Google Drive 
 3. Escrever as informações obtidas numa planilha que estará compartilhada publicamente.
 
-
 Para a primeira etapa siga o procedimento da [documentação oficial](https://gspread.readthedocs.io/en/latest/oauth2.html):
 
 Acesse a Página de Desenvolvedor do Google diretamente do link:
 [https://console.developers.google.com/](https://console.developers.google.com/)e depois:
-
 
  - Habilitar o acesso da API Access para o projeto caso você ainda não tenha feito.
  - Navegue até "APIs & Services > Credentials” e escolha “Create credentials > Service account key”.
@@ -148,7 +155,7 @@ Acesse a Página de Desenvolvedor do Google diretamente do link:
  - Selecione “JSON” e clique em “Create”
 
 No último passo será gerado um arquivo .json para ser salvo em seu computador. Guarde esse arquivo.
-Lembre-se de salvá-lo em uma pasta de fácil acesso, pois ele será utilizado para permitir o notebook acessar a planilha.  Depois criei uma nova planilha diretamente no Google Drive e compartilhe com o e-mail castrado na sua API, se você não se recorda, abra o arquivo json que você acabou de salva e busque a informação no campo `client_email`.
+Lembre-se de salvá-lo em uma pasta de fácil acesso, pois ele será utilizado para permitir o notebook acessar a planilha.  Depois criei uma nova planilha diretamente no Google Drive e compartilhe com o e-mail castrado na sua API, se você não se recorda, abra o arquivo json que você acabou de salva e busque a informação no campo `client_email` .
 
 Dessa forma você não expõe seus dados na internet e esses arquivos ficam salvos temporariamente na pasta de arquivos do notebook em questão, mas toda vez que você rodar o script precisará enviar novamente os arquivos.
 
@@ -157,22 +164,30 @@ No meu caso abri uma subpasta na minha pasta de Projetos com o nome de MetroSP-C
 {% highlight python %}
 from google.colab import files
 import json 
+
 # fazendo o upload da credencial gerada anteriormente.
+
 uploaded = files.upload()
 
 for fn in uploaded.keys():
   print('User uploaded file "{name}" with length {length} bytes'.format(
+
       name=fn, length=len(uploaded[fn])))
+
   
+
 # lendo as informações do arquivo
+
 data = next(iter(uploaded.values()))
 key = json.loads(data.decode())
 
 # para facilitar iremos renomear o arquivo json para auth.json
+
 import glob
 import os
 
 for source_name in glob.glob("/content/*.json"):
+
     path, fullname = os.path.split(source_name)
     basename, ext = os.path.splitext(fullname)
     target_name = os.path.join(path, '{}{}'.format('auth', ext))
@@ -197,19 +212,23 @@ Nesse ponto é necessário observar o id da planilha que pode ser obtido abrindo
 #autorizando o acesso
 client = gspread.authorize(creds)
 
-#identificando a planilha
+# identificando a planilha
+
 SPREADSHEET_ID = "10MQxF_-WHXFpYaM_FJWwtPGtF3zjp2_WVnQ_OtC3pdA"
 
 # abrindo a planilha - atenção ao nome da aba que você vai usar
+
 data_sheet = client.open_by_key(SPREADSHEET_ID).worksheet("data")
 
 # para registrar o status obtido em diferentes linhas
+
 for linha in linhas:
+
     data_sheet.append_row([time_data, linha, extracted_status[linha]])
+
 {% endhighlight%}
 
 ![Dados Registrados na planila](https://raw.githubusercontent.com/mabittar/Portfolio/master/img/Crawler-spreedsheet.jpg)
-
 
 # Conclusão
 
@@ -222,3 +241,7 @@ Novamente fica o **alerta** para sempre consultar o arquivo `robots.txt` e verif
 Você pode consultar meu portfolio de projetos no: [GitHub](https://github.com/mabittar/Portfolio). 
 
 Obrigado pelo seu tempo, se você gostou compartilhe também.
+
+Na figura seguinte é possível observar de forma esquemática o funcionamento desse script
+
+![Esquema Web Crawler](/assets/imgs/webcrawler-schema.jpg)
