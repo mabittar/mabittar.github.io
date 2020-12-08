@@ -73,7 +73,7 @@ soup.title
 Nessa etapa inicial importamos as bibliotecas necessárias e fixamos a url alvo para o crawler buscar as informações. 
 Da biblioteca nativa do Python utilizamos o `Requests` que permite o envio de um pacote de requisição HTTP de forma extremamente fácil, mantendo a conexão ativa durante o tempo necessário de forma automática.
 
-E com a biblioteca BeatifulSoup executamos o `parser` da página e extraírmos as informações que desejamos, nesse caso para confirmar se tudo está funcionando executatmos o `soup.title` para extrair o título da página.
+E com a biblioteca BeatifulSoup executamos o `parser` da página e extrairmos  as informações que desejamos, nesse caso para confirmar se tudo está funcionando executamos  o `soup.title` para extrair o título da página.
 
 ### Status de Operação
 
@@ -89,7 +89,7 @@ operation_column = soup.find(class_= "operacao")
 
 Entretanto dentro dessa classe há uma série de informações que não necessitamos. Iremos criar um filtro de forma a alinhar numa lista que iremos criar o nome da linha e do filtro obter o status de operação.
 
-Para facilitar o armazenamento correto, iremos criar duas listas com os nomes das linhas do Metrô e e CPTM respectivamente, para receber o Status de Operação de cada linha
+Para facilitar o armazenamento correto, iremos criar duas listas com os nomes das linhas do Metrô e CPTM respectivamente, para receber o Status de Operação de cada linha
 
 {% highlight python %}
 
@@ -105,7 +105,7 @@ extracted_status = {linha:'' for linha in linhas}
 extracted_status
 {% endhighlight%}
 
-Agora que possuímos o local para armazenamento do status vamos realizar um filtro na informçãoes obtidas no `parser` e arquivá-lsa na linha do metrô correspondente. Ao final iremos obter a data e hora da última atualização.
+Agora que possuímos o local para armazenamento do status vamos realizar um filtro na informações  obtidas no `parser` e arquivá-las na linha do metrô correspondente. Ao final iremos obter a data e hora da última atualização.
 
 {% highlight python %}
 lines_containers = operation_column.find_all(class_ = "linhas")
@@ -186,7 +186,7 @@ scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/au
 creds = ServiceAccountCredentials.from_json_keyfile_name('auth.json', scope)
 {% endhighlight%}
 
-Depois que você rodar o script na primeira vez pode comentar esse bloco anteior, pois a autenticação já estará validada.
+Depois que você rodar o script na primeira vez pode comentar esse bloco anterior, pois a autenticação já estará validada.
 
 Agora vamos autorizar o acesso utilizando nossas credenciais e inicializar  a planilha.
 
@@ -206,7 +206,7 @@ data_sheet = client.open_by_key(SPREADSHEET_ID).worksheet("data")
 # para registrar o status obtido em diferentes linhas
 for linha in linhas:
     data_sheet.append_row([time_data, linha, extracted_status[linha]])
-{% endhighlight%}}
+{% endhighlight%}
 
 ![Dados Registrados na planila](https://raw.githubusercontent.com/mabittar/Portfolio/master/img/Crawler-spreedsheet.jpg)
 
@@ -217,7 +217,7 @@ Até então não havia abordado ainda  questão de aquisição de dados, entreta
 
 O próximo passo é automatizar o script para que rode de tempos e tempos, isso pode ser feito utilizando um Raspberry devido ao baixo custo e consumo de forma, incluindo a rotina no `CronTab` do sistema.
 
-Novamente fica o **alerta** para sempre consultar o arquivo `robots.txt` e verificar se há restriçoes ou não para esse tipo de ferramenta.
+Novamente fica o **alerta** para sempre consultar o arquivo `robots.txt` e verificar se há restrições ou não para esse tipo de ferramenta.
 
 Você pode consultar meu portfolio de projetos no: [GitHub](https://github.com/mabittar/Portfolio). 
 
