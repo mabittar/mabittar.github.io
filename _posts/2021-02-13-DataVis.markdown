@@ -375,8 +375,8 @@ Entretanto, mesmo quem prefere usar o `matplotlib` consegue tirar proveito do es
 
 Compare o primeiro gráfico deste post e veja como é possível melhorar o plot apenas importando a biblioteca seaborn e chamando o método sns.set().
 
-
 {% highlight python %}
+
 # importar seaborn
 
 import seaborn as sns
@@ -393,7 +393,7 @@ ax.plot(x, y)
 plt.tight_layout()
 {% endhighlight%}
 
-![Seaborn](/assets/img/vis-8-sns_oneline.jpg.jpg)
+![Seaborn](/assets/img/vis-8-sns_oneline.jpg)
 
 Repare que usamos exatamente a mesma função para plotar o gráfico com o `matplotilib` . No entanto, ele já ganhou um visual bem mais moderno e agradável aos olhos.
 
@@ -493,6 +493,7 @@ A didática que o Carlos utiliza no curso é única. Sempre com exemplos reais e
 Nas próximas etapas desse notebook irei utilizar outro dataset disponível no Kraggle, sobre doenças cardíacas. Como já habilitamos a API do Kraggle não será necessário realizar a autenticação novamente.
 
 {% highlight python %}
+
 # Aceitar a competição e copiar o endereço da API para o download do dataset
 
 !kaggle datasets download -d andrewmvd/heart-failure-clinical-data
@@ -642,20 +643,26 @@ limite_x = df_pair['Total'].max()
 sns.set_style("whitegrid")
 
 # istanciando os gráficos a partir do ano, plotando as colunas Total, Filmes e Séries
+
 grid = sns. PairGrid(df_pair.sort_values("release_year", ascending=True), 
+
                     x_vars=df_pair.columns[2:], y_vars=["release_year"],
                     height=8, aspect=.25)
 
 # desenhando os pontos por linha
+
 grid.map(sns.stripplot, size=12, orient="h", jitter=False, palette="flare_r", linewidth=1, edgecolor="w")
 
 # Usando o mesmo eixo x para limitar todas as colunas
+
 grid.set(xlim=(0, limite_x+50), xlabel="Por Ano", ylabel="")
 
 # Alterando os nomes das colunas
+
 titles = ["Total", "Filmes", "Séries"]
 
 # gerando os nomes para as colunas e rotacionando os eixos por ano
+
 for ax, title in zip(grid.axes.flat, titles):
 
     # definindo um título diferente para cada coluna
@@ -666,6 +673,7 @@ for ax, title in zip(grid.axes.flat, titles):
     ax.yaxis.grid(True)
 
 # a função despine mostra os eixos, nesse caso ficam apenas os eixos inferiores e esquerdos
+
 sns.despine(left=True, bottom=True)
 {% endhighlight%}
 
