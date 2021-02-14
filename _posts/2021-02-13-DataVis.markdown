@@ -112,8 +112,6 @@ files.upload() #enviar o arquivo kaggle.json
 
 ### Gráfico de Tendência
 
-### Gráficos de Tendências
-
 A introdução a seguir sobre gráfico de tendências eu retirei do site [FM2S](https://www.fm2s.com.br/grafico-de-tendencia/), pois está bem detalhado o objetivo e porque utilizá-lo.
 
 *O Gráfico de Tendência é um gráfico de linhas que mostra como um determinado indicador se comporta ao longo do tempo. Assim, com ele pode-se identificar padrões no comportamento do indicador, como sazonalidade, tendência de aumento, queda ou ciclos.*
@@ -202,7 +200,7 @@ df_added.tail()
 Para plotagem do gráfico foi utilizado o seguinte script
 {% highlight python %}
 
-# parametros iniciais
+# Parâmetros iniciais
 
 rotulos = df_added['year_added']
 x = np.arange(len(rotulos))
@@ -226,7 +224,7 @@ ax.set_xticklabels(rotulos)
 
 plt.rcParams.update({'font.size': 8})
 
-# adicionandolegenda
+# adicionando legenda
 
 ax.legend()
 {% endhighlight%}
@@ -237,7 +235,7 @@ No próximo passo irei adicionar uma função ao gráfico para plotar os rótulo
 
 {% highlight python %}
 
-# parametros iniciais
+# Parâmetros iniciais
 
 rotulos = df_added['year_added']
 x = np.arange(len(rotulos))
@@ -261,7 +259,7 @@ ax.set_xticklabels(rotulos)
 
 plt.rcParams.update({'font.size': 8})
 
-# adicionandolegenda
+# adicionando legenda
 
 ax.legend()
 
@@ -307,9 +305,6 @@ df_slice
 
 Scipts para plotagem do gráfico
 {% highlight python %}
-
-# Gráfico de Pizza
-
 rotulos = df_slice['year_added']
 tam = df_slice['Total']
 explode = (0, 0, 0, 0.1) # cada numero representa a sequencia de dados
@@ -325,10 +320,8 @@ plt.show()
 ![Hist](/assets/img/vis-6-pizza.jpg)
 
 Para criar o gráfico de donuts iremos adicionar um círculo em branco no centro e explodir os pedaços para aumentar a representatividade.
+
 {% highlight python %}
-
-# Gráfico de Pizza
-
 rotulos = df_slice['year_added']
 tam = df_slice['Total']
 explode = (0.1, 0.1, 0.1, 0.1) # para explodir todos os pedaços
@@ -381,8 +374,9 @@ O Seaborn fornece uma interface mais *high-level* para criarmos gráficos elabor
 Entretanto, mesmo quem prefere usar o `matplotlib` consegue tirar proveito do estilo que está por trás do `seaborn` .
 
 Compare o primeiro gráfico deste post e veja como é possível melhorar o plot apenas importando a biblioteca seaborn e chamando o método sns.set().
-{% highlight python %}
 
+
+{% highlight python %}
 # importar seaborn
 
 import seaborn as sns
@@ -494,10 +488,11 @@ Não deixe de conferir o curso. Eu já fiz e recomendo a todos que desejam inici
 
 A didática que o Carlos utiliza no curso é única. Sempre com exemplos reais e desafiantes. Rapidamente percebemos nossa evolução quando estamos sendo guiados por alguém que já enfrentou muitas dificuldades e por diversas vezes tentou aprender sozinho.
 
-Nas próximas etapas desse notebook irei utilizar outro dataset disponível no Kraggle, sobre doenças cardíacas. Como já habilitamos a API do Kraggle não será necessário realizar a autenticação novamente
+### O segundo dataset
+
+Nas próximas etapas desse notebook irei utilizar outro dataset disponível no Kraggle, sobre doenças cardíacas. Como já habilitamos a API do Kraggle não será necessário realizar a autenticação novamente.
 
 {% highlight python %}
-
 # Aceitar a competição e copiar o endereço da API para o download do dataset
 
 !kaggle datasets download -d andrewmvd/heart-failure-clinical-data
@@ -527,7 +522,7 @@ sns.relplot(x='Age', y='Count', hue='Death_Event', aspect=16/9, kind='line', dat
 
 ![Tendência com Seaborn](/assets/img/vis-13-sns_tendencia.jpg)
 
-#### Gráficos de Disperção ou Scatter Plot
+#### Gráficos de Dispersão ou Scatter Plot
 
 Um gráfico de dispersão é uma representação gráfica da associação entre pares de dados. Esse emparelhamento de dados é o resultado da associação de diferentes medições de uma certa causa (por exemplo, pressão) com a medição correspondente da característica de qualidade (por exemplo, espessura da tinta). Os dados emparelhados podem também ser medições de duas causas (por exemplo, pressão e temperatura), ou duas características de qualidade (espessura e brilho). Cada par se torna um ponto do gráfico de dispersão.
 
@@ -615,7 +610,7 @@ df_pair = df_pair.pivot(index='release_year', columns= 'type', values='count').r
 
 df_pair['Total'] = df_pair['Movie'] + df_pair['TV Show']
 
-# reorganizando a sequencia das coluas
+# reorganizando a sequencia das colunas
 
 df_pair = df_pair[['release_year', 'Total', 'Movie', 'TV Show']].reset_index()
 
@@ -647,26 +642,20 @@ limite_x = df_pair['Total'].max()
 sns.set_style("whitegrid")
 
 # istanciando os gráficos a partir do ano, plotando as colunas Total, Filmes e Séries
-
 grid = sns. PairGrid(df_pair.sort_values("release_year", ascending=True), 
-
                     x_vars=df_pair.columns[2:], y_vars=["release_year"],
                     height=8, aspect=.25)
 
 # desenhando os pontos por linha
-
 grid.map(sns.stripplot, size=12, orient="h", jitter=False, palette="flare_r", linewidth=1, edgecolor="w")
 
 # Usando o mesmo eixo x para limitar todas as colunas
-
 grid.set(xlim=(0, limite_x+50), xlabel="Por Ano", ylabel="")
 
 # Alterando os nomes das colunas
-
 titles = ["Total", "Filmes", "Séries"]
 
 # gerando os nomes para as colunas e rotacionando os eixos por ano
-
 for ax, title in zip(grid.axes.flat, titles):
 
     # definindo um título diferente para cada coluna
@@ -677,7 +666,6 @@ for ax, title in zip(grid.axes.flat, titles):
     ax.yaxis.grid(True)
 
 # a função despine mostra os eixos, nesse caso ficam apenas os eixos inferiores e esquerdos
-
 sns.despine(left=True, bottom=True)
 {% endhighlight%}
 
