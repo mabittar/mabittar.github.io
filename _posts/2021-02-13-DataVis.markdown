@@ -19,11 +19,11 @@ Os scripts e os dados utilizados neste artigo também serão compartilhados no m
 
 ## Utilizando o MatplotLib
 
-Começaremos com alguma visualização básica.
+  Começaremos com alguma visualização básica.
 
-É melhor usar o código `fig,ax=plt.subplots()` , onde `plt.subplots()` é uma função que devolverá uma tupla com uma figura e eixos com objetos atribuídos às variáveis `fig` e `ax` respectivamente. Sem usar isto também, é possível imprimir um gráfico, mas ao usar desta forma, seria possível fazer alterações à figura como se fosse possível redimensionar os gráficos dependendo do seu aspecto e salvar o gráfico também. Da mesma forma, a variável "eixo" aqui pode ser usada para fornecer etiquetas aos eixos.
+  É melhor usar o código `fig,ax=plt.subplots()` , onde `plt.subplots()` é uma função que devolverá uma tupla com uma figura e eixos com objetos atribuídos às variáveis `fig` e `ax` respectivamente. Sem usar isto também, é possível imprimir um gráfico, mas ao usar desta forma, seria possível fazer alterações à figura como se fosse possível redimensionar os gráficos dependendo do seu aspecto e salvar o gráfico também. Da mesma forma, a variável "eixo" aqui pode ser usada para fornecer etiquetas aos eixos.
 
-Abaixo está um exemplo simples onde gerei os dados aleatóriamente como uma matriz e os imprimi diretamente como um gráfico
+  Abaixo está um exemplo simples onde gerei os dados aleatóriamente como uma matriz e os imprimi diretamente como um gráfico
 
 {% highlight python %}
 
