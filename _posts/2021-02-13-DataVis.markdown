@@ -478,7 +478,7 @@ Nesta etapa do notebook, foram gerados gráficos com dados aleatórios e / ou de
 ---
 <center><img alt="Colaboratory logo" width="15%" src="https://raw.githubusercontent.com/carlosfab/escola-data-science/master/img/novo_logo_bg_claro.png">
 
-#### **Data Science na Prática 2.0**
+**Data Science na Prática 2.0**
 
 *by [sigmoidal.ai](https://sigmoidal.ai)*</center>
 
