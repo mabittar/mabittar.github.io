@@ -476,11 +476,11 @@ plt.show()
 Nesta etapa do notebook, foram gerados gráficos com dados aleatórios e / ou de dataset tratados anteriormente pelo Carlos Melo utilizando no curso [Data Science na Prática](https://sigmoidal.ai/curso-online-data-science-na-pratica/).
 
 ---
-<center><img alt="Colaboratory logo" width="15%" src="https://raw.githubusercontent.com/carlosfab/escola-data-science/master/img/novo_logo_bg_claro.png">
+<center><img alt="Colaboratory logo" width="15%" src="https://raw.githubusercontent.com/carlosfab/escola-data-science/master/img/novo_logo_bg_claro.png"></center>
 
 **Data Science na Prática 2.0**
 
-*by [sigmoidal.ai](https://sigmoidal.ai)*</center>
+*by [sigmoidal.ai](https://sigmoidal.ai)*
 
 ---
 
@@ -563,7 +563,7 @@ plt.show()
 
 ![Hist](/assets/img/vis-15-sns_heat.jpg)
 
-#### Pair Plots  ou Plotagem em Pares
+#### Pair Plots ou Plotagem em Pares
 
 Uma das melhores ferramentas do Seaborn, pois é possível comparar todos os atributos numéricos do dataset em apenas um gráfico.
 
