@@ -9,11 +9,11 @@ tags: [Pandas, Data Science, Data Visualization, Plot, Graphics] # add tag
 
 # Uma imagem vale mais do que mil palavras
 
-Somente essa frase já demonstra a importância da visualização dos dados, mas ainda podemos afirmar que a visualização de dados é como um importante conjunto de ferramentas para um cientista de dados. Uma boa visualização favorece a comunicação e pode facilitar a identificação de insights, outliers, tendências e viéses, sendo uma boa prática para compreender melhor o conjunto de dados.
+Somente essa frase já demonstra a importância da visualização dos dados, mas ainda podemos afirmar que a visualização de dados é como um importante conjunto de ferramentas para um cientista de dados. Uma boa visualização favorece a comunicação e pode facilitar a identificação de insights, outliers, tendências e vieses, sendo uma boa prática para compreender melhor o conjunto de dados.
 
 O campo visual facilita a ligação com o nosso cérebro, pois nos remete a padrões ou tendências dos dados visuais, em comparação com a leitura ou outros meios.
 
-![](https://sm.pcmag.com/pcmag_in/feature/1/10-free-da/10-free-data-visualization-tools_5un4.jpg)
+![@pcmag.com](https://sm.pcmag.com/pcmag_in/feature/1/10-free-da/10-free-data-visualization-tools_5un4.jpg)
 
 Neste artigo, vou cobrir o conceito de visualização a partir do básico usando Python.
 
