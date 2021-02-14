@@ -160,7 +160,7 @@ ac
 
 A partir do modelo acima os resultados de acurácia obtidos foram:
 
-![Acurácia](/assets/img/chrun-ensemble. JPG)
+![Acurácia](/assets/img/chrun-ensemble.JPG)
 
 ### 2.3 Validação Cruzada
 
@@ -387,7 +387,7 @@ Utilizando a biblioteca SHAP podemos obsevar que as variáveis que mais influenc
   + Coluna24. *Tech Suport: No* - o cliente não possui serviço adicional de suporte técnico
   + Coluna4. *Ternure*: conforme já observado novos clientes estão mais propensos a cancelar o serviço
 
-No [notebook](https://colab.research.google.com/drive/1JFs_T1AJTsg7KqlHlQnJRW59xx3rrzMD?usp=sharing) elaborado demonstros os passos de utilização dessa ferramenta incrível.
+No [notebook](https://colab.research.google.com/drive/1JFs_T1AJTsg7KqlHlQnJRW59xx3rrzMD?usp=sharing) elaborado demonstro os passos de utilização dessa ferramenta incrível.
 
 # Conclusão
 
