@@ -4,65 +4,67 @@ title: Visualização de Dados
 date: 2021-02-13 00:00:00 +0300
 description: Utilizando Matplot, Seaborn e Bokeh -  # Add post description (optional)
 img: vis-data_visualization.jfif # Add image post (optional)
-tags: [Web Crawler, Spyder, Data Acquisition] # add tag
+tags: [Pandas, Data Science, Data Visualization, Plot, Graphics] # add tag
 ---
 
-## Uma imagem vale mais do que mil palavras
+# Uma imagem vale mais do que mil palavras
 
-Somente essa frase já demonstra a importância da visualização dos dados, podemos definir a visualização como um importante conjunto de ferramentas para um cientista de dados. Uma boa visualização favorece a comunicação e pode facilitar a identificação dos dados, sendo uma boa prática para compreender melhor o conjunto de dados. O campo visual facilita a ligação com o nosso cérebro, pois nos remete a padrões ou tendências dos dados visuais, em comparação com a leitura ou outros meios.
+  Somente essa frase já demonstra a importância da visualização dos dados, podemos definir a visualização como um importante conjunto de ferramentas para um cientista de dados. Uma boa visualização favorece a comunicação e pode facilitar a identificação dos dados, sendo uma boa prática para compreender melhor o conjunto de dados. O campo visual facilita a ligação com o nosso cérebro, pois nos remete a padrões ou tendências dos dados visuais, em comparação com a leitura ou outros meios.
 
-Neste artigo, vou cobrir o conceito de visualização a partir do básico usando Python.
+  Neste artigo, vou cobrir o conceito de visualização a partir do básico usando Python.
 
-Embora não cobriremos todas as visualizações que possam ser construídas, será possível observar e aprender os conceitos utilizados na construção de um gráfico.
+  Embora não cobriremos todas as visualizações que possam ser construídas, será possível observar e aprender os conceitos utilizados na construção de um gráfico.
 
-Os scripts e os dados utilizados neste artigo também serão compartilhados no meu portfolio de projetos no GitHub, passe por lá para conferir os demais projetos.
+  Os scripts e os dados utilizados neste artigo também serão compartilhados no meu portfolio de projetos no GitHub, passe por lá para conferir os demais projetos.
 
-### Utilizando o MatplotLib
+  ## Utilizando o MatplotLib
 
-Começaremos com alguma visualização básica.
+    Começaremos com alguma visualização básica.
 
-É melhor usar o código `fig,ax=plt.subplots()` , onde `plt.subplots()` é uma função que devolverá uma tupla com uma figura e eixos com objetos atribuídos às variáveis `fig` e `ax` respectivamente. Sem usar isto também, é possível imprimir um gráfico, mas ao usar desta forma, seria possível fazer alterações à figura como se fosse possível redimensionar os gráficos dependendo do seu aspecto e salvar o gráfico também. Da mesma forma, a variável "eixo" aqui pode ser usada para fornecer etiquetas aos eixos.
+    É melhor usar o código `fig,ax=plt.subplots()` , onde `plt.subplots()` é uma função que devolverá uma tupla com uma figura e eixos com objetos atribuídos às variáveis `fig` e `ax` respectivamente. Sem usar isto também, é possível imprimir um gráfico, mas ao usar desta forma, seria possível fazer alterações à figura como se fosse possível redimensionar os gráficos dependendo do seu aspecto e salvar o gráfico também. Da mesma forma, a variável "eixo" aqui pode ser usada para fornecer etiquetas aos eixos.
 
-Abaixo está um exemplo simples onde gerei os dados aleatóriamente como uma matriz e os imprimi diretamente como um gráfico
+    Abaixo está um exemplo simples onde gerei os dados aleatóriamente como uma matriz e os imprimi diretamente como um gráfico
 
-{% highlight python %}
+    {% highlight python %}
 
-# criando o gráfico com o Matplot
+    # criando o gráfico com o Matplot
 
-fig, ax = plt.subplots()
+    fig, ax = plt.subplots()
 
-# repare que o argumento do ax.plot gera dados aleatórios
+    # repare que o argumento do ax.plot gera dados aleatórios
 
-ax.plot(np.arange(10)+1, random.sample(range(-5, 5), 10) )
+    ax.plot(np.arange(10)+1, random.sample(range(-5, 5), 10) )
 
-# para usar a biblioteca numpy para gerar números aleatórios utilize 'np.random.randint(-5, 5 + 1, 100, dtype=int)'
+    # para usar a biblioteca numpy para gerar números aleatórios utilize 'np.random.randint(-5, 5 + 1, 100, dtype=int)'
 
-{% endhighlight%}
+    {% endhighlight%}
 
-![](/assets/imgs/vis-1-oneline.jpg)
+    ![](/assets/imgs/vis-1-oneline.jpg)
 
-Observe que eu fiz questão de deixar a geração números randômicos utilizando o Numpy e a biblioteca `random` do Python, para servir de demonstração.
+    Observe que eu fiz questão de deixar a geração números randômicos utilizando o Numpy e a biblioteca `random` do Python, para servir de demonstração.
 
-Como aprendizado irei demonstrar no próximo passo como é simples acrescentar mais um plot de linha ao gráfico.
+    Como aprendizado irei demonstrar no próximo passo como é simples acrescentar mais um plot de linha ao gráfico.
 
-{% highlight python %}
+    {% highlight python %}
 
-# criando o gráfico com o Matplot
+    # criando o gráfico com o Matplot
 
-fig, ax = plt.subplots()
+    fig, ax = plt.subplots()
 
-# repare que o argumento do ax.plot gera dados aleatórios
+    # repare que o argumento do ax.plot gera dados aleatórios
 
-ax.plot(np.arange(10)+1, random.sample(range(-5, 5), 10), label= 'dados1' )
-ax.plot(np.arange(10)+1, random.sample(range(-5, 5), 10), label= 'dados2' )
+    ax.plot(np.arange(10)+1, random.sample(range(-5, 5), 10), label= 'dados1' )
+    ax.plot(np.arange(10)+1, random.sample(range(-5, 5), 10), label= 'dados2' )
 
-ax.set_xlabel('eixo X')
-ax.set_ylabel('eixo Y')
-ax.set_title('Gráfico com duas Linhas'); 
+    ax.set_xlabel('eixo X')
+    ax.set_ylabel('eixo Y')
+    ax.set_title('Gráfico com duas Linhas'); 
 
-# repare que o sinal "; " ao final retira a mensagem de alerta no topo do gráfico
+    # repare que o sinal "; " ao final retira a mensagem de alerta no topo do gráfico
 
-{% endhighlight%}
+    {% endhighlight%}
+
+    
 
 ![Duas Linhas](/assets/imgs/vis-2-twolines.jpg)
 
