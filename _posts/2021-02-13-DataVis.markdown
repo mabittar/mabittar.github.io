@@ -39,7 +39,7 @@ ax.plot(np.arange(10)+1, random.sample(range(-5, 5), 10) )
 
 {% endhighlight%}
 
-![Gráfico com uma Linha](/assets/imgs/vis-1-oneline.jpg)
+![](/assets/imgs/vis-1-oneline.jpg)
 
 Observe que eu fiz questão de deixar a geração números randômicos utilizando o Numpy e a biblioteca `random` do Python, para servir de demonstração.
 
