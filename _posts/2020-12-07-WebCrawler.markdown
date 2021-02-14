@@ -244,4 +244,4 @@ Obrigado pelo seu tempo, se você gostou compartilhe também.
 
 Na figura seguinte é possível observar de forma esquemática o funcionamento desse script
 
-![Esquema Web Crawler](/assets/imgs/webcrawler-schema.jpg)
+![Esquema Web Crawler](/assets/img/webcrawler-schema.jpg)

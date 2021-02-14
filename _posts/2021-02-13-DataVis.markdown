@@ -9,64 +9,62 @@ tags: [Pandas, Data Science, Data Visualization, Plot, Graphics] # add tag
 
 # Uma imagem vale mais do que mil palavras
 
-  Somente essa frase já demonstra a importância da visualização dos dados, podemos definir a visualização como um importante conjunto de ferramentas para um cientista de dados. Uma boa visualização favorece a comunicação e pode facilitar a identificação dos dados, sendo uma boa prática para compreender melhor o conjunto de dados. O campo visual facilita a ligação com o nosso cérebro, pois nos remete a padrões ou tendências dos dados visuais, em comparação com a leitura ou outros meios.
+Somente essa frase já demonstra a importância da visualização dos dados, podemos definir a visualização como um importante conjunto de ferramentas para um cientista de dados. Uma boa visualização favorece a comunicação e pode facilitar a identificação dos dados, sendo uma boa prática para compreender melhor o conjunto de dados. O campo visual facilita a ligação com o nosso cérebro, pois nos remete a padrões ou tendências dos dados visuais, em comparação com a leitura ou outros meios.
 
-  Neste artigo, vou cobrir o conceito de visualização a partir do básico usando Python.
+Neste artigo, vou cobrir o conceito de visualização a partir do básico usando Python.
 
-  Embora não cobriremos todas as visualizações que possam ser construídas, será possível observar e aprender os conceitos utilizados na construção de um gráfico.
+Embora não cobriremos todas as visualizações que possam ser construídas, será possível observar e aprender os conceitos utilizados na construção de um gráfico.
 
-  Os scripts e os dados utilizados neste artigo também serão compartilhados no meu portfolio de projetos no GitHub, passe por lá para conferir os demais projetos.
+Os scripts e os dados utilizados neste artigo também serão compartilhados no meu portfolio de projetos no GitHub, passe por lá para conferir os demais projetos.
 
-  ## Utilizando o MatplotLib
+## Utilizando o MatplotLib
 
-    Começaremos com alguma visualização básica.
+Começaremos com alguma visualização básica.
 
-    É melhor usar o código `fig,ax=plt.subplots()` , onde `plt.subplots()` é uma função que devolverá uma tupla com uma figura e eixos com objetos atribuídos às variáveis `fig` e `ax` respectivamente. Sem usar isto também, é possível imprimir um gráfico, mas ao usar desta forma, seria possível fazer alterações à figura como se fosse possível redimensionar os gráficos dependendo do seu aspecto e salvar o gráfico também. Da mesma forma, a variável "eixo" aqui pode ser usada para fornecer etiquetas aos eixos.
+É melhor usar o código `fig,ax=plt.subplots()` , onde `plt.subplots()` é uma função que devolverá uma tupla com uma figura e eixos com objetos atribuídos às variáveis `fig` e `ax` respectivamente. Sem usar isto também, é possível imprimir um gráfico, mas ao usar desta forma, seria possível fazer alterações à figura como se fosse possível redimensionar os gráficos dependendo do seu aspecto e salvar o gráfico também. Da mesma forma, a variável "eixo" aqui pode ser usada para fornecer etiquetas aos eixos.
 
-    Abaixo está um exemplo simples onde gerei os dados aleatóriamente como uma matriz e os imprimi diretamente como um gráfico
+Abaixo está um exemplo simples onde gerei os dados aleatóriamente como uma matriz e os imprimi diretamente como um gráfico
 
-    {% highlight python %}
+{% highlight python %}
 
-    # criando o gráfico com o Matplot
+# criando o gráfico com o Matplot
 
-    fig, ax = plt.subplots()
+fig, ax = plt.subplots()
 
-    # repare que o argumento do ax.plot gera dados aleatórios
+# repare que o argumento do ax.plot gera dados aleatórios
 
-    ax.plot(np.arange(10)+1, random.sample(range(-5, 5), 10) )
+ax.plot(np.arange(10)+1, random.sample(range(-5, 5), 10) )
 
-    # para usar a biblioteca numpy para gerar números aleatórios utilize 'np.random.randint(-5, 5 + 1, 100, dtype=int)'
+# para usar a biblioteca numpy para gerar números aleatórios utilize 'np.random.randint(-5, 5 + 1, 100, dtype=int)'
 
-    {% endhighlight%}
+{% endhighlight%}
 
-    ![](/assets/imgs/vis-1-oneline.jpg)
+![Uma linha](/assets/img/vis-1-oneline.jpg)
 
-    Observe que eu fiz questão de deixar a geração números randômicos utilizando o Numpy e a biblioteca `random` do Python, para servir de demonstração.
+Observe que eu fiz questão de deixar a geração números randômicos utilizando o Numpy e a biblioteca `random` do Python, para servir de demonstração.
 
-    Como aprendizado irei demonstrar no próximo passo como é simples acrescentar mais um plot de linha ao gráfico.
+Como aprendizado irei demonstrar no próximo passo como é simples acrescentar mais um plot de linha ao gráfico.
 
-    {% highlight python %}
+{% highlight python %}
 
-    # criando o gráfico com o Matplot
+# criando o gráfico com o Matplot
 
-    fig, ax = plt.subplots()
+fig, ax = plt.subplots()
 
-    # repare que o argumento do ax.plot gera dados aleatórios
+# repare que o argumento do ax.plot gera dados aleatórios
 
-    ax.plot(np.arange(10)+1, random.sample(range(-5, 5), 10), label= 'dados1' )
-    ax.plot(np.arange(10)+1, random.sample(range(-5, 5), 10), label= 'dados2' )
+ax.plot(np.arange(10)+1, random.sample(range(-5, 5), 10), label= 'dados1' )
+ax.plot(np.arange(10)+1, random.sample(range(-5, 5), 10), label= 'dados2' )
 
-    ax.set_xlabel('eixo X')
-    ax.set_ylabel('eixo Y')
-    ax.set_title('Gráfico com duas Linhas'); 
+ax.set_xlabel('eixo X')
+ax.set_ylabel('eixo Y')
+ax.set_title('Gráfico com duas Linhas'); 
 
-    # repare que o sinal "; " ao final retira a mensagem de alerta no topo do gráfico
+# repare que o sinal "; " ao final retira a mensagem de alerta no topo do gráfico
 
-    {% endhighlight%}
+{% endhighlight%}
 
-    
-
-![Duas Linhas](/assets/imgs/vis-2-twolines.jpg)
+![Duas Linhas](/assets/img/vis-2-twolines.jpg)
 
 ### Outros Gráficos
 
@@ -174,7 +172,7 @@ plt.grid()
 ax.legend()
 {% endhighlight%}
 
-![Tendências](/assets/imgs/vis-3-tendencia.jpg)
+![Tendências](/assets/img/vis-3-tendencia.jpg)
 
 ### Gráfico de Barras ou Histogramas
 
@@ -233,7 +231,7 @@ plt.rcParams.update({'font.size': 8})
 ax.legend()
 {% endhighlight%}
 
-![Hist](/assets/imgs/vis-4-barras.jpg)
+![Hist](/assets/img/vis-4-barras.jpg)
 
 No próximo passo irei adicionar uma função ao gráfico para plotar os rótulos em cima de cada barra.
 
@@ -282,7 +280,7 @@ get_label(movie_bar)
 get_label(serie_bar)
 {% endhighlight%}
 
-![Hist](/assets/imgs/vis-5-barras_e_dados.jpg)
+![Hist](/assets/img/vis-5-barras_e_dados.jpg)
 
 ### Gráficos de Pizza e Donuts
 
@@ -324,7 +322,7 @@ ax2.axis('equal') # garante o formato circular do gráfico
 plt.show()
 {% endhighlight%}
 
-![Hist](/assets/imgs/vis-6-pizza.jpg)
+![Hist](/assets/img/vis-6-pizza.jpg)
 
 Para criar o gráfico de donuts iremos adicionar um círculo em branco no centro e explodir os pedaços para aumentar a representatividade.
 {% highlight python %}
@@ -349,7 +347,7 @@ plt.tight_layout()
 plt.show()
 {% endhighlight%}
 
-![Donut](/assets/imgs/vis-7-donut.jpg)
+![Donut](/assets/img/vis-7-donut.jpg)
 
 Caso queira conhecer mais sobre o atributo círculos, consulte a documentação oficial do Matplot Lib no [link](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.patches.Circle.html).
 
@@ -401,7 +399,7 @@ ax.plot(x, y)
 plt.tight_layout()
 {% endhighlight%}
 
-![Seaborn](/assets/imgs/vis-8-sns_oneline.jpg.jpg)
+![Seaborn](/assets/img/vis-8-sns_oneline.jpg.jpg)
 
 Repare que usamos exatamente a mesma função para plotar o gráfico com o `matplotilib` . No entanto, ele já ganhou um visual bem mais moderno e agradável aos olhos.
 
@@ -433,7 +431,7 @@ sns.jointplot(x=x, y=y, kind='kde')
 plt.show(); 
 {% endhighlight%}
 
-![Join Chart](/assets/imgs/vis-9-sns_join.jpg)
+![Join Chart](/assets/img/vis-9-sns_join.jpg)
 
 #### Regressão Linear
 
@@ -448,7 +446,7 @@ sns.regplot(x=a, y=b)
 plt.show()
 {% endhighlight%}
 
-![Hist](/assets/imgs/vis-10-sns_regressao.jpg)
+![Hist](/assets/img/vis-10-sns_regressao.jpg)
 
 #### Mapa de Calor
 
@@ -465,7 +463,7 @@ sns.heatmap(df_heart.corr())
 plt.show()
 {% endhighlight%}
 
-![Hist](/assets/imgs/vis-11-sns_heat.jpg)
+![Hist](/assets/img/vis-11-sns_heat.jpg)
 
 #### Outra Representação do Gráfico de Barras
 
@@ -479,7 +477,7 @@ sns.countplot(x=df_cenipa["ocorrencia_classificacao"])
 plt.show()
 {% endhighlight%}
 
-![Hist](/assets/imgs/vis-12-sns_barras.jpg)
+![Hist](/assets/img/vis-12-sns_barras.jpg)
 
 Nesta etapa do notebook, foram gerados gráficos com dados aleatórios e / ou de dataset tratados anteriormente pelo Carlos Melo utilizando no curso [Data Science na Prática](https://sigmoidal.ai/curso-online-data-science-na-pratica/).
 
@@ -527,7 +525,7 @@ Já fizemos anteriormente um gráfico de tendências utilizando o Matplot. Vamos
 sns.relplot(x='Age', y='Count', hue='Death_Event', aspect=16/9, kind='line', data=df1_grouped); 
 {% endhighlight%}
 
-![Tendência com Seaborn](/assets/imgs/vis-13-sns_tendencia.jpg)
+![Tendência com Seaborn](/assets/img/vis-13-sns_tendencia.jpg)
 
 #### Gráficos de Disperção ou Scatter Plot
 
@@ -543,7 +541,7 @@ De maneira genérica, a satisfação é a nossa variável resposta, ou variável
 sns.relplot(x='serum_creatinine', y='serum_sodium', hue='DEATH_EVENT', kind='scatter', style="smoking", data=df1, aspect=16/9); 
 {% endhighlight%}
 
-![Hist](/assets/imgs/vis-14-sns_dispersao.jpg)
+![Hist](/assets/img/vis-14-sns_dispersao.jpg)
 
 Como visto, a biblioteca Seaborn permite criar gráficos mais agradáveis visualmente apenas com uma linha de código.
 
@@ -567,7 +565,7 @@ sns.heatmap(df1_heat, annot=True)
 plt.show()
 {% endhighlight%}
 
-![Hist](/assets/imgs/vis-15-sns_heat.jpg)
+![Hist](/assets/img/vis-15-sns_heat.jpg)
 
 #### Pair Plots  ou Plotagem em Pares
 
@@ -577,14 +575,14 @@ Uma das melhores ferramentas do Seaborn, pois é possível comparar todos os atr
 sns.pairplot(subset); 
 {% endhighlight%}
 
-![Hist](/assets/imgs/vis-16-sns_pairplot.jpg)
+![Hist](/assets/img/vis-16-sns_pairplot.jpg)
 
 Ou ainda podemos fazer:
 {% highlight python %}
 sns.pairplot(subset, hue='smoking', markers=["o", "s"], corner=True); 
 {% endhighlight%}
 
-![Hist](/assets/imgs/vvis-17-sns_pairplot2.jpg)
+![Hist](/assets/img/vvis-17-sns_pairplot2.jpg)
 
 Observe que com poucas customizações é possível alterar consideravelmente o gráfico.
 
@@ -683,7 +681,7 @@ for ax, title in zip(grid.axes.flat, titles):
 sns.despine(left=True, bottom=True)
 {% endhighlight%}
 
-![Seaborn Pair Grid](/assets/imgs/vis-18-sns_pairgrid.jpg)
+![Seaborn Pair Grid](/assets/img/vis-18-sns_pairgrid.jpg)
 
 ## Gráficos Interativos
 
@@ -708,7 +706,7 @@ output_file("18-Grafico_Iterativo.html", title="Example")
 show(p)
 {% endhighlight%}
 
-![Hist](/assets/imgs/vis-19-interactive-plot.png)
+![Hist](/assets/img/vis-19-interactive-plot.png)
 
 Agora que o arquivo 18-GraficoIterativo.html foi gerado basta realizar o download e compartilhar o arquivo com outras áeras ou profissionais.
 
