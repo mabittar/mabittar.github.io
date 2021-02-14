@@ -15,7 +15,7 @@ Neste artigo, vou cobrir o conceito de visualização a partir do básico usando
 
 Embora não cobriremos todas as visualizações que possam ser construídas, será possível observar e aprender os conceitos utilizados na construção de um gráfico.
 
-Os scripts e os dados utilizados neste artigo também serão compartilhados no meu portfolio de projetos no GitHub, passe por lá para conferir os demais projetos.
+Os [scripts](https://github.com/mabittar/Portfolio/blob/master/Visualiza%C3%A7%C3%B5es_de_Dados.ipynb) e os dados utilizados neste artigo também serão compartilhados no meu [portfolio](https://github.com/mabittar/Portfolio) de projetos no GitHub, passe por lá para conferir os demais projetos.
 
 ## Utilizando o MatplotLib
 
@@ -715,3 +715,7 @@ Passamos por diversas maneiras de gerar um gráfico e permitir a visualização 
 Como o objetivo da análise de dados é obter insights, os dados são muito mais valiosos quando são visualizados. Mesmo que um analista de dados possa extrair insights dos dados sem visualização, será mais difícil **comunicar** o significado sem a visualização. Gráficos facilitam a comunicação dos resultados dos dados, mesmo que seja possível identificar os padrões sem eles.
 
 Os gráficos revelam características de dados que as estatísticas e modelos podem falhar: distribuições incomuns de dados, padrões locais, agrupamentos, lacunas, valores ausentes, evidência de arredondamento ou amontoamento, limites implícitos, aberturas, etc. Os gráficos levantam questões que estimulam a pesquisa e sugerem idéias. Parece fácil. De fato, realizar a interpretação dos gráficos demanda experiência para identificar características potencialmente interessantes e de senso estatístico para se proteger contra os perigos de interpretação excessiva. Assim como os gráficos são úteis para verificar os resultados dos modelos, os modelos são úteis para verificar as idéias derivadas dos gráficos (para mais informações sobre modelos, veja Hand, 2019).
+
+O notebook elaborado para realizar essa demonstração pode ser encontrado em:
+
+[https://github.com/mabittar/Portfolio/blob/master/Visualiza%C3%A7%C3%B5es_de_Dados.ipynb](https://github.com/mabittar/Portfolio/blob/master/Visualiza%C3%A7%C3%B5es_de_Dados.ipynb)
