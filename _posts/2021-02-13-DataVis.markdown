@@ -2,14 +2,18 @@
 layout: post
 title: Visualização de Dados
 date: 2021-02-13 00:00:00 +0300
-description: Utilizando Matplot, Seaborn e Bokeh -  # Add post description (optional)
+description: Utilizando Matplot, Seaborn e Bokeh  # Add post description (optional)
 img: vis-data_visualization.jfif # Add image post (optional)
 tags: [Pandas, Data Science, Data Visualization, Plot, Graphics] # add tag
 ---
 
 # Uma imagem vale mais do que mil palavras
 
-Somente essa frase já demonstra a importância da visualização dos dados, podemos definir a visualização como um importante conjunto de ferramentas para um cientista de dados. Uma boa visualização favorece a comunicação e pode facilitar a identificação dos dados, sendo uma boa prática para compreender melhor o conjunto de dados. O campo visual facilita a ligação com o nosso cérebro, pois nos remete a padrões ou tendências dos dados visuais, em comparação com a leitura ou outros meios.
+Somente essa frase já demonstra a importância da visualização dos dados, mas ainda podemos afirmar que a visualização de dados é como um importante conjunto de ferramentas para um cientista de dados. Uma boa visualização favorece a comunicação e pode facilitar a identificação de insights, outliers, tendências e vieses, sendo uma boa prática para compreender melhor o conjunto de dados.
+
+O campo visual facilita a ligação com o nosso cérebro, pois nos remete a padrões ou tendências dos dados visuais, em comparação com a leitura ou outros meios.
+
+![@pcmag.com](https://sm.pcmag.com/pcmag_in/feature/1/10-free-da/10-free-data-visualization-tools_5un4.jpg)
 
 Neste artigo, vou cobrir o conceito de visualização a partir do básico usando Python.
 
@@ -17,7 +21,7 @@ Embora não cobriremos todas as visualizações que possam ser construídas, ser
 
 Os [scripts](https://github.com/mabittar/Portfolio/blob/master/Visualiza%C3%A7%C3%B5es_de_Dados.ipynb) e os dados utilizados neste artigo também serão compartilhados no meu [portfolio](https://github.com/mabittar/Portfolio) de projetos no GitHub, passe por lá para conferir os demais projetos.
 
-## Utilizando o MatplotLib
+## Utilizando o Matplot Lib
 
   Começaremos com alguma visualização básica.
 
