@@ -5,6 +5,7 @@ date: 2021-02-13 00:00:00 +0300
 description: Utilizando Matplot, Seaborn e Bokeh  # Add post description (optional)
 img: vis-data_visualization.jfif # Add image post (optional)
 tags: [Pandas, Data Science, Data Visualization, Plot, Graphics] # add tag
+comments: true
 ---
 
 # Uma imagem vale mais do que mil palavras
