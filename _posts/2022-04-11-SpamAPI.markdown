@@ -7,7 +7,7 @@ img: fastapi.png # Add image post (optional)
 tags: [API, Machine Learning] # add tag
 ---
 
-## Um modelo de Machine Learning Usando para ser consumido em FastAPI
+## Uma API assíncrona em FastAPI para disponibilizar um Modelo de Machine Learning
 
 A ideia original desse post é criar um série de post com um material em português que ensine como criar uma API assíncrona, escalável e robusta utilizando o [FastAPI](https://fastapi.tiangolo.com/). Então utilizei como exemplo uma API onde seja possível consumir um modelo de Machine Learning que prevê se texto é spam ou não. Mas não é qualquer API, iriei demonstrar como utilizei recursos herdados do FastAPI e outras bibliotecas para tornar um projeto robusto com pinta profissional.
 
