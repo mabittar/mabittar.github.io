@@ -3,33 +3,44 @@ layout: post
 title: Machine Learning Usando FastAPI
 date: 2022-04-11 00:00:00 +0300
 description: Como disponibilizar um modelo de machine learning usando FastAPI. # Add post description (optional)
-img: fastapi.jpg # Add image post (optional)
+img: fastapi.png # Add image post (optional)
 tags: [API, Machine Learning] # add tag
 ---
 
-A ideia original desse post é criar um série de post com um material em português que ensine como criar uma API assíncrona, escalável e robusta utilizando o [FastAPI](https://fastapi.tiangolo.com/). Então utilizei como exemplo uma API onde seja possível consumir um modelo de Machine Learning que prevê se determinado texto é spam ou não. Mas não é qualquer API, iriei demonstrar como utilizei recursos herdados do FastAPI e outras bibliotecas para tornar um projeto robusto com pinta profissional.
+## Um modelo de Machine Learning Usando para ser consumido em FastAPI
 
-Nesse post não vou entrar em detalhes como criar, ativar um ambiente virtual em Python, ou mesmo como instalar as dependências necessárias para o projeto para deixá-lo um pouco mais curto.Caso tenham alguma dúvida em relação a esses pontos e boas práticas entrem em contato que posso pensar em algo diferente para os próximos posts.
+A ideia original desse post é criar um série de post com um material em português que ensine como criar uma API assíncrona, escalável e robusta utilizando o [FastAPI](https://fastapi.tiangolo.com/). Então utilizei como exemplo uma API onde seja possível consumir um modelo de Machine Learning que prevê se texto é spam ou não. Mas não é qualquer API, iriei demonstrar como utilizei recursos herdados do FastAPI e outras bibliotecas para tornar um projeto robusto com pinta profissional.
+
+Nesse post não vou entrar em detalhes como criar, ativar um ambiente virtual em Python, ou mesmo como instalar as dependências necessárias para o projeto para deixá-lo um pouco mais curto. Caso tenham alguma dúvida em relação a esses pontos e boas práticas entrem em contato que posso pensar em algo diferente para os próximos posts.
 
 O projeto pode ser clonado diretamente do meu [repositório](https://github.com/mabittar/spam_ml).
 
+### O que diferencia meu projeto
+
 Algumas características dos projeto:
 
-- rotas de acesso para cadastro e autenticação do usuário.
+- rotas (endpoints) de acesso para cadastro e autenticação do usuário.
 - somente com o usuário autenticado é possível utilizar a rota para acesso ao modelo de machine learning.
-- cada requisição / request feita no endpoint de machine learning é salvo em uma tabela a parte.
-- cada usuário possui 10 utilizações disponível por mês.
-- rotas documentas disponibilizadas em OpenAPI. Obrigado pydantic
-- arquivo de configuração de ambiente utilizando recursos do [pydantic](https://pydantic-docs.helpmanual.io/), mais uma vez obrigado.
-- a API e a conexão com o banco de dados utilizam recursos assíncronos, utilizando a versão 1.4 do [SQLAlchemy](https://www.sqlalchemy.org/).
-- as tabelas e suas respectivas atualizações podem ser criadas diretamente com o [Alembic](https://alembic.sqlalchemy.org/en/latest/) já utilizando configurações e updates assíncronos.
-- utilizando o [docker-compose](https://docs.docker.com/compose/) é possível carregar a API e o banco de dados em containers locais.
-- na API existem alguns endpoints para monitoramento, health-check, inclusive com validação da conexão com o banco de dados.
+- rotas documentas disponibilizadas em OpenAPI.
 - middleware que computa o tempo entre a entrada da request e saída da response.
 - logs configurados para facilitar o debug da API mesmo em ambiente de produção
 - estrutura reutilizável, utilizando orientação a objetos.
+- arquivo de configuração de ambiente utilizando recursos do [pydantic settings](https://pydantic-docs.helpmanual.io/).
+- a API e a conexão com o banco de dados possuem recursos assíncronos, utilizando a versão 1.4 do [SQLAlchemy](https://www.sqlalchemy.org/).
+- as tabelas e suas respectivas atualizações podem ser criadas diretamente com o [Alembic](https://alembic.sqlalchemy.org/en/latest/) já utilizando configurações e updates assíncronos.
+- utilizando o [docker-compose](https://docs.docker.com/compose/) é possível carregar a API e o banco de dados em containers locais.
+- na API existem alguns endpoints para monitoramento, health-check, inclusive com validação da conexão com o banco de dados.
+- cada usuário possui 10 utilizações disponível por mês.
 
 Mãos a massa!!!!
+
+
+## O que é o FastAPI
+
+FastAPI é um framework em Python que possui diversas ferramentas prontas para permitir desenvolvedores a utilizar uma interface REST para chamar funções utilizadas na criação de aplicativos. Neste exemplo, o autor usa FastAPI para criar contas, fazer login, autenticar e disponibilizar um modelo de machine learning.
+
+
+## Configurações iniciais
 
 Após instalar as dependências será necessário criar um arquivo com as variáveis de ambiente. Um arquivo `.env` . Já deixei pronta a lista de variáveis necessárias, basta copiá-las e escrever os valores desejados na frente de cada uma. Mas nesse post, deixarei um pouco mais de detalhes.
 
@@ -42,7 +53,7 @@ POSTGRES_SERVER=localhost # exemplo de endereço para conexão ao banco dados
 POSTGRES_PORT=5432 # porta padrão de acesso ao postgres
 POSTGRES_DB=spam_ml # exemplo de database referente ao seu projeto
 JWT_SECRET= # veja instruções como gerar seu secret
-LOCAL_PORT=8000 # porta onde a API será disponbilizada
+LOCAL_PORT=8000 # porta onde a API será disponibilizada
 FIRST_SUPERUSER=first_user # exemplo de nome do primeiro usuário do banco de dados
 FIRST_SUPERUSER_PASSWORD=123456 # exemplo de senha para acesso ao primeiro usuário
 FIRST_SUPERUSER_EMAIL=first_user@yopmail.com # # exemplo de email para o primeiro usuário
@@ -56,16 +67,21 @@ Para gerar um Token JWT out JWT_SECRET, execute na linha de comando:
 openssl rand -hex 32
 {% endhighlight %}
 
-Será gerado algo como: b59cbee90cd294bf5e1b66fcd8a57fe8ce6999c2e0fa88304ff8c87766329937
+Será gerado algo como: `b59cbee90cd294bf5e1b66fcd8a57fe8ce6999c2e0fa88304ff8c87766329937`
 
 Mais uma vez lembrando que esse é um arquivo com as variáveis de ambientes, isso permite configurações diferentes para diversos ambientes. Por exemplo, em um ambiente de produção é possível apontar para um banco de dados na nuvem ou mesmo utilizar uma porta local diferente do exemplo. Ajustar o nível dos logs e etc....
+
+### Abusando do PydanticSettings
 
 Já que estamos falando das variáveis de ambiente vale comentar sobre o arquivo `app/settings.py` esse arquivo herda do pydantic a classe BaseSettings. Esse herança permite especificar o arquivo de onde virá os valores para cada configuração necessária. Dentro da classe Settings observe que há outra classe Config com `env_file = '.env'` . Caso vc deseje alterar o nome do seu arquivo de de variáveis para, por exemplo, `local.env` basta alterar o valor que a variável `env_file` recebe para `'local.env'`.
 Dentro desse mesmo arquivo ainda é gerado o link completo para conexão com o banco de dados. A variável `SQLALCHEMY_DATABASE_URI` recebe um valor composto pela função `PostgresDsn.build()`, onde podemos definir diferentes parâmetros como esquema de conexão com o banco da dados, configurações de acesso e tamanho do cache.
 
+## O arquivo principal app.py
+
 Uma vez configurado o ambiente é válido olhar para o arquivo `app/app.py` onde a mágica acontece, pois é o arquivo principal da nossa API.
 
 Inicialmente as variáveis do arquivo settings.py são carregadas. Observe que nesse caso fiz questão de colocar o decorator @lru_cache(), pois como tratam de variáveis de ambiente, dificilmente serão modificadas e dessa forma o python se encarrega de buscar os valores diretamente do cache / memória e não mais do arquivo de texto criado anteriormente.
+
 
 {% highlight python %}
 @lru_cache()
@@ -104,22 +120,22 @@ O penúltimo trecho desse arquivos é onde definimos como a API irá lidar com o
 @app.exception_handler(HTTPError)
 async def http_error_handler(request: Request, exception: HTTPError):
 if exception.msg:
-return JSONResponse(
-status_code=exception.code,
-content={exception.**repr**},
-)
+    return JSONResponse(
+        status_code=exception.code,
+        content={exception.**repr**},
+    )
 else:
-str_tb = format_exc()
-msg = ErrorMessage(
-traceback=str_tb,
-title="Some error occur",
-code=exception.code
-
+    str_tb = format_exc()
+    msg = ErrorMessage(
+        traceback=str_tb,
+        title="Some error occur",
+        code=exception.code
         )
-        return JSONResponse(status_code=exception.code, content=msg.dict())
+    return JSONResponse(status_code=exception.code, content=msg.dict())
 
 {% endhighlight %}
-note que o decorator herda a classe HTTPError que poderia ser diretamente do FastAPI / Pydantic ou como no meu caso de `urllib.error`
+
+Note que o decorator herda a classe HTTPError que poderia ser diretamente do FastAPI / Pydantic ou como no meu caso de `urllib.error`
 
 O último trecho é um artifício para "startar" a API diretamente pelo arquivo, mas conforme foram sendo adicionados recursos acabou não sendo conveniente dessa forma.
 
@@ -137,6 +153,8 @@ from uvicorn import run
 
 Esses parâmetros podem ser passados diretamente para a IDE em que você está desenvolvendo para permitir uma rápida iniciação do projeto.
 
+## O Banco de Dados
+
 Conforme destacado anteriormente fiz questão de utilizar o SQLAlchemy na versão 1.4 para permitir o acesso ao banco de dados de forma assíncrona. Para essas configurações vamos olhar dentro da pasta `app/database`.
 
 O arquivo `app/database/session.py` é responsável pela conexão e disponibilizar a sessão assíncrona com o Banco de Dados.
@@ -151,7 +169,7 @@ connect_args={"server_settings": {"jit": "off"}}
 )
 {% endhighlight %}
 
-Vale destacar que tive alguns problemas de conexão com o banco de dados Postgres de forma assíncrona e ao buscar uma solução na internet me deparei com esses `connect_args={"server_settings": {"jit": "off"}})`. Foi a forma que eu encontrei para contornar a issue de conexão do esquema Asyncpg e uma coluna do tipo Enum.
+Vale destacar que tive alguns problemas de conexão com o banco de dados Postgres de forma assíncrona e ao buscar uma solução na internet me deparei com esses `connect_args={"server_settings": {"jit": "off"}})` . Foi a forma que eu encontrei para contornar a issue de conexão do esquema Asyncpg e uma coluna do tipo Enum.
 
 Depois criado a engine do banco dados, vêm os comandos para disponibilizar a sessão:
 
@@ -183,7 +201,7 @@ A representação em python dos modelos das tabelas do banco dados estão na pas
 
 Aqui também houve uma preferência do autor em mesclar o modelo do banco de dados com os schemas de cada endpoint. Em diversas literaturas, inclusive na documentação oficial você irá ver o schemas em uma pasta a parte no projeto. Mas preferi deixá-los em um mesmo arquivo, pois esse projeto não possui um alto nível de complexidade. Mais uma vez preferência minha.
 
-No arquivo `app/models/usermodel.py` é possível ver onde eu fiz a presentação da tabela usermodel do banco de dados. Note que a classe UserModel herda da classe Base, lá dá pasta database. Aqui me fiz valer de mais algumas facilidades do Pydantic como validação dos campos. Por exemplo o nome completo deve ter pelo menos Nome e Sobrenome e a validação do documento informado no momento do cadastro, que em ambientes locais está desativado, mas alterado o valor da variável APP_ENV para "dev" por exemplo passa a ser necessário informar um CPF ou CNPJ que seja válido.
+No arquivo `app/models/usermodel.py` é possível ver onde eu fiz a presentação da tabela usermodel do banco de dados. Note que a classe UserModel herda da classe Base, lá da pasta app/database. Aqui me fiz valer de mais algumas facilidades do Pydantic como validação dos campos e deixar como exemplo para implementações futuras. Por exemplo, a validação do atributo `fullname` ou nome completo deve ter pelo menos Nome e Sobrenome. A ideia aqui é que seja passada uma string com pelo menos um espaço no meio. E a validação do documento informado no momento do cadastro, que em ambientes locais está desativado, mas alterado o valor da variável APP_ENV para "dev" por exemplo passa a ser necessário informar um CPF ou CNPJ que seja válido.
 
 Um pouco mais abaixo é possível observar os schemas utilizados para validação das requisições e das respostas. Aqui é onde o Pydantic gera magicamente a documentação do OpenAPI.
 
@@ -226,6 +244,19 @@ created_at: datetime # role: UserRole
 phone: Optional[str]
 username: str
 {% endhighlight %}
+
+![SpamOpenAPI](/assets/img/spam_docs.png)
+
+Aqui deixo registrado meus agradecimentos Pydantic! 
+
+Repare que os endpoints e os métodos possíveis de utilizam já foram carregados, caos abra cada um deles, a forma de utilizá-los estará preenchida. Note também que os endpoints `/users/whoami` e `/predict_sentiment` possuem um cadeado do lado direto, indicando que é necessária a autenticação. A autenticação deve ser feita no endpoint `/login` 
+
+Já parou para pensar como a documentação de uma API é importante? Podemos imaginar uma API como uma tomada. Não precisamos nos preocupar como a energia elétrica foi gerada ou como ele chegou até a tomada, mas temos certeza que ao ligar um dispositivo na tomada ele irá funcionar. Por isso é importante termos muito bem registrado como utilizar cada endpoint.
+
+![API Doc](/assets/img/api-docs.png)
+
+
+## Alembic - Uma ferramenta extremamente versátil para migração do banco de dados.
 
 Como já falamos sobre o endereço de conexão com o banco dados obtido do arquivo settings, já falamos sobre a sessão assíncrona com o banco e comentamos sobre o modelos, estamos aptos a ver um pouco sobre o Alembic.
 
@@ -285,28 +316,137 @@ e
 alembic upgrade head
 {% endhighlight %}
 
-Assim automaticamente as tabelas serão criadas no banco dados.
+Assim automaticamente as tabelas serão criadas no banco dados. Com os tabelas criadas agora podemos executar pela primeira vez nossa API.
 
-link:
-[portfolio de projetos](https://github.com/mabittar/Portfolio)
+## Executando a API
 
-link outros posts:
-[post](_posts/2020-08-26-Metricas.markdown)
-
-imagem externa:
-![](https://raw.githubusercontent.com/carlosfab/dsnp2/master/img/acuracia.png)
-
-imagem interna:
-![Churn](/assets/img/churn-rate1.jpg)
-
-python code:
-{% highlight python %}
-print(classification_report(y_true, y_pred))
+Ao executarmos na linha de comando:
+{% highlight bash %}
+uvicorn --host 127.0.0.1 --port 3333 app.app:app --reload
 {% endhighlight %}
 
-#sniptes activated:
-{%%} - highlight python;
-![] - new images,
+![FastAPI Start](/assets/img/spam_start.png)
 
-fórmulas RegEx:
-$$ Especificidade = \frac{TN}{TN+FP} $$
+
+Com a API funcionando, podemos acessar o endereço no nosso navegador e utilizar a documentação iterativa:
+
+para a acessar a API insira no navegador ou mesmo no terminal:
+
+{% highlight bash %}
+curl -X 'GET' \
+  'http://127.0.0.1:3333/'
+{% endhighlight %}
+
+observe o número logo após o símbolo de : `3333` deve ser o mesmo inserido no comando acima logo após o `--port`, pois a API estará servindo nessa porta, caso altere o valor do comando será necessário alterar também a porta no navegador.
+
+a resposta será: 
+
+![Root Response](/assets/img/spam_root_response.png)
+
+Caso aponte o navegador para `http://127.0.0.1:3333/docs` para ter acesso a documentação dos endpoints.
+
+
+clicando no endpoint /health_check é possível utilizar o método GET e realizar uma chamada contra  API.
+
+spam_health_check.png
+![Doc try out](/assets/img/spam_health_check.png)
+
+Ao clicar no botão Try it out, outro campo irá se abrir, usando o botão execute irá realizar a solicitação.
+
+No terminal onde a API está sendo executada é possível observar os logs.
+
+![Health log](/assets/img/spam_health_try_log.png)
+
+
+## Registrando um novo usuário e autenticando
+
+Para registrar um novo usuário utilize o endpoint `/users/register/` e preencha com as informações que desejar. Lembre-se dos campos de  validação que comentei anteriormente.
+
+![User Registration](/assets/img/spam_user_create.png)
+
+Agora para autenticar o usuário é necessário utilizar o endpoint `/login/`. Insira os dados utilizados no passo anterior: username e password
+
+![User Registration](/assets/img/spam_auth_user.png)
+
+Se os dados estiverem corretos o retorno será algo como:
+
+
+![User Login 200](/assets/img/spam_user_login.png)
+
+
+
+## O modelo de Machine Learning
+
+Como o foco desse projeto não é o modelo de machine learning em si, mas como disponibilizá-lo para utilização e produção. Eu tomei a liberdade para reaproveitar a ideia desse [post](https://medium.com/building-the-open-data-stack/how-to-train-a-machine-learning-model-as-a-rest-api-and-build-a-spam-classifier-part-1-385f3b554b18) e recriar o modelo.
+
+Como já comentando em um [post](hhttps://mabittar.github.io/Model-deploy/) anterior sobre o assunto praticamente 90% dos modelos de machine learning não são disponibilizados.
+
+
+O modelo foi treinando utilizando os recursos da biblioteca [Scikit Learn](https://scikit-learn.org/stable/), pois o modelo classificador multinomial Naive Bayes é adequado para classificação com características discretas (por exemplo, contagem de palavras para classificação de texto). A distribuição multinomial normalmente requer contagens de recursos inteiros. No entanto, na prática, contagens fracionárias como tf-idf também podem funcionar.
+
+{% highlight python %}
+def run_model_training(X_train, X_test, y_train, y_test):
+    clf = MultinomialNB()
+    clf.fit(X_train,y_train)
+    clf.score(X_test,y_test)
+    y_pred = clf.predict(X_test)
+    print(classification_report(y_test, y_pred))
+
+    return clf
+
+{% endhighlight %}
+
+Mais detalhes sobre a implementação do modelo pode ser vista diretamente no repositório do projeto, no diretório app -> ml_models.
+
+Após a etapa de treino o modelo é disponibilizado para uso utilizando-se a biblioteca do Python `joblib`, que disponibiliza um pipeline rápido, com a possibilidade de utilização de cache e computação paralela.
+
+## Utilizando o endpoint de classificação de Spam.
+
+Na rota de utilização do modelo de machine learning, `"/predict_sentiment"` foram implementadas diversas funcionalidades. Inclusive a verificação se o modelo existe e foi treinado. Caso não seja encontrado o modelo, ao realizar o deploy da API o modelo será treinado utilizando como base o arquivo spam.csv localizado no diretório app -> data.
+
+Após o usuário realizar o cadastro e login nos endpoints corretos o endpoint estará liberado para requisição.
+
+![spam_used](/assets/img/spam_endpoint_used.png)
+
+
+Do campo response podemos extrair a mensagem:
+
+{% highlight json %}
+
+{
+  "text_message": "Yes... I trust u to buy new stuff ASAP.....",
+  "spam_polarity": "Ham",
+  "month_used_amount": 1
+}
+{% endhighlight %}
+
+
+No campo `text_message` frase que foi enviada para teste. No campo `spam_polarity` a saída **Ham** indica que o texto não foi classificado como spam e o campo `month_used_amount` indica quantas vezes o usuário logado utilizou o serviço.
+
+
+
+## Conclusões
+
+Parabéns, se você leu o post até esse ponto devem ter surgido algumas dúvidas, interrogações e outros comentários. Mas ao longo desse post foi possível ver sobre a utilização de recursos modernos de python para uma solução elegante de API.
+
+Espero que  tenha atendido as expectativas em relação a proposta dos tópicos que seriam abordados e como foram discutidos aqui, caso ainda tenha dúvidas ou comentários utilize os canais de contato para discutirmos esses pontos. Questionamentos geram insights para novos posts.
+
+
+Mais uma vez, esse e outros projetos podem ser acessados diretamente no meu [repositório](https://github.com/mabittar/spam_ml).
+
+
+Recapitulando
+ - Utilizamos recursos do Pydantic para configurar a aplicação e gerar a documentação de cada endpoint;
+ - Alembic de forma assíncrona;
+ - Endpoint para criação e autenticação de usuários;
+ - Refresh tokens;
+ - JWT payload e JSON Web Encryption;
+ - middleware que computa o tempo entre a entrada da request e saída da response;
+ - logs configurados para facilitar o debug da API mesmo em ambiente de produção
+
+
+Próximos Post já previstos.
+
+ - Solução utilizada do docker-compose para subir a API e o banco de dados;
+ - Teste automatizados
+

@@ -2,8 +2,8 @@ title: Olá! Seja bem vindo ao meu repositório
 description: Marcel Bittar - repositório de projetos, posts, insights sobre programação, machine learing, deep learning, python e tecnologia. # this means to ignore newlines until "baseurl:"
   
 permalink: ':title/'
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://mabittar.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://localhost" # the base hostname & protocol for your site, e.g. http://example.com
 site-twitter: #if your site has a twitter account, enter it here
 
 # Author Settings
