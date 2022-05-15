@@ -58,7 +58,7 @@ model_dt = DecisionTreeClassifier()
 voting_clf = VotingClassifier(estimators=[('xgbc', model_xgbc), ('sgd', model_sgd),('svc', model_svc),('dt', model_dt)])
 
 # 3. Separar os dados entre feature matrix e target vector 
-# os dados já foram separados anteiormente
+# os dados já foram separados anteriormente
 
 # 3.1 Dividir o dataset entre treino e teste
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
