@@ -21,7 +21,7 @@ Algumas características dos projeto:
 
 - rotas (endpoints) de acesso para cadastro e autenticação do usuário.
 - somente com o usuário autenticado é possível utilizar a rota para acesso ao modelo de machine learning.
-- rotas documentas disponibilizadas em OpenAPI.
+- rotas documentas automaticamente e interativas
 - middleware que computa o tempo entre a entrada da request e saída da response.
 - logs configurados para facilitar o debug da API mesmo em ambiente de produção
 - estrutura reutilizável, utilizando orientação a objetos.
@@ -441,12 +441,12 @@ Recapitulando
  - Endpoint para criação e autenticação de usuários;
  - Refresh tokens;
  - JWT payload e JSON Web Encryption;
- - middleware que computa o tempo entre a entrada da request e saída da response;
- - logs configurados para facilitar o debug da API mesmo em ambiente de produção
 
 
 Próximos Post já previstos.
 
  - Solução utilizada do docker-compose para subir a API e o banco de dados;
- - Teste automatizados
+ - Teste automatizados;
+ - middleware que computa o tempo entre a entrada da request e saída da response;
+ - logs configurados para facilitar o debug da API mesmo em ambiente de produção
 

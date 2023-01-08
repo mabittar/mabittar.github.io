@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Model
+title: Use todo o poder do OpenAI com um script em Python
 date: 2022-01-08 00:00:00 +0300
 description: Use todo o poder do OpenAI com esse script em Python. # Add post description (optional)
 img: openai.jpg # Add image post (optional)
