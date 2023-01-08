@@ -1,0 +1,83 @@
+---
+layout: post
+title: Model
+date: 2022-01-08 00:00:00 +0300
+description: Use todo o poder do OpenAI com esse script em Python. # Add post description (optional)
+img: openai.jpg # Add image post (optional)
+tags: [OpenAi, CLI Script, Typer] # add tag
+---
+
+## O que é a Open AI?
+
+OpenAI é uma organização de pesquisa dedicada ao avanço da inteligência artificial de uma forma responsável e segura. A empresa está focada em desenvolver e promover IA amigável, que é a IA que está alinhada com os valores humanos e em que se pode confiar para se comportar de forma ética. OpenAI realiza pesquisas numa variedade de áreas, incluindo aprendizagem de máquinas, robótica, economia e ciência da computação. Desenvolveu várias tecnologias de IA influentes, tais como GPT-3, um poderoso modelo de processamento de linguagem natural.
+
+No fundo, são sistemas altamente autônomos que superam os humanos na maioria dos trabalhos economicamente valiosos e beneficiam toda a humanidade.
+
+Estes sistemas texto-imagem utilizam uma gama de tecnologia complexa, tais como algoritmos de aprendizagem profunda e redes adversas generativas (GANs).
+
+## Motivação
+
+Usando este script em python você poderá descrever textos, títulos, nomes próprios ou solicitar uma imagem e a IA irá criá-la com base na sua descrição.
+
+Todo o buzz em torno do chat e tudo que ele entrega. O robô já foi desafiado com várias perguntas, incluindo criação de música, poemas, redação do Enen. Também já foi descrito como o “primeiro chatbot verdadeiramente útil do mundo”. Em outra [matéria do NY Times ](https://www.nytimes.com/2022/09/02/technology/ai-artificial-intelligence-artists.html), que OpenAI está ganhando concursos de arte digital em todo o mundo. Então, para facilitar a utilização do OpenAI, eu criei um script em Python, usando o [Typer](https://typer.tiangolo.com/) para deixar o terminal mais amigável e consumindo o [OpenAI API](https://github.com/openai/openai-python).
+
+
+Vamos começar!
+Acesse o link : [https://github.com/mabittar/openai](https://github.com/mabittar/openai) e faça o clone do projeto.
+
+## Requisitos
+
+- python 3.8+ instalado
+- terminal para executar comandos
+- IDE se for necessário editar qualquer código
+- saber como clonar esta repo
+- Criar ambiente virtual e instalar requisitos
+
+### Crie um ambiente virtual e instale os requisitos
+
+**No Linux**
+
+```Shell
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+**No Windows**
+
+```Shell
+python -m venv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### A sua chave API OpenAI
+
+Para fazer chamadas com sucesso para a API Open AI, terá de se registar para Open AI e criar uma nova chave API, clicando no menu pendente do seu perfil e selecionando [Ver chave API](https://beta.openai.com/account/api-keys). Crie um arquivo `.env` e copie para ele: `OPENAI_API_KEY=""`.
+
+After everything installed and set it's possible to start using it.
+
+Depois de tudo instalado e configurado, é possível começar a utilizá-lo.
+
+
+## Como Funciona
+
+No terminal, digite: `"python main.py --help"`
+
+Você verá as os parâmetros para utilização e as possíveis definições.
+
+Excelente! O código está funcionando e a linha de comando é responsiva, vamos tentar criar alguma imagem.
+
+No terminal, digite: `python main.py imagem "Space Opera Theater"`, aguarde as saídas na linha de comando e verifique quando a imagem foi gravada: `Imagem criada em /... .png`
+
+Vai ganhar o concurso de imagem digital? Eu acho que não tenho chances...
+![](https://github.com/mabittar/openai/blob/dd01c3b8b167fcf6dcee2bb273d8c5aa5db46cfc/images/2023-01-05_100416.json-0.png)
+
+Mas essa imagem com certeza vale o marchant:
+
+![](https://github.com/mabittar/openai/blob/dd01c3b8b167fcf6dcee2bb273d8c5aa5db46cfc/images/2023-01-04_214915.json-0.png)
+"Este adorável samoieda de pelúcia é o companheiro perfeito para qualquer criança. Este linda pelúcia branca certamente trará alegria e carinho aos seus pequeninos! O pelo macio e as características realistas o tornam o companheiro perfeito para horas de diversão."
+
+Tanto a image e o texto foram gerados pelo OpenAI. Inclusive o título desse post.
+
+Para ver outros projetos acesse o meu [portfolio de projetos](https://github.com/mabittar/Portfolio).
