@@ -42,8 +42,6 @@ largest prime number: 20597471
 
 Here is an example of the code I used to compare these approaches, including a function to measure execution time:
 
-Translated with DeepL.com (free version)
-
 
 ```python
 from functools import wraps
@@ -155,7 +153,5 @@ if __name__ == '__main__':
 This has been a short journey compared to the other posts, but do you have any other suggestions? 
 
 I leave you with a challenge, to implement the segmented sieve method: An extension of Sieve of Eratosthenes, which divides the interval into segments to reduce memory usage, making it efficient for finding primes in large intervals as well of course.
-
-
 
 To see other projects, visit my [project portfolio](https://github.com/mabittar/Portfolio).
