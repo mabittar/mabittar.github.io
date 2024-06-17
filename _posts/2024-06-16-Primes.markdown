@@ -1,0 +1,152 @@
+---
+layout: post
+title: Calculo de número primos
+date: 2024-06-16 00:00:00 +0300
+description: Otimizando cálculo de números primos. # Add post description (optional)
+img: key.jpg # Add image post (optional)
+tags: [Primes, Cryptography] # add tag
+---
+
+## Explorando Diferentes Formas de Calcular Números Primos com Python! 🐍
+
+Você sabia que existem diversas formas de encontrar números primos, cada uma com sua própria eficiência? Recentemente, explorei algumas abordagens diferentes em Python e foi uma experiência fascinante. Vamos dar uma olhada nelas?
+
+
+### Tentativa de Divisão (O(n²)): 
+
+Esta é a abordagem mais básica, onde verificamos cada número até 𝑛 n para ver se é divisível apenas por 1 e por ele mesmo
+#### Resultados obtidos em 30s:
+maior número primo: 103837
+
+### Divisão Otimizada (O(n√n)): 
+
+Melhoramos a primeira abordagem verificando divisores apenas até a raiz quadrada de 𝑛 n.
+#### Resultados obtidos em 30s:
+maior número primo: 3788747
+
+
+### One Line
+
+Usa compreensão de listas para filtrar divisores, mas é menos eficiente comparado aos outros métodos.
+#### Resultados obtidos em 30s:
+maior número primo: 44530
+
+
+### Crivo de Eratóstenes (O(n log log n)): 
+
+Um método muito mais eficiente que utiliza uma lista para marcar múltiplos de cada número primo encontrado.
+#### Resultados obtidos em 30s:
+maior número primo: 31742362
+
+
+Aqui está um exemplo do código que utilizei para comparar essas abordagens, incluindo uma função para medir o tempo de execução:
+
+
+```python
+from functools import wraps
+import math
+from time import perf_counter, time
+
+
+def timeit(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        s = perf_counter()
+        try:
+            return func(*args, **kwargs)
+        finally:
+            elapsed = (perf_counter() - s)
+            if elapsed < 1:
+                elapsed = elapsed * 1000
+                msg = f"{elapsed:0.4f} ms."
+            else:
+                msg = f"{elapsed:0.4f} s."
+            print(f"Method: {func.__name__} executed in {msg}.")
+
+    return wrapper
+
+def trial_division(n):
+    if n <= 1:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+def optimized_division(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+@timeit
+def primes_sieve(n):
+    prime, sieve = [], set()
+    start_time = time()
+    q = 2
+    while (time() - start_time) < time_limit:
+        if q not in sieve:
+            prime.append(q)
+            sieve.update(range(q*q, q*int(time_limit)+1, q))
+        q += 1
+    return prime
+
+def one_line(n):
+    divisors = [d for d in range(2, n//2+1) if n % d == 0]
+    return [d for d in divisors if
+            all(d % od != 0 for od in divisors if od != d)]
+
+def find_primes_within_time_limit(time_limit, algorithm):
+    primes = []
+    start_time = time()
+    n = 2
+    while (time() - start_time) < time_limit:
+        if algorithm(n):
+            primes.append(n)
+        n += 1
+    return primes
+
+def informs(primes):
+    print(f'primes found: {len(primes)}')
+    print(f'last prime found: {primes[-1]}')
+    print(f'largest prime length found is: {len(str(primes[-1]))}')
+
+@timeit
+def run_algorithm(time_limit, algorithm, is_sieve=False):
+    if is_sieve:
+        primes = algorithm(time_limit)
+    else:
+        primes = find_primes_within_time_limit(time_limit, algorithm)
+    informs(primes)
+    return primes
+
+if __name__ == '__main__':
+    try:
+        algorithms = [
+            (trial_division, False),
+            (one_line, False),
+            (optimized_division, False),
+            (primes_sieve, True),
+        ]
+        time_limit = 10  # seconds
+        for algo, is_sieve in algorithms:
+            run_algorithm(time_limit, algo, is_sieve)
+    except Exception as e:
+        print(e)
+    finally:
+        print('Done!')
+
+```
+
+
+## Sugestão de otimização
+
+Essa foi uma jornada curta, comparada com os outos posts, mas você teria alguma outra sugestão? 
+
+Eu deixo aqui um desafio, implementar o método segmented sieve: Uma extensão do Sieve of Eratosthenes, que divide o intervalo em segmentos para reduzir o uso de memória, tornando-o eficiente para encontrar primos em intervalos grandes.
+
+
+
+Para ver outros projetos acesse o meu [portfolio de projetos](https://github.com/mabittar/Portfolio).
