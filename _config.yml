@@ -1,33 +1,32 @@
 title: Olá! Seja bem vindo ao meu repositório
-description: Marcel Bittar - repositório de projetos, posts, insights sobre programação, machine learing, deep learning, python e tecnologia. # this means to ignore newlines until "baseurl:"
-  
+description: Marcel Bittar - repositório de projetos, posts, insights sobre programação, machine learing, deep learning, python e tecnologia.
+
 permalink: ':title/'
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://mabittar.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-site-twitter: #if your site has a twitter account, enter it here
+baseurl: "/"
+url: "https://mabittar.github.io"
 
 # Author Settings
-author: Marcel Bittar # add your name
-author-img: photo.jpg # add your photo
-about-author: My passion for technology led me to a new path of knowledge the application of Python for Data Science and Algorithms for Machine Learning and Deep Learning I uses this website to track my projects, insights and toughts. # add description
-social-linkedin: marcelbittar # add your Linkedin handle
-social-email: mabittar@github.com # add your Email address
-social-github: mabittar # add your Github handle
-social-twitter: marcelbittar # add your Twitter handle
-social-facebook: # add your Facebook handle
-
-
-
+author: Marcel Bittar
+author-img: photo.jpg
+about-author: My passion for technology led me to a new path of knowledge the application of Python for Data Science and Algorithms for Machine Learning and Deep Learning I uses this website to track my projects, insights and toughts.
+social-linkedin: marcelbittar
+social-email: mabittar@github.com
+social-github: mabittar
+social-twitter: marcelbittar
 
 # Disqus
-discus-identifier: mabittar # add your discus identifier
+discus-identifier: mabittar
 
 # Tracker
-analytics: UA-174924624-1 # Google Analytics
-adsence: ca-pub-7441448290565945 #Google AdSense
+analytics: UA-174924624-1
+adsence: ca-pub-7441448290565945
 
 # Build Settings
 markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
 plugins:
   - jekyll-sitemap
   - jekyll-paginate
@@ -36,4 +35,6 @@ plugins:
 paginate: 8
 paginate_path: "/page/:num"
 
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
+exclude:
+  - docs/
+  - tasks/
