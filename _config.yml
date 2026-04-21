@@ -5,6 +5,9 @@ permalink: ':title/'
 baseurl: "/"
 url: "https://mabittar.github.io"
 
+# Default Language
+lang: pt-BR
+
 # Author Settings
 author: Marcel Bittar
 author-img: photo.jpg
